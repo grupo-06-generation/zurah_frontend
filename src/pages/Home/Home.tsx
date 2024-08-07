@@ -3,7 +3,6 @@ import React from 'react';
 function Home() {
     return (
 
-
         <div className="min-h-screen bg-[#FAEBD7] flex flex-col items-center">
 
             <main className="flex-grow w-full max-w-screen-lg p-8">
@@ -60,6 +59,7 @@ function Home() {
 
 
         </div>
+    
     );
 }
 
