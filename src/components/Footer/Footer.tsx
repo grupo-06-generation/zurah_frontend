@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <>
-        <div className='w-screen px-32 py-8 bg-[#D1B69A] justify-center min-h-72 font-["Montserrat"] font-medium text-sm divide-y divide-double divide-[#843C0A]'>
+        <div className='w-full px-32 py-8 bg-[#D1B69A] justify-center min-h-72 font-["Montserrat"] font-medium text-sm divide-y divide-double divide-[#843C0A]'>
                 <div className='bg-[#D1B69A] flex pb-12'>
                     <div className='bg-[#D1B69A] h-4/6'>
                         <h2 className="font-['Linden_Hill'] font-normal text-4xl text-[#843C0A] pb-3">Zurah</h2>
