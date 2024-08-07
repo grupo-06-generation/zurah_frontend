@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserCircle, MagnifyingGlass } from '@phosphor-icons/react';
+import { UserCircle, MagnifyingGlass, Basket } from '@phosphor-icons/react';
 
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -49,6 +49,14 @@ function Navbar() {
                                 onClick={toggleDropdown}
                             >
                                 <UserCircle className="w-9 h-9 text-white flex items-center" />
+                            </div>
+                        </div>
+                        <div className='relative'>
+                            <div
+                                className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
+                                onClick={toggleDropdown}
+                            >
+                                <Basket className="w-7 h-7 text-white flex items-center" />
                             </div>
                         </div>
                     </div>
