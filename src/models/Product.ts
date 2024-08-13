@@ -1,14 +1,14 @@
-import Categoria from "./Categoria";
+import Category from "./Category";
 import Usuario from "./Usuario";
 
-export default interface Produto {
+export default interface Product {
     id: number;
     name: string;
-    descriptiom: string;
+    description: string;
     expire: Date;
     quantity: number;
     region: string;
-    image: string;
-    category: Categoria | null;
+    photo: string;
+    category: Category | null;
     user: Usuario | null;
 }
