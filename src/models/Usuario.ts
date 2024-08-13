@@ -1,7 +1,6 @@
 import Product from "./Product";
 
 export default interface Usuario {
-    confirmarSenha: string | number | readonly string[] | undefined;
     id: number;
     name: string;
     usuario: string;
