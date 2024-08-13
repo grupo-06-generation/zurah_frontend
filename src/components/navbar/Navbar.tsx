@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserCircle, MagnifyingGlass, Basket } from '@phosphor-icons/react';
-
+//.
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
