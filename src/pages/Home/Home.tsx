@@ -58,7 +58,6 @@ function Home() {
                 </section>
             </main>
 
-            <Footer />
         </div>
     
     );

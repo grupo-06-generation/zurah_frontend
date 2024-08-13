@@ -43,6 +43,11 @@ function Navbar() {
                                 Contato
                             </Link>
                         </div>
+                        <div className='text-[19px] flex items-center'>
+                            <Link to="/login" className="">
+                                Entrar
+                            </Link>
+                        </div>
                         <div className='relative'>
                             <div
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"

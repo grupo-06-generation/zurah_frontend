@@ -3,6 +3,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import About from './pages/About/About';
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/sobre" element={<About />} />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter >
     </>
   );
