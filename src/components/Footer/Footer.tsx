@@ -7,7 +7,7 @@ function Footer() {
                 <div className='bg-[#D1B69A] flex pb-12'>
                     <div className='bg-[#D1B69A] h-4/6'>
                         <h2 className="font-['Linden_Hill'] font-normal text-4xl text-[#843C0A] pb-3">Zurah</h2>
-                        <p className='pr-32'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nulla rem facere eaque! Odio, consequatur harum. Veritatis totam animi nam ratione corrupti? Sunt qui ullam voluptatum? Ea voluptatem consequuntur sunt?</p>
+                        <p className='pr-32'>Conectando você à autenticidade do campo!</p>
                     </div>
                     <div className='bg-[#D1B69A] px-16 h-1/6 '>
                         <h2 className='font-bold text-xl text-[#843C0A] pb-2'>Páginas</h2>

@@ -66,6 +66,8 @@ function Login() {
                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                 type="email"
                 required
+                name="usuario"
+                placeholder="E-mail"
                 value={usuarioLogin.usuario}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -79,8 +81,10 @@ function Login() {
               <input
                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                 type="password"
+                name="password"
+                placeholder="senha: "
                 required
-                value={usuarioLogin.senha}
+                value={usuarioLogin.password}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
                 }

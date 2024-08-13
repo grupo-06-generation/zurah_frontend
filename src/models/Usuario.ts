@@ -1,10 +1,14 @@
-import Produto from "./Produto";
+import Product from "./Product";
 
 export default interface Usuario {
+    confirmarSenha: string | number | readonly string[] | undefined;
     id: number;
-    nome: string;
+    name: string;
     usuario: string;
-    foto: string;
-    senha: string;
-    produto?: Produto | null;
+    is_seller: number;
+    photo: string;
+    password: string;
+    product?: Product | null;
+
+
 }

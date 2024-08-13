@@ -1,8 +1,9 @@
 export default interface UsuarioLogin {
     id: number;
-    nome: string;
+    name: string;
     usuario: string;
-    foto: string;
-    senha: string;
+    photo: string;
+    password: string;
     token: string;
+    is_seller: number;
 }
