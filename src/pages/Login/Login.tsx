@@ -13,7 +13,7 @@ function Login() {
   
     const { usuario, handleLogin } = useContext(AuthContext);
   
-    const {isLoading} = useContext(AuthContext) 
+    const {isLoading} = useContext(AuthContext);
   
     useEffect(() => {
       if (usuario.token !== "") {
@@ -83,7 +83,7 @@ function Login() {
                 </form>
                 <div className="mt-4 flex items-center justify-between">
                     <span className="border-b w-1/5 md:w-1/4"></span>
-                    <Link to={'/cadastro'} className="text-xs text-green-900 hover:text-green-500 uppercase">Ou Cadastrar-se</Link>
+                    <Link to={'/home'} className="text-xs text-green-900 hover:text-green-500 uppercase">Ou Cadastrar-se</Link>
                     <span className="border-b w-1/5 md:w-1/4"></span>
                 </div>
             </div>
