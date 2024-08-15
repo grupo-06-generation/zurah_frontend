@@ -11,7 +11,7 @@ function Footer(){
             <div className="grid grid-cols-12 p-14 pb-10 justify-center">
 
                 <div className="col-span-4">
-                    <span className="text-gray-100 font-bold font-serif text-[28px] hover:text-gray-300">
+                    <span className="text-gray-100 font-bold font-['Linden_Hill'] text-[28px] hover:text-gray-300">
                         <Link to={'/home'}>Zurah</Link>
                     </span>
                     <p className='w-3/4 mt-3 text-gray-300'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam error nihil consequatur eaque. </p>

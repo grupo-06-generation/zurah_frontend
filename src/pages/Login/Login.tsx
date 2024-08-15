@@ -40,7 +40,7 @@ function Login() {
                 style={{ backgroundImage: "url('https://blog.7mboots.com.br/wp-content/uploads/2021/01/working-on-plantation-UJ9W6ZA-scaled.jpg')" }}>
             </div>
             <div className="w-full p-8 lg:w-1/2">
-                <h2 className="text-6xl font-semibold text-green-900 text-center">Zurah</h2>
+                <h2 className="text-6xl font-semibold font-['Linden_Hill'] text-green-900 text-center">Zurah</h2>
                 <p className="text-xl text-gray-600 text-center mt-4 mb-8">Bem vindo de volta!</p>
                 <div className="mt-4 flex items-center justify-between">
                     <span className="border-b w-1/5 lg:w-1/4"></span>
