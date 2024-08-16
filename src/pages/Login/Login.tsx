@@ -34,7 +34,7 @@ function Login() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-[80vh] p-12 bg-gray-100">
+    <div className="flex items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
         <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full sm:w-3/4">
             <div className="hidden lg:block lg:w-1/2 bg-cover"
                 style={{ backgroundImage: "url('https://blog.7mboots.com.br/wp-content/uploads/2021/01/working-on-plantation-UJ9W6ZA-scaled.jpg')" }}>

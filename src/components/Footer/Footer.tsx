@@ -53,8 +53,8 @@ function Footer(){
                 <div className="col-span-4">
                     <h3 className="text-gray-50 mb-4 font-semibold ">Newsletter</h3>
                     <form action="" >
-                        <input type="email" className="mr-4 rounded-sm font-sans px-2 py-1 w-2/3 text-gray-800" placeholder='email@email.com' required/>
-                        <button type="submit" className='bg-[#FAE7C3] text-[#843C0A] hover:text-[#D1B69A] px-2 py-1 rounded-sm'>Inscrever-se</button>
+                        <input type="email" className="mr-3 rounded-sm font-sans px-2 py-1 w-2/3 text-gray-800" placeholder='email@email.com' required/>
+                        <button type="submit" className='bg-green-500 hover:bg-green-700 text-white px-3 py-1 rounded-sm'>Inscrever-se</button>
                     </form>
                 </div>
             </div>
