@@ -13,9 +13,9 @@ function Navbar() {
         <>
             <div className='w-full bg-[#843C0A] text-white py-4 px-8' style={{ fontFamily: 'Linden Hill, sans-serif' }}>
                 <div className="flex items-center justify-between">
-                    <div className='font-normal text-[40px] flex items-center'>
-                        <Link to="/" className="text-white no-underline">
-                            Zurah
+                    <div className='flex items-center h-full w-[200px]'>
+                        <Link to="/" className='h-full w-full'>
+                            <img src="src/assets/zurah-logo.PNG" alt="" className="h-[40px] w-auto"/>
                         </Link>
                     </div>
 

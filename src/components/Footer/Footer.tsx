@@ -12,7 +12,9 @@ function Footer(){
 
                 <div className="col-span-4">
                     <span className="text-gray-100 font-bold font-['Linden_Hill'] text-[28px] hover:text-gray-300">
-                        <Link to={'/home'}>Zurah</Link>
+                        <Link to="/" className='h-full w-full'>
+                            <img src="src/assets/zurah-logo.PNG" alt="" className="h-[40px] w-auto"/>
+                        </Link>
                     </span>
                     <p className='w-3/4 mt-3 text-gray-300'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam error nihil consequatur eaque. </p>
                 </div>
@@ -52,7 +54,7 @@ function Footer(){
                     <h3 className="text-gray-50 mb-4 font-semibold ">Newsletter</h3>
                     <form action="" >
                         <input type="email" className="mr-4 rounded-sm font-sans px-2 py-1 w-2/3 text-gray-800" placeholder='email@email.com' required/>
-                        <button type="submit" className='text-gray-50 hover:text-gray-300'>Inscrever-se</button>
+                        <button type="submit" className='bg-[#FAE7C3] text-[#843C0A] hover:text-[#D1B69A] px-2 py-1 rounded-sm'>Inscrever-se</button>
                     </form>
                 </div>
             </div>
