@@ -6,6 +6,7 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Register from './pages/Register/Register';
 import { AuthProvider } from './contexts/AuthContext';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path="/sobre" element={<About />} />
+            <Route path="/recuperar-senha" element={<ForgotPassword />} />
           </Routes>
         </div>
         <Footer />

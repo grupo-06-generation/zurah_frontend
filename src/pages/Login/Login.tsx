@@ -66,7 +66,7 @@ function Login() {
                             className="form-checkbox h-4 w-4"/>
                             <span className="ml-2">Lembrar de mim</span>
                         </label>
-                        <a href="#" className="text-xs text-green-900 hover:text-green-500">Esqueceu a senha?</a>
+                        <Link to='/recuperar-senha' className="text-xs text-green-900 hover:text-green-500">Esqueceu a senha?</Link>
                     </div>
                     <div className="m-8 flex justify-center">
                         <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700">

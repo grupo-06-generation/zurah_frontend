@@ -14,7 +14,7 @@ function Register() {
     usuario: "",
     password: "",
     photo: "",
-    is_seller: 0,
+    is_seller: 1,
   })
 
   const [usuarioResposta, setUsuarioResposta] = useState<Usuario>({
@@ -23,8 +23,10 @@ function Register() {
     usuario: "",
     password: "",
     photo: "",
-    is_seller: 0,
+    is_seller: 1,
   })
+
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const [confirmaSenha, setConfirmaSenha] = useState<string>("")
 
@@ -42,11 +44,21 @@ function Register() {
     setConfirmaSenha(e.target.value)
   }
 
-  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+  function atualizarEstadoInput(e: ChangeEvent<HTMLInputElement>) {
     setUsuario({
       ...usuario,
       [e.target.name]: e.target.value
     })
+    console.log(usuario);
+  }
+
+  function atualizarEstadoSelect(e: ChangeEvent<HTMLSelectElement>) {
+    setUsuario({
+      ...usuario,
+      [e.target.name]: e.target.value
+    })
+    console.log(usuario);
+    setIsDisabled(true);
   }
 
   async function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
@@ -79,7 +91,7 @@ function Register() {
               id="nome"
               name="name"
               value={usuario.name} 
-              onChange={atualizarEstado}
+              onChange={atualizarEstadoInput}
               placeholder="Nome"
               className="border-2 border-slate-700 rounded p-2"
             />
@@ -91,22 +103,29 @@ function Register() {
               id="usuario"
               name="usuario"
               value={usuario.usuario} 
-              onChange={atualizarEstado}
+              onChange={atualizarEstadoInput}
               placeholder="E-mail"
               className="border-2 border-slate-700 rounded p-2"
             />
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="isSeller">Vendedor = 1 | Comprador = 0</label>
-            <input
+            <select name="is_seller" id="isSeller" className="border-2 border-slate-700 rounded p-2" onChange={atualizarEstadoSelect}>
+              <option value="" className='text-gray-500' disabled={isDisabled}>Selecione uma opção</option>
+              <option value="1">Vendedor</option>
+              <option value="0">Comprador</option>
+            </select>
+
+            {/* <input
               type="number"
               id="isSeller"
               name="is_seller"
               value={usuario.is_seller} 
-              onChange={atualizarEstado}
+              onChange={atualizarEstadoInput}
               placeholder="Vendedor =1 | Comprador = 0"
               className="border-2 border-slate-700 rounded p-2"
-            />
+            /> */}
+
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="foto">Foto</label>
@@ -115,7 +134,7 @@ function Register() {
               id="foto"
               name="photo"
               value={usuario.photo} 
-              onChange={atualizarEstado}
+              onChange={atualizarEstadoInput}
               placeholder="URL da Foto"
               className="border-2 border-slate-700 rounded p-2"
             />
@@ -127,7 +146,7 @@ function Register() {
               id="senha"
               name="password"
               value={usuario.password} 
-              onChange={atualizarEstado}
+              onChange={atualizarEstadoInput}
               placeholder="Senha"
               className="border-2 border-slate-700 rounded p-2"
             />
