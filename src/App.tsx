@@ -29,7 +29,7 @@ function App() {
             <Route path="/recuperar-senha" element={<ForgotPassword/>} />
             <Route path="/categorias" element={<ListCategory/>} />
             <Route path="/addCategory" element={<CategoryForm />} />
-            <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
+            <Route path="/deletarCategory/:id" element={<DeleteCategory />} />
           </Routes>
         </div>
         <Footer />
