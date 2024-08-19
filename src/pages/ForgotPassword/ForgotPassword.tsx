@@ -11,19 +11,23 @@ function ForgotPassword() {
   //const {isLoading} = useContext(AuthContext);
 
   const [emailFound, setEmailFound] = useState<boolean>(false);
-
-  const handleEmailFound = () => {
+  const handleEmailFound = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setEmailFound(true);
-    console.log(emailFound);
+  }
+
+  const [ codeValid, setCodeValid ] = useState<boolean>(false);
+  const handleCodeValid = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setCodeValid(true);
   }
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
         <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full sm:w-3/4">
-          {!emailFound ? (<EmailForm setEmailFound={handleEmailFound}/>) : (<CodeInput />)}
-            
-            
-            {/* <NewPassWordForm /> */}
+          {!emailFound && !codeValid ? (
+            (<EmailForm setEmailFound={handleEmailFound}/>)
+          ) : emailFound && !codeValid ? ((<CodeInput setCodeValid={handleCodeValid}/>)) : ((<NewPassWordForm />))}
         </div>
     </div>
   )

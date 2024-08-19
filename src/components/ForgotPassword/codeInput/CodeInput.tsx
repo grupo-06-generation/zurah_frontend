@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { RotatingLines } from "react-loader-spinner";
 
-function CodeInput() {
+interface codeInputProps {
+  setCodeValid : (e: ChangeEvent<HTMLFormElement>) => void;
+}
+
+function CodeInput({ setCodeValid } : codeInputProps) {
 
   const {isLoading} = useContext(AuthContext);
 
@@ -18,14 +22,14 @@ function CodeInput() {
                 <p className="text-xs text-center text-gray-500 uppercase">Digite o código recebido em seu email</p>
                 <span className="border-b w-1/5 lg:w-1/4"></span>
             </div>
-          <form action="">
+          <form action="" onSubmit={setCodeValid}>
           <div className="flex justify-center gap-4">
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded"/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded"/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded"/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded"/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded"/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded"/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
           </div>
           <div className="mb-2 mt-6 flex justify-center">
             <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700 flex justify-center">
