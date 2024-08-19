@@ -28,7 +28,7 @@ function CodeInput() {
             <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded"/>
           </div>
           <div className="mb-2 mt-6 flex justify-center">
-            <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700">
+            <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700 flex justify-center">
             {isLoading ? <RotatingLines
                 strokeColor="white"
                 strokeWidth="5"

@@ -32,7 +32,7 @@ function NewPassWordForm() {
                       <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" required />
                   </div>
                   <div className="m-8 flex justify-center">
-                      <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700">
+                      <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700 flex justify-center">
                       {isLoading ? <RotatingLines
                           strokeColor="white"
                           strokeWidth="5"

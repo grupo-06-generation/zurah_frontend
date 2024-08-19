@@ -154,7 +154,7 @@ function Register() {
                       />
                   </div>
                     <div className="m-8 flex justify-center">
-                        <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700">
+                        <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700 flex justify-center">
                         {isLoading ? <RotatingLines
                             strokeColor="white"
                             strokeWidth="5"
