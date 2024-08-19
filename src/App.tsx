@@ -8,6 +8,7 @@ import Register from './pages/Register/Register';
 import { AuthProvider } from './contexts/AuthContext';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import ListCategory from './components/Categories/ListCategory/ListCategory';
+import DeleteCategory from './components/Categories/DeleteCategory/DeleteCategory';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/sobre" element={<About />} />
             <Route path="/recuperar-senha" element={<ForgotPassword/>} />
             <Route path="/categorias" element={<ListCategory/>} />
+            <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
           </Routes>
         </div>
         <Footer />
