@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Register from './pages/Register/Register';
 import { AuthProvider } from './contexts/AuthContext';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import ListCategories from './components/Categories/ListCategories/ListCategories';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/sobre" element={<About />} />
             <Route path="/recuperar-senha" element={<ForgotPassword />} />
+            <Route path="/categorias" element={<ListCategories />} />
           </Routes>
         </div>
         <Footer />

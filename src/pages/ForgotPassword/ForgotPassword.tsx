@@ -20,10 +20,10 @@ function ForgotPassword() {
   return (
     <div className="flex items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
         <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full sm:w-3/4">
-          {/* {emailFound ? (<EmailForm setEmailFound={handleEmailFound}/>) : (<CodeInput />)} */}
+          {!emailFound ? (<EmailForm setEmailFound={handleEmailFound}/>) : (<CodeInput />)}
             
             
-            <NewPassWordForm />
+            {/* <NewPassWordForm /> */}
         </div>
     </div>
   )

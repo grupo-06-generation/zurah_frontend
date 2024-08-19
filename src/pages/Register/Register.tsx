@@ -49,7 +49,6 @@ function Register() {
       ...usuario,
       [e.target.name]: e.target.value
     })
-    console.log(usuario);
   }
 
   function atualizarEstadoSelect(e: ChangeEvent<HTMLSelectElement>) {
@@ -57,9 +56,9 @@ function Register() {
       ...usuario,
       [e.target.name]: e.target.value
     })
-    console.log(usuario);
     setIsDisabled(true);
   }
+
 
   async function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
