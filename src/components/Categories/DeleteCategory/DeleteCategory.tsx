@@ -50,7 +50,7 @@ function DeleteCategory() {
 
     async function deletarCategoria() {
         try {
-            await deletar(`/categorias/${id}`, {
+            await deletar(`/category/${id}`, {
                 headers: {
                     'Authorization': token
                 }
