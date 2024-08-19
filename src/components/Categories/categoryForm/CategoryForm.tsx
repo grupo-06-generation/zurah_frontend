@@ -110,7 +110,7 @@ function CategoryForm() {
             placeholder="Nome Categoria:"
             name='name'
             className="border-2 border-slate-700 rounded p-2"
-            value={categorias.description}
+            value={categorias.name}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
           <label htmlFor="descricao">Descrição da Categoria</label>
