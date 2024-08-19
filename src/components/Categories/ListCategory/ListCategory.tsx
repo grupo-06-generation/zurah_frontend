@@ -14,7 +14,7 @@ function ListCategory() {
 
     async function getCategory() {
         try {
-            await buscar('/categorias', setCategory, {
+            await buscar('/category', setCategory, {
             });
         } catch (error : any) {
             alert(error);
