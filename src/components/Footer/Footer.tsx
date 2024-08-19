@@ -45,7 +45,7 @@ function Footer(){
                             <Link to={'/login'}>Entrar</Link>
                         </li>
                         <li className="mb-1 hover:text-white">
-                            <Link to={'/about'}>Sobre</Link>
+                            <Link to={'/sobre'}>Sobre</Link>
                         </li>
                     </ul>
                 </div>
@@ -72,7 +72,7 @@ function Footer(){
             </div>
 
             <div className="flex items-center justify-center p-6">
-                <p>© 2021 Zurah. All rights reserved.</p>
+                <p>© 2024 Zurah. All rights reserved.</p>
             </div>
 
         </footer>
