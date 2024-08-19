@@ -1,6 +1,7 @@
 import { Dispatch, useContext } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 interface setEmailFoundProps {
     setEmailFound: () => void;
@@ -40,6 +41,13 @@ function emailForm(props : setEmailFoundProps) {
                             </button>
                         </div>
                     </form>
+                    <div className="mt-4 flex items-center justify-between">
+                    <span className="border-b w-1/5 md:w-1/4"></span>
+                    <Link to={'/login'} className="text-xs text-green-900 hover:text-green-500 uppercase">ou voltar para login</Link>
+                    <span className="border-b w-1/5 md:w-1/4"></span>
+                </div>
+
+                    
                 </div>
         </>
   )
