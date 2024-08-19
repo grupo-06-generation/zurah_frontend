@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Categoria from "../../../models/Category"
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Service";
 import { DNA } from 'react-loader-spinner';
 
@@ -11,28 +10,14 @@ function ListCategories() {
 
     let navigate = useNavigate();
 
-    const { usuario, handleLogout } = useContext(AuthContext);
-    const token = usuario.token;
-
     async function getCategories() {
         try {
             await buscar('/categorias', setCategories, {
-                headers: { Authorization: token},
             });
         } catch (error : any) {
-            if(error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
-                handleLogout();
-            }
+            alert(error);
         }
     }
-
-    useEffect(() => {
-        if (token === '') {
-            alert('Você precisa estar logado');
-            navigate('/login');
-        }
-    }, [token]);
 
     useEffect(() => {
         getCategories();
@@ -57,7 +42,7 @@ function ListCategories() {
                 {categories.map((cat) => (
                 <>
                     {/* <CardCategories key={cat.id} category={cat} /> */}
-                    <p>adsd</p>
+                    
                 </>
                 ))}
             </div>
