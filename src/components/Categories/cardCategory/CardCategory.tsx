@@ -11,9 +11,9 @@ function CardCategory({ category }: CardCategoryProps) {
   return (
     <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
       <header className="py-3 px-6 bg-[#843C0A] text-black font-bold text-2xl">
-        Categoria
+        {category.name}
       </header>
-      <p className="p-8 text-3xl bg-slate-200 h-full">category.description</p>
+      <p className="p-8 text-3xl bg-slate-200 h-full">{category.description}</p>
       <div className="flex">
         <Link
           to={`/editarCategory/${category.id}`}

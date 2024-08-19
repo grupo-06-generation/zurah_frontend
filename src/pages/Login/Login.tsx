@@ -51,11 +51,12 @@ function Login() {
                     <div className="mt-4">
                         <label className="block text-green-900 text-sm font-bold mb-2">E-mail</label>
                         <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" required value={usuarioLogin.usuario} 
+                        name="usuario"
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
                     <div className="mt-4">
                         <label className="block text-green-900 text-sm font-bold mb-2">Senha</label>
-                        <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" required value={usuarioLogin.password} 
+                        <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" name="password" required value={usuarioLogin.password} 
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
                     
