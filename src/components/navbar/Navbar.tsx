@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserCircle, MagnifyingGlass, Basket } from '@phosphor-icons/react';
+import { toastAlert } from '../../utils/toastAlert';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -8,6 +10,16 @@ function Navbar() {
     const toggleDropdown = () => {
         setDropdownOpen(prev => !prev);
     };
+
+    let navigate = useNavigate();
+
+    const { handleLogout } = useContext(AuthContext);
+
+    function logout() {
+        handleLogout();
+        toastAlert('Usuário deslogado com sucesso!', 'info');
+        navigate('/login');
+    }
 
     return (
         <>
@@ -73,7 +85,7 @@ function Navbar() {
                         <ul className="flex flex-col">
                             <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
 
-                            <Link to="/login" className="text-white no-underline">
+                            <Link to="/login" onClick={logout} className="text-white no-underline">
                                 <li className="border-t border-gray-700 hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">
                                     Sair
                                 </li>

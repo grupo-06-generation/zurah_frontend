@@ -28,8 +28,9 @@ function App() {
             <Route path="/sobre" element={<About />} />
             <Route path="/recuperar-senha" element={<ForgotPassword/>} />
             <Route path="/categorias" element={<ListCategory/>} />
-            <Route path="/addCategory" element={<CategoryForm />} />
-            <Route path="/deletarCategory/:id" element={<DeleteCategory />} />
+            <Route path="/adicionar-categoria" element={<CategoryForm />} />
+            <Route path="/editar-categoria/:id" element={<CategoryForm />} />
+            <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
           </Routes>
         </div>
         <Footer />

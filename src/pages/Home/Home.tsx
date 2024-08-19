@@ -18,7 +18,7 @@ function Home() {
                     </div>
                 </section>
 
-                <Link to={'/addCategory'}><button>
+                <Link to={'/adicionar-categoria'}><button>
                     <a href="#categorias" className="text-[#A0522D]">Categorias</a>
                 </button></Link>
 

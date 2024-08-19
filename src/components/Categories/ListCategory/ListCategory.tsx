@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Category from "../../../models/Category";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
 import CardCategory from "../cardCategory/CardCategory";
@@ -10,7 +10,7 @@ function ListCategory() {
 
     const [category, setCategory] = useState<Category[]>([]);
 
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
     async function getCategory() {
         try {
