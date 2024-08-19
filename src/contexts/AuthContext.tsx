@@ -1,26 +1,23 @@
-import { createContext, ReactNode, useState } from "react"
-
-import UsuarioLogin from "../models/UsuarioLogin"
-import { login } from "../services/Service"
-import Usuario from "../models/Usuario"
-// import { toastAlerta } from "../utils/toastAlerta"
+import { createContext, ReactNode, useState } from "react";
+import UsuarioLogin from "../models/UsuarioLogin";
+import { login } from "../services/Service";
 
 interface AuthContextProps {
-    usuario: UsuarioLogin
-    handleLogout(): void
-    handleLogin(usuario: UsuarioLogin): Promise<void>
-    isLoading: boolean
+    usuario: UsuarioLogin;
+    authenticated: boolean;
+    handleLogout(): void;
+    handleLogin(usuario: UsuarioLogin): Promise<void>;
+    isLoading: boolean;
 }
 
 interface AuthProviderProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
-export const AuthContext = createContext({} as AuthContextProps)
+export const AuthContext = createContext({} as AuthContextProps);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-
-    const [usuario, setUsuario] = useState<UsuarioLogin> ({
+    const [usuario, setUsuario] = useState<UsuarioLogin>({
         id: 0,
         name: "",
         usuario: "",
@@ -28,21 +25,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
         photo: "",
         token: "",
         is_seller: 0
-    })
+    });
 
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
+
+    const authenticated = !!usuario.token;
 
     async function handleLogin(userLogin: UsuarioLogin) {
-        setIsLoading(true)
+        setIsLoading(true);
         try {
-            await login(`/usuarios/login`, userLogin, setUsuario)
-            alert("Usuário logado com sucesso")
-            setIsLoading(false)
-
+            await login(`/usuarios/login`, userLogin, setUsuario);
+            alert("Usuário logado com sucesso");
         } catch (error) {
-            console.log(error)
-            alert("Dados do usuário inconsistentes")
-            setIsLoading(false)
+            console.log(error);
+            alert("Dados do usuário inconsistentes");
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -55,16 +53,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
             photo: "",
             token: "",
             is_seller: 0
-        })
+        });
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}>
+        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading }}>
             {children}
         </AuthContext.Provider>
-    )
-}
-
-function setUsuario(arg0: { id: number; name: string; usuario: string; password: string; photo: string; token: string; is_seller: number }) {
-    throw new Error("Function not implemented.")
+    );
 }

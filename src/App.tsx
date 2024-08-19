@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import About from './pages/About/About';
@@ -10,15 +10,17 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import ListCategory from './components/Categories/ListCategory/ListCategory';
 import CategoryForm from './components/Categories/categoryForm/CategoryForm';
 import DeleteCategory from './components/Categories/DeleteCategory/DeleteCategory';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
   return (
     <>
     <AuthProvider>
-   
+    <ToastContainer />
       <BrowserRouter>
-        <Navbar />
+      <NavbarWrapper />
         <div className='min-h-[80vh]'>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -39,4 +41,16 @@ function App() {
     </>
   );
 }
+
+function NavbarWrapper() {
+  const location = useLocation();
+  const hideNavbarRoutes = [ "/login", "/register", "/recuperar-senha"];
+
+  if (hideNavbarRoutes.includes(location.pathname)) {
+    return null;
+  }
+
+  return <Navbar />;
+}
+
 export default App;

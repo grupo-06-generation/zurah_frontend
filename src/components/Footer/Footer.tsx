@@ -20,19 +20,19 @@ function Footer(){
                 </div>
 
                 <div className="col-span-2">
-                    <h3 className="text-gray-50 mb-4 font-semibold">Categorias</h3>
-                    <ul className="text-gray-300">
+                    {/* <h3 className="text-gray-50 mb-4 font-semibold">Categorias</h3> */}
+                    {/* <ul className="text-gray-300">
                         <li className="mb-1 hover:text-white">
-                            Verdura
+                            Sobre Nós
                         </li>
                         <li className="mb-1 hover:text-white">
-                            Legumes
+                            Contato
                         </li>
                         <li className="mb-1 hover:text-white">
                             Frutas
                             
                         </li>
-                    </ul>
+                    </ul> */}
                 </div>
 
                 <div className="col-span-2">
@@ -42,10 +42,10 @@ function Footer(){
                             <Link to={'/home'}>Principal</Link>
                         </li>
                         <li className="mb-1 hover:text-white">
-                            <Link to={'/login'}>Entrar</Link>
+                            <Link to={'/contact'}>Contato</Link>
                         </li>
                         <li className="mb-1 hover:text-white">
-                            <Link to={'/sobre'}>Sobre</Link>
+                            <Link to={'/about'}>Sobre Nós</Link>
                         </li>
                     </ul>
                 </div>
