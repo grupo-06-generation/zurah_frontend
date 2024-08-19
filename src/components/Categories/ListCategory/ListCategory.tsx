@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react"
-import Categoria from "../../../models/Category"
+import { useEffect, useState } from "react";
+import Category from "../../../models/Category";
 import { useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
-import { DNA } from 'react-loader-spinner';
+import { DNA } from "react-loader-spinner";
+import CardCategory from "../cardCategory/CardCategory";
 
-function ListCategories() {
 
-    const [categories, setCategories] = useState<Categoria[]>([]);
+function ListCategory() {
+
+    const [category, setCategory] = useState<Category[]>([]);
 
     let navigate = useNavigate();
 
-    async function getCategories() {
+    async function getCategory() {
         try {
-            await buscar('/categorias', setCategories, {
+            await buscar('/categorias', setCategory, {
             });
         } catch (error : any) {
             alert(error);
@@ -20,12 +22,12 @@ function ListCategories() {
     }
 
     useEffect(() => {
-        getCategories();
-    }, [categories.length]);
+        getCategory();
+    }, [category.length]);
     
   return (
     <>
-        {categories.length === 0 && (
+        {category.length === 0 && (
         <DNA
             visible={true}
             height="200"
@@ -39,9 +41,9 @@ function ListCategories() {
         <div className="flex justify-center w-full my-4">
             <div className="container flex flex-col">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {categories.map((cat) => (
+                {category.map((category) => (
                 <>
-                    {/* <CardCategories key={cat.id} category={cat} /> */}
+                    {<CardCategory key={category.id} category={category} /> }
                     
                 </>
                 ))}
@@ -52,4 +54,4 @@ function ListCategories() {
   )
 }
 
-export default ListCategories
+export default ListCategory;
