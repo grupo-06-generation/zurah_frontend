@@ -1,4 +1,3 @@
-import React from "react";
 import Footer from "../../components/Footer/Footer";
 
 function About() {
@@ -24,9 +23,10 @@ function About() {
             acesso aos mesmos recursos que as grandes empresas.
           </p>
           <p>
-            <strong>Consequência:</strong> A pobreza leva à exclusão social, onde
-            os indivíduos e famílias não têm acesso a serviços básicos como
-            educação, saúde, e moradia adequada, perpetuando um ciclo de privação.
+            <strong>Consequência:</strong> A pobreza leva à exclusão social,
+            onde os indivíduos e famílias não têm acesso a serviços básicos como
+            educação, saúde, e moradia adequada, perpetuando um ciclo de
+            privação.
           </p>
         </div>
 
@@ -38,8 +38,8 @@ function About() {
           <p>
             <strong>Consequência:</strong> Isso resulta em uma desigualdade de
             oportunidades, onde os pequenos produtores não podem competir de
-            maneira justa, limitando suas chances de crescimento e desenvolvimento
-            econômico.
+            maneira justa, limitando suas chances de crescimento e
+            desenvolvimento econômico.
           </p>
         </div>
 
@@ -48,10 +48,11 @@ function About() {
         </h2>
         <p>
           Na Zurah, estamos comprometidos em promover a igualdade e oferecer
-          suporte aos pequenos produtores rurais. Acreditamos que todos devem ter
-          acesso aos recursos necessários para crescer e prosperar. Trabalhamos
-          para fornecer ferramentas, conhecimento e oportunidades para ajudar
-          esses produtores a competir de forma justa no mercado global.
+          suporte aos pequenos produtores rurais. Acreditamos que todos devem
+          ter acesso aos recursos necessários para crescer e prosperar.
+          Trabalhamos para fornecer ferramentas, conhecimento e oportunidades
+          para ajudar esses produtores a competir de forma justa no mercado
+          global.
         </p>
 
         <h2 style={{ color: "#A0522D", fontSize: "1.5rem", marginTop: "20px" }}>

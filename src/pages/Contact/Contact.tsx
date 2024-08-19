@@ -1,5 +1,3 @@
-import React from "react";
-
 function Contact() {
   return (
     <>
@@ -22,7 +20,7 @@ function Contact() {
             <input type="text" id="nome" className="border my-200" />
 
             <label htmlFor="email">E-mail:</label>
-            <input type="email" name="email" id="email" className="border"/>
+            <input type="email" name="email" id="email" className="border" />
 
             <label htmlFor="assunto">Assunto:</label>
             <input
@@ -38,7 +36,6 @@ function Contact() {
             <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700">
               Enviar
             </button>
-            
           </form>
         </div>
       </div>
