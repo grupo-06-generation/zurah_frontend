@@ -12,40 +12,49 @@ function Slider() {
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
-        delay: 2500,
+        delay: 4500,
         disableOnInteraction: false,
       }}
       pagination={{
         clickable: true,
       }}
       navigation={true}
-      effect="fade"
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper w-full h-96" 
+      className="mySwiper w-full h-96"
+      effect="fade"
     >
+      <SwiperSlide>
+        <img
+          src="src/assets/slide.png"
+          alt="slid"
+          className="w-full h-full object-cover rounded"
+        />
+      </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/techagro.jpg"
           alt="Agricultor"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-full object-cover rounded"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/news1.png"
           alt="News"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-full object-cover rounded"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="src/assets/zurah-logo.png"
+          src="src/assets/Design.png"
           alt="Logo"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-full object-cover rounded"
         />
       </SwiperSlide>
     </Swiper>
   );
 }
+("src/assets/techagro.jpg");
+
 
 export default Slider;

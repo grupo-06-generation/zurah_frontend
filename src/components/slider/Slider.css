@@ -1,13 +1,9 @@
-.slider {
-    width: 100vw;
-    height: 100vh; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-
-.slider img {
-    display: block;
+.mySwiper {
+    position: relative;
     width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-}
-}
+    height: 24rem; 
+  }
+  
+  .swiper-slide {
+    transition: opacity 0.3s ease-in-out; /* Transição suave */
+  }
