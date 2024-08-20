@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Category from "../../../models/Category";
 
 
-
 interface CardCategoryProps {
   category: Category;
 }

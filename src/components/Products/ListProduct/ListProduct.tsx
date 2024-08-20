@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Product from "../../../models/Product";
 import CardProduct from "../CardProduct/CardProduct";
 import { buscar } from "../../../services/Service";
-import { DNA } from "react-loader-spinner";
+import { TailSpin } from "react-loader-spinner";
 
 
 function ListProduct() {
@@ -26,14 +26,18 @@ function ListProduct() {
     return (
       <>
         {Product.length === 0 && (
-          <DNA
-            visible={true}
-            height="200"
-            width="200"
-            ariaLabel="dna-loading"
-            wrapperStyle={{}}
-            wrapperClass="dna-wrapper mx-auto"
-          />
+          <div>
+            <TailSpin
+              visible={true}
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
         )}
         <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {Product.map((product) => (

@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import Product from "../../../models/Product";
+import { FaTrashAlt } from "react-icons/fa";
+import { FaPen } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa6";
+import { FaMinus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 interface CardProductProps {
     product: Product;
@@ -35,11 +40,19 @@ function CardProduct({ product }: CardProductProps) {
                     />
                     <span className="ml-2 text-gray-700 font-bold">{product.user?.name}</span>
                 </div>
+                <div className="absolute top-2 right-2 flex items-center gap-4">
+                    <Link to={`/deletar-product/:${product.id}`} className="bg-white rounded-xl py-1 px-2 opacity-90">
+                        <FaTrashAlt />
+                    </Link>
+                    <Link to="/" className="bg-white rounded-xl py-1 px-2 opacity-90">
+                        <FaPen />
+                    </Link>
+                </div>
             </div>
             <div className="px-6 py-4">
-                <div className="flex flex-col py-2 justify-center">
-                    <span className="font-bold text-xl mb-2">{product.name}</span>
-                    <p className="font-bold text-sm mb-2 text-gray-600">{product.category?.name}</p>
+                <div className="flex flex-col py-2 justify-center items-center">
+                    <span className="font-bold text-3xl mb-2">{product.name}</span>
+                    <p className="font-bold text-xs mb-2 text-gray-400">{product.category?.name}</p>
                 </div>
                 <p className="text-gray-700 text-base text-center">{product.description}</p>
             </div>
@@ -55,16 +68,20 @@ function CardProduct({ product }: CardProductProps) {
                     {`Região: ${product.region}`}
                 </span>
             </div>
-            <div className="px-6 pb-4 flex items-center justify-between">
-                <div className="flex items-center">
-                    <button onClick={handleDecrease} className="bg-gray-200 text-gray-700 pl-4 pr-2 py-1 rounded-l-lg">-</button>
+            <div className="px-6 pb-4 flex items-center justify-between ">
+                <div className="flex items-center bg-gray-200 text-gray-700 rounded-lg">
+                    <button onClick={handleDecrease} className=" pl-4 pr-2 py-1">
+                        <FaMinus size={20}/>
+                    </button>
                     <input 
                         type="text" 
                         value={quantity} 
                         readOnly 
-                        className="w-12 text-center bg-gray-200 text-gray-700 py-1"
+                        className="w-12 text-center py-1 bg-gray-200 text-gray-700"
                     />
-                    <button onClick={handleIncrease} className="bg-gray-200 text-gray-700 pr-4 pl-2 py-1 rounded-r-lg">+</button>
+                    <button onClick={handleIncrease} className="pr-4 pl-2 py-1">
+                        <FaPlus size={20}/>
+                    </button>
                 </div>
                 <button className="flex items-center bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700">
                     <FaShoppingCart className="mr-2" />
