@@ -12,7 +12,7 @@ import CategoryForm from './components/Categories/categoryForm/CategoryForm';
 import DeleteCategory from './components/Categories/DeleteCategory/DeleteCategory';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Swiper } from 'swiper/react';
 
 function App() {
   return (
