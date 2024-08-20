@@ -5,7 +5,7 @@ import Product from "../../../models/Product";
 import { buscar, deletar } from "../../../services/Service";
 
 
-function DeleteProduct() {
+function DeleteProduct() { 
     const [product, setProduct] = useState<Product>({} as Product);
 
     let navigate = useNavigate();

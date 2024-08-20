@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import Product from "../../../models/Product";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaPen } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -34,17 +34,17 @@ function CardProduct({ product }: CardProductProps) {
                 />
                 <div className="absolute top-2 left-2 flex items-center bg-white rounded-xl py-1 px-2 opacity-90">
                     <img 
-                        src={product.user?.photo} 
-                        alt={product.user?.name} 
+                        src={product.usuario?.photo} 
+                        alt={product.usuario?.name} 
                         className="w-8 h-8 rounded-full border-2 border-white"
                     />
-                    <span className="ml-2 text-gray-700 font-bold">{product.user?.name}</span>
+                    <span className="ml-2 text-gray-700 font-bold">{product.usuario?.name}</span>
                 </div>
                 <div className="absolute top-2 right-2 flex items-center gap-4">
-                    <Link to={`/deletar-product/:${product.id}`} className="bg-white rounded-xl py-1 px-2 opacity-90">
+                    <Link to={`/deletar-produto/${product.id}`} className="bg-white rounded-xl py-1 px-2 opacity-90">
                         <FaTrashAlt />
                     </Link>
-                    <Link to="/" className="bg-white rounded-xl py-1 px-2 opacity-90">
+                    <Link to={`/editar-produto/${product.id}`} className="bg-white rounded-xl py-1 px-2 opacity-90">
                         <FaPen />
                     </Link>
                 </div>
@@ -89,6 +89,7 @@ function CardProduct({ product }: CardProductProps) {
                 </button>
             </div>
         </div>
+    
     );
 }
 

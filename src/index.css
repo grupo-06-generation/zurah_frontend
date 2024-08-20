@@ -17,3 +17,8 @@ body {
         margin: 0;
     }
 }
+
+.input-no-border:focus {
+    border: none;
+    outline: none;
+  }

@@ -5,11 +5,11 @@ export default interface Product {
     id: number;
     name: string;
     description: string;
-    expire: Date;
+    expire: string;
     quantity: number;
     price: number;
     region: string;
     photo: string;
     category: Category | null;
-    user: Usuario | null;
+    usuario: Usuario | null;
 }
