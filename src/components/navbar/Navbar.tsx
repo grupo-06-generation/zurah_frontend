@@ -72,12 +72,13 @@ function Navbar() {
                         </div>
 
                         <div className='relative'>
-                            <div
+                            <Link
+                                to="/carrinho"
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
                                 onClick={toggleDropdown}
                             >
                                 <Basket className="w-7 h-7 text-white flex items-center" />
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
