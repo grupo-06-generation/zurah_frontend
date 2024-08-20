@@ -78,7 +78,7 @@ function ProductForm() {
       ...prevProduct,
       [e.target.name]: e.target.value,
       category: category,
-      user: usuario,
+      usuario: usuario,
     }));
   };
 

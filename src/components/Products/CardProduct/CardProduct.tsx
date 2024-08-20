@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import Product from "../../../models/Product";
 import { FaTrashAlt } from "react-icons/fa";
@@ -6,10 +6,12 @@ import { FaPen } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 interface CardProductProps {
     product: Product;
 }
+
 
 function CardProduct({ product }: CardProductProps) {
     const [quantity, setQuantity] = useState(1);
@@ -23,6 +25,10 @@ function CardProduct({ product }: CardProductProps) {
             setQuantity(prevQuantity => prevQuantity - 1);
         }
     };
+
+    const { usuario } = useContext(AuthContext);
+
+    const photo = usuario.photo
 
     return (
         <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4 bg-white">
