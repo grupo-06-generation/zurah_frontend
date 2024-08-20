@@ -12,7 +12,12 @@ import CategoryForm from './components/Categories/categoryForm/CategoryForm';
 import DeleteCategory from './components/Categories/DeleteCategory/DeleteCategory';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+<<<<<<< HEAD
 import { Swiper } from 'swiper/react';
+=======
+import ListProduct from './components/Products/ListProduct/ListProduct';
+
+>>>>>>> c62db4bcdf3e3c873f1bccf39689e03567e3313f
 
 function App() {
   return (
@@ -33,6 +38,7 @@ function App() {
             <Route path="/adicionar-categoria" element={<CategoryForm />} />
             <Route path="/editar-categoria/:id" element={<CategoryForm />} />
             <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
+            <Route path="/produtos" element={<ListProduct />} />
           </Routes>
         </div>
         <Footer />

@@ -32,14 +32,14 @@ function Slider() {
         <SwiperSlide>
           <img
             src="src/assets/news1.png"
-            alt="Cenouras"
+            alt="News"
             className="w-full h-40 object-cover rounded"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src="src/assets/zurah-logo.png"
-            alt="Verduras"
+            alt="Logo"
             className="w-full h-40 object-cover rounded"
           />
         </SwiperSlide>
