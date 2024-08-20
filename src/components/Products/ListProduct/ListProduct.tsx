@@ -26,7 +26,7 @@ function ListProduct() {
     return (
       <>
         {Product.length === 0 && (
-          <div>
+          <div className="flex justify-center items-center m-5">
             <TailSpin
               visible={true}
               height="80"
