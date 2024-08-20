@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ListProduct from './components/Products/ListProduct/ListProduct';
 import ProductForm from './components/Products/productForm/ProductForm';
 import SellerHome from './pages/sellerHome/SellerHome';
+import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/cadastrar-produto" element={<ProductForm />} />
             <Route path="/editar-produto/:id" element={<ProductForm />} />
             <Route path="/admin/zurah" element={<SellerHome />} />
+            <Route path="/deletar-produto/:id" element={<DeleteProduct />} />
           </Routes>
         </div>
         <Footer />
@@ -50,7 +52,7 @@ function App() {
 
 function NavbarWrapper() {
   const location = useLocation();
-  const hideNavbarRoutes = [ "/login", "/register", "/recuperar-senha"];
+  const hideNavbarRoutes = ["/login", "/register", "/recuperar-senha"];
 
   if (hideNavbarRoutes.includes(location.pathname)) {
     return null;

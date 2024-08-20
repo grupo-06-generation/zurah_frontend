@@ -24,7 +24,7 @@ function ProductForm() {
     description: '',
     photo: '',
     category: null,
-    user: null,
+    usuario: null,
   });
 
   useEffect(() => {
@@ -101,13 +101,15 @@ function ProductForm() {
         });
         toastAlert('Produto cadastrado com sucesso', 'success');
       }
-      navigate('/postagens');
+      navigate('/produtos');
+      
     } catch (error: any) {
       if (error.toString().includes('403')) {
         toastAlert('O token expirou, favor logar novamente', 'info');
         handleLogout();
       } else {
         toastAlert('Erro ao processar o produto', 'error');
+        
       }
     }
   };

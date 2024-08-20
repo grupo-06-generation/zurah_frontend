@@ -4,8 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
     font-family: 'Roboto', sans-serif;
+    
 }
 
 @layer base {
