@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Product from "../../../models/Product";
 import CardProduct from "../CardProduct/CardProduct";
 import { buscar } from "../../../services/Service";
-import { Dna } from "react-loader-spinner";
+import { DNA } from "react-loader-spinner";
 
 
 function ListProduct() {
@@ -26,7 +26,7 @@ function ListProduct() {
     return (
       <>
         {Product.length === 0 && (
-          <Dna
+          <DNA
             visible={true}
             height="200"
             width="200"
