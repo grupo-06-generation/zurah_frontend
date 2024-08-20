@@ -21,27 +21,27 @@ function Slider() {
       navigation={true}
       effect="fade"
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper w-full" // Adicione w-full aqui
+      className="mySwiper w-full h-96" 
     >
       <SwiperSlide>
         <img
           src="src/assets/techagro.jpg"
           alt="Agricultor"
-          className="w-full h-40 object-cover rounded"
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/news1.png"
           alt="News"
-          className="w-full h-40 object-cover rounded"
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/zurah-logo.png"
           alt="Logo"
-          className="w-full h-40 object-cover rounded"
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
     </Swiper>

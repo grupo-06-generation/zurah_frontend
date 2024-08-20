@@ -1,30 +1,27 @@
-//import React from 'react';
-//import Footer from '../../components/Footer/Footer';
 import { Link } from "react-router-dom";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
-
 import Slider from "../../components/slider/Slider";
 
 function Home() {
     return (
         <div className="min-h-screen bg-[#FAEBD7] flex flex-col items-center">
-            <main className="flex-grow w-full max-w-screen-lg p-8">
+            <main className="flex-grow w-full p-12"> 
                 
-                {/* Seção de Novidades com Carrossel */}
+              
                 <section id="home" className="mb-12">
-                    <h2 className="font text-[#A0522D] text-3xl font-bold text-center">Novidades</h2>
-<Slider />
+                    <h2 className="font text-[#A0522D] text-3xl font-bold text-center pb-6">Novidades</h2>
+                    <Slider />
                 </section>
 
                 <Link to={'/adicionar-categoria'}>
                     <button>
-                        <a href="#categorias" className="text-[#A0522D]">Categorias</a>
+                        <a href="#categorias" className="text-[#A0522D] text-3xl font-bold">Categorias</a>
                     </button>
                 </Link>
 
-                <section id="categorias" className="mb-12">
-                    <h2 className="text-[#A0522D] text-3xl font-bold">Categorias</h2>
-                    <div className="grid grid-cols-3 gap-8 mt-4">
+                <section id="categorias" className="mb-14">
+                  
+                    <div className="grid grid-cols-3 gap-10 mt-6">
                         <div className="relative">
                             <img src="src/assets/cenouras.jpg" alt="Cenouras" className="w-full h-40 object-cover rounded" />
                             <div className="absolute bottom-0 left-0 w-full bg-green-800 text-white text-center">Vegetais</div>
