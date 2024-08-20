@@ -12,7 +12,7 @@ import CategoryForm from './components/Categories/categoryForm/CategoryForm';
 import DeleteCategory from './components/Categories/DeleteCategory/DeleteCategory';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
             <Route path="/adicionar-categoria" element={<CategoryForm />} />
             <Route path="/editar-categoria/:id" element={<CategoryForm />} />
             <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </div>
         <Footer />
