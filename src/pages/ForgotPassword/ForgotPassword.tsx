@@ -11,7 +11,7 @@ function ForgotPassword() {
   //const {isLoading} = useContext(AuthContext);
 
   const [emailFound, setEmailFound] = useState<boolean>(false);
-  const handleEmailFound = (e: ChangeEvent<HTMLFormElement>) => {
+  const handleEmailFound = (e: ChangeEvent<HTMLFormElement>, value: boolean) => {
     e.preventDefault();
     setEmailFound(true);
   }
