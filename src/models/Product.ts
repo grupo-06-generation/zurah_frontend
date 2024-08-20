@@ -7,6 +7,7 @@ export default interface Product {
     description: string;
     expire: Date;
     quantity: number;
+    price: number;
     region: string;
     photo: string;
     category: Category | null;
