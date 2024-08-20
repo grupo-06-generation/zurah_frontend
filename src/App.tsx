@@ -13,7 +13,8 @@ import DeleteCategory from './components/Categories/DeleteCategory/DeleteCategor
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ListProduct from './components/Products/ListProduct/ListProduct';
-
+import ProductForm from './components/Products/productForm/ProductForm';
+import SellerHome from './pages/sellerHome/SellerHome';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
             <Route path="/editar-categoria/:id" element={<CategoryForm />} />
             <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
             <Route path="/produtos" element={<ListProduct />} />
+            <Route path="/cadastrar-produto" element={<ProductForm />} />
+            <Route path="/editar-produto/:id" element={<ProductForm />} />
+            <Route path="/admin/zurah" element={<SellerHome />} />
           </Routes>
         </div>
         <Footer />

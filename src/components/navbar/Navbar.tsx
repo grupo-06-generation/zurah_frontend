@@ -112,9 +112,10 @@ function Navbar() {
                             <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Categorias</li>
                         </Link>
                         <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Promoções</li>
-                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtores</li>
-                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtos</li>
-                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Cupons</li>
+                        <Link to={'/cadastrar-produto'}>
+                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtores</li></Link>
+                        <Link to={'/produtos'}><li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtos</li></Link>
+                        <Link to={'/admin/zurah'}><li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Cupons</li></Link>
                     </ul>
                 </nav>
             </div>
