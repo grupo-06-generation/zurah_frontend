@@ -33,7 +33,7 @@ function App() {
             <Route path="/adicionar-categoria" element={<CategoryForm />} />
             <Route path="/editar-categoria/:id" element={<CategoryForm />} />
             <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/carrinho" element={<Cart />} />
           </Routes>
         </div>
         <Footer />
