@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Swiper } from "swiper/react";
 
 import ListProduct from "./components/Products/ListProduct/ListProduct";
+import DeleteProduct from "./components/Products/DeleteProduct/DeleteProduct";
 
 function App() {
   return (
@@ -40,6 +41,8 @@ function App() {
                 element={<DeleteCategory />}
               />
               <Route path="/produtos" element={<ListProduct />} />
+              <Route path="/deletar-product/:id" element={<DeleteProduct />}
+              />
             </Routes>
           </div>
           <Footer />
