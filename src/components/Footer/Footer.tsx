@@ -45,7 +45,7 @@ function Footer(){
                             <Link to={'/contact'}>Contato</Link>
                         </li>
                         <li className="mb-1 hover:text-white">
-                            <Link to={'/about'}>Sobre Nós</Link>
+                            <Link to={'/sobre'}>Sobre Nós</Link>
                         </li>
                     </ul>
                 </div>
