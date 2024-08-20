@@ -1,21 +1,49 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserCircle, MagnifyingGlass, Basket } from '@phosphor-icons/react';
-//.
+import { toastAlert } from '../../utils/toastAlert';
+import { AuthContext } from '../../contexts/AuthContext';
+
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLDivElement>(null); 
+    const { authenticated, handleLogout } = useContext(AuthContext);
+    let navigate = useNavigate();
 
     const toggleDropdown = () => {
         setDropdownOpen(prev => !prev);
     };
 
+    const logout = () => {
+        handleLogout();
+        toastAlert('Usuário deslogado com sucesso!', 'info');
+        navigate('/login');
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (
+            dropdownRef.current && !dropdownRef.current.contains(event.target as Node) &&
+            buttonRef.current && !buttonRef.current.contains(event.target as Node)
+        ) {
+            setDropdownOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <>
-            <div className='w-full bg-[#843C0A] text-white py-4 px-8' style={{ fontFamily: 'Linden Hill, sans-serif' }}>
+            <div className='w-full bg-[#843c0a] text-white py-4 px-8' style={{ fontFamily: 'Linden Hill, sans-serif' }}>
                 <div className="flex items-center justify-between">
-                    <div className='font-normal text-[40px] flex items-center'>
-                        <Link to="/" className="text-white no-underline">
-                            Zurah
+                    <div className='flex items-center h-full w-[200px]'>
+                        <Link to="/" className='h-full w-full'>
+                            <img src="src/assets/zurah-logo.PNG" alt="Logo" className="h-[40px] w-auto" />
                         </Link>
                     </div>
 
@@ -33,29 +61,16 @@ function Navbar() {
                     </form>
 
                     <div className='flex items-center space-x-4'>
-                        <div className='text-[19px] flex items-center'>
-                            <Link to="/sobre" className="">
-                                Sobre
-                            </Link>
-                        </div>
-                        <div className='text-[19px] flex items-center'>
-                            <Link to="/contato" className="">
-                                Contato
-                            </Link>
-                        </div>
-                        <div className='text-[19px] flex items-center'>
-                            <Link to="/login" className="">
-                                Entrar
-                            </Link>
-                        </div>
                         <div className='relative'>
                             <div
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
                                 onClick={toggleDropdown}
+                                ref={buttonRef} 
                             >
                                 <UserCircle className="w-9 h-9 text-white flex items-center" />
                             </div>
                         </div>
+
                         <div className='relative'>
                             <div
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
@@ -67,24 +82,44 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className='relative'>
-                {dropdownOpen && (
-                    <div className="absolute right-4 w-[150px] bg-gray-800 text-white rounded-lg mt-2">
-                        <ul className="flex flex-col">
-                            <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
-
-                            <Link to="/login" className="text-white no-underline">
-                                <li className="border-t border-gray-700 hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">
+            {dropdownOpen && (
+                <div ref={dropdownRef} className="absolute right-4 w-[150px] bg-gray-800 text-white rounded-lg mt-2">
+                    <ul className="flex flex-col">
+                        {authenticated ? (
+                            <>
+                                <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
+                                <li
+                                    onClick={logout}
+                                    className="border-t border-gray-700 hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg"
+                                >
                                     Sair
                                 </li>
+                            </>
+                        ) : (
+                            <Link to="/login" className="text-white no-underline">
+                                <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">
+                                    Entrar
+                                </li>
                             </Link>
-
-                        </ul>
-                    </div>
-                )}
-            </div >
+                        )}
+                    </ul>
+                </div>
+            )}
+            <div>
+                <nav className="bg-[#9b5d45] text-white text-center py-2">
+                    <ul className="flex justify-center">
+                        <Link to={'/categorias'}>
+                            <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Categorias</li>
+                        </Link>
+                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Promoções</li>
+                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtores</li>
+                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtos</li>
+                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Cupons</li>
+                    </ul>
+                </nav>
+            </div>
         </>
     );
-};
+}
 
 export default Navbar;

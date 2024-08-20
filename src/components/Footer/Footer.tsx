@@ -1,33 +1,82 @@
-import { Link } from 'react-router-dom'
 
-function Footer() {
-  return (
-    <>
-        <div className='w-full px-32 py-8 bg-[#D1B69A] justify-center min-h-72 font-["Montserrat"] font-medium text-sm divide-y divide-double divide-[#843C0A]'>
-                <div className='bg-[#D1B69A] flex pb-12'>
-                    <div className='bg-[#D1B69A] h-4/6'>
-                        <h2 className="font-['Linden_Hill'] font-normal text-4xl text-[#843C0A] pb-3">Zurah</h2>
-                        <p className='pr-32'>Conectando você à autenticidade do campo!</p>
-                    </div>
-                    <div className='bg-[#D1B69A] px-16 h-1/6 '>
-                        <h2 className='font-bold text-xl text-[#843C0A] pb-2'>Páginas</h2>
-                        <Link to='/home' className='hover:underline block pb-2'>Menu principal</Link>
-                        {/* <Link to="/produtores" className='hover:underline block pb-2'>Produtores </Link> */}
-                        <Link to="/login" className='hover:underline block pb-2'>Login</Link>
-                        <Link to="/sobre" className='hover:underline block pb-2'>Sobre</Link>
-                    </div>
-                    <div className='bg-[#D1B69A] pl-12 h-1/6'>
-                        <h2 className='font-bold text-xl text-[#843C0A] pb-2'>Contato</h2>
-                        <p className='pb-2'><span className='font-bold'>Email:</span> projetozurah@gmail.com</p>
-                        <p><span className='font-bold'>Github:</span> https://github.com/grupo-06-generation </p>
-                    </div>
+import { Link } from 'react-router-dom';
+
+function Footer(){
+    return(
+
+        <footer className="bg-[#843C0A] text-white">
+
+            <img src="" alt="" />
+
+            <div className="grid grid-cols-12 p-14 pb-10 justify-center">
+
+                <div className="col-span-4">
+                    <span className="text-gray-100 font-bold font-['Linden_Hill'] text-[28px] hover:text-gray-300">
+                        <Link to="/" className='h-full w-full'>
+                            <img src="src/assets/zurah-logo.PNG" alt="" className="h-[40px] w-auto"/>
+                        </Link>
+                    </span>
+                    <p className='w-3/4 mt-3 text-gray-300'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam error nihil consequatur eaque. </p>
                 </div>
-                <div className='pt-8'>
-                    <p className='text-sm text-gray-700'>&copy; 2024 Zurah. All rights reserved.</p>
+
+                <div className="col-span-2">
+                    {/* <h3 className="text-gray-50 mb-4 font-semibold">Categorias</h3> */}
+                    {/* <ul className="text-gray-300">
+                        <li className="mb-1 hover:text-white">
+                            Sobre Nós
+                        </li>
+                        <li className="mb-1 hover:text-white">
+                            Contato
+                        </li>
+                        <li className="mb-1 hover:text-white">
+                            Frutas
+                            
+                        </li>
+                    </ul> */}
                 </div>
-        </div>
-    </>
-  )
+
+                <div className="col-span-2">
+                    <h3 className="text-gray-50 mb-4 font-semibold">Páginas</h3>
+                    <ul className="text-gray-300">
+                        <li className="mb-1 hover:text-white">
+                            <Link to={'/home'}>Principal</Link>
+                        </li>
+                        <li className="mb-1 hover:text-white">
+                            <Link to={'/contact'}>Contato</Link>
+                        </li>
+                        <li className="mb-1 hover:text-white">
+                            <Link to={'/about'}>Sobre Nós</Link>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="col-span-4">
+                    <h3 className="text-gray-50 mb-4 font-semibold ">Newsletter</h3>
+                    <form action="" >
+                        <input type="email" className="mr-3 rounded-sm font-sans px-2 py-1 w-2/3 text-gray-800" placeholder='email@email.com' required/>
+                        <button type="submit" className='bg-green-500 hover:bg-green-700 text-white px-3 py-1 rounded-sm'>Inscrever-se</button>
+                    </form>
+                </div>
+            </div>
+
+            <div className='flex justify-center pb-10'>
+                <a href="#">
+                    <img src="src/assets/redes-sociais/facebook.svg" alt="" className="w-10 h-10 mx-4 transition-transform transform hover:scale-125 duration-300 ease-in-out"/>
+                </a>
+                <a href="#">
+                    <img src="src/assets/redes-sociais/instagram.svg" alt="" className="w-10 h-10 mx-4 transition-transform transform hover:scale-125 duration-300 ease-in-out"/>
+                </a>
+                <a href="#">
+                    <img src="src/assets/redes-sociais/github.svg" alt="" className="w-10 h-10 mx-4 transition-transform transform hover:scale-125 duration-300 ease-in-out"/>
+                </a>
+            </div>
+
+            <div className="flex items-center justify-center p-6">
+                <p>© 2024 Zurah. All rights reserved.</p>
+            </div>
+
+        </footer>
+    )
 }
 
-export default Footer
+export default Footer;

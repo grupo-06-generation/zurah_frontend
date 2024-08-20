@@ -1,76 +1,52 @@
-import React from "react";
-import Footer from "../../components/Footer/Footer";
+//import React from "react";
 
 function About() {
   return (
     <>
-      <div className="m-28">
-        <h1 className=" mb-10 font-['Linden_Hill'] text-center text-[#A0522D] text-7xl font-bold">
-          Zurah
-        </h1>
-        <h2
-          style={{ color: "#A0522D", fontSize: "1.5rem", marginBottom: "20px" }}
-        >
-          ‘Zuraia’ (زراعة - “zurah”) é a palavra em Árabe, transcrita para um
-          entendimento ocidental, para “agricultura”. Os egípcios foram um dos
-          primeiros povos a cultivar no mundo, por conta disso escolhemos esse
-          nome para ser representativo e atrativo para o público em geral.
-        </h2>
-
-        <div className="my-8">
-          <p>
-            <strong>Impacto 1:</strong> A desigualdade financeira perpetua a
-            pobreza, especialmente entre pequenos produtores rurais que não têm
-            acesso aos mesmos recursos que as grandes empresas.
-          </p>
-          <p>
-            <strong>Consequência:</strong> A pobreza leva à exclusão social, onde
-            os indivíduos e famílias não têm acesso a serviços básicos como
-            educação, saúde, e moradia adequada, perpetuando um ciclo de privação.
-          </p>
+      <div className="py-16 px-8">
+        <div className="flex flex-col items-center mb-8">
+          <div className="bg-green-100 text-green-600 rounded-xl py-[4px] px-[6px] flex justify-center items-center">
+            <p className="font-semibold uppercase text-[12px] inline-block">sobre nós</p>
+          </div>
+          <h1 className="font-bold text-[32px] text-gray-900 text-center my-3">Uma frase sobre o projeto e a gente</h1>
+          <p className="text-gray-500 text-[14px] text-center w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum eum similique ex cum delectus iusto error numquam suscipit ratione! Consectetur vel odit maiores aliquid. Sint alias quo odio maxime doloremque.</p>
         </div>
-
-        <div>
-          <p>
-            <strong>Impacto 2:</strong> Pequenos produtores têm menos acesso a
-            crédito, tecnologia, e mercados em comparação com grandes empresas.
-          </p>
-          <p>
-            <strong>Consequência:</strong> Isso resulta em uma desigualdade de
-            oportunidades, onde os pequenos produtores não podem competir de
-            maneira justa, limitando suas chances de crescimento e desenvolvimento
-            econômico.
-          </p>
+        <div className="grid grid-cols-12">
+          <div className="col-span-4 p-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center m-6 mb-10">
+                  <img src="src\assets\img-sobre\contact.svg" alt="" className="w-[52px] h-[52px]"/>
+                  <h2 className="font-bold text-[20px] text-gray-900 text-center my-3">titulo de um dos valores</h2>
+                  <p className="text-gray-500 text-[14px] text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti cumque, maiores quidem sit quaerat vel exercitationem repudiandae voluptas</p>
+                </div>
+                <div className="flex flex-col items-center justify-center m-6">
+                  <img src="src\assets\img-sobre\pen.svg" alt="" className="w-[52px] h-[52px]"/>
+                  <h2 className="font-bold text-[20px] text-gray-900 text-center my-3">titulo de um dos valores</h2>
+                  <p className="text-gray-500 text-[14px] text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti cumque, maiores quidem sit quaerat vel exercitationem repudiandae voluptas</p>
+                </div>
+            </div>
+            </div>
+            <div className="col-span-4 p-4">
+              <div className="flex items-center justify-center m-6">
+                <img src="../src/assets/legumes-verduras.png" alt="" className="rounded-3xl w-[370px] h-[500px] "/>
+              </div>
+            </div>
+            <div className="col-span-4 p-6">
+              <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center justify-center m-6 mb-10">
+                    <img src="src\assets\img-sobre\analytics.svg" alt="" className="w-[52px] h-[52px]"/>
+                    <h2 className="font-bold text-[20px] text-gray-900 text-center my-3">titulo de um dos valores</h2>
+                    <p className="text-gray-500 text-[14px] text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti cumque, maiores quidem sit quaerat vel exercitationem repudiandae voluptas</p>
+                  </div>
+                  <div className="flex flex-col items-center justify-center m-6">
+                    <img src="src\assets\img-sobre\tools.svg" alt="" className="w-[52px] h-[52px]"/>
+                    <h2 className="font-bold text-[20px] text-gray-900 text-center my-3">titulo de um dos valores</h2>
+                    <p className="text-gray-500 text-[14px] text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti cumque, maiores quidem sit quaerat vel exercitationem repudiandae voluptas</p>
+                </div>
+              </div>
+            </div>
         </div>
-
-        <h2 style={{ color: "#A0522D", fontSize: "1.5rem", marginTop: "20px" }}>
-          Nosso Compromisso
-        </h2>
-        <p>
-          Na Zurah, estamos comprometidos em promover a igualdade e oferecer
-          suporte aos pequenos produtores rurais. Acreditamos que todos devem ter
-          acesso aos recursos necessários para crescer e prosperar. Trabalhamos
-          para fornecer ferramentas, conhecimento e oportunidades para ajudar
-          esses produtores a competir de forma justa no mercado global.
-        </p>
-
-        <h2 style={{ color: "#A0522D", fontSize: "1.5rem", marginTop: "20px" }}>
-          Nossos Objetivos
-        </h2>
-        <ul style={{ listStyleType: "none", padding: 0, textAlign: "left" }}>
-          <li>🌱 Promover a sustentabilidade agrícola.</li>
-          <li>🌍 Reduzir a desigualdade financeira entre produtores rurais.</li>
-          <li>
-            📈 Facilitar o acesso a tecnologias e mercados para pequenos
-            produtores.
-          </li>
-          <li>
-            🤝 Fomentar a cooperação e a troca de conhecimentos entre
-            agricultores.
-          </li>
-        </ul>
       </div>
-      <Footer />
     </>
   );
 }

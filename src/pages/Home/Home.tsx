@@ -1,4 +1,9 @@
-//
+//import React from 'react';
+//import Footer from '../../components/Footer/Footer';
+
+import { Link } from "react-router-dom";
+import ListCategory from "../../components/Categories/ListCategory/ListCategory";
+
 function Home() {
     return (
 
@@ -12,6 +17,10 @@ function Home() {
                     <div className="bg-[#FAEBD7] border border-[#A0522D] rounded-full w-12 h-12 flex items-center justify-center mt-2">...</div>
                     </div>
                 </section>
+
+                <Link to={'/adicionar-categoria'}><button>
+                    <a href="#categorias" className="text-[#A0522D]">Categorias</a>
+                </button></Link>
 
                 <section id="categorias" className="mb-12">
                     <h2 className="text-[#A0522D] text-3xl font-bold">Categorias</h2>
@@ -55,7 +64,7 @@ function Home() {
                     </div>
                 </section>
             </main>
-
+            <ListCategory />
         </div>
     
     );
