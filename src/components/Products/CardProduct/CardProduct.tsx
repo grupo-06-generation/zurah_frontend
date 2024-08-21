@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import Product from "../../../models/Product";
 import { FaTrashAlt } from "react-icons/fa";
@@ -6,29 +6,28 @@ import { FaPen } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
 
 interface CardProductProps {
     product: Product;
 }
 
-
 function CardProduct({ product }: CardProductProps) {
     const [quantity, setQuantity] = useState(1);
+    const [totalPrice, setTotalPrice] = useState(product.price);
 
     const handleIncrease = () => {
-        setQuantity(prevQuantity => prevQuantity + 1);
+        const newQuantity = quantity + 1;
+        setQuantity(newQuantity);
+        setTotalPrice((prevTotal) => prevTotal + product.price);
     };
 
     const handleDecrease = () => {
         if (quantity > 1) {
-            setQuantity(prevQuantity => prevQuantity - 1);
+            const newQuantity = quantity - 1;
+            setQuantity(newQuantity);
+            setTotalPrice((prevTotal) => prevTotal - product.price);
         }
     };
-
-    const { usuario } = useContext(AuthContext);
-
-    const photo = usuario.photo
 
     return (
         <div className="max-w-sm rounded-lg overflow-hidden shadow-lg m-4 bg-white">
@@ -63,12 +62,13 @@ function CardProduct({ product }: CardProductProps) {
                 <p className="text-gray-700 text-base text-center">{product.description}</p>
             </div>
             <div className="flex flex-col justify-center items-center">
-                <span className="font-bold text-3xl mb-2">R$ {product.price.toFixed(2)}</span>
+                <span className="font-bold text-3xl mb-2">R$ {totalPrice.toFixed(2)}</span>
                 <p className="text-gray-600 text-xs">Validade: {new Date(product.expire).toLocaleDateString()}</p>
             </div>
             <div className="px-6 pt-4 pb-4 flex justify-evenly">
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                     {`Quantidade: ${product.quantity}`}
+                    <span>kg</span>
                 </span>
                 <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-blue-700 mr-2 mb-2">
                     {`Região: ${product.region}`}
@@ -76,15 +76,18 @@ function CardProduct({ product }: CardProductProps) {
             </div>
             <div className="px-6 pb-4 flex items-center justify-between ">
                 <div className="flex items-center bg-gray-200 text-gray-700 rounded-lg">
-                    <button onClick={handleDecrease} className=" pl-4 pr-2 py-1">
+                    <button onClick={handleDecrease} className="pl-4 pr-2 py-1">
                         <FaMinus size={20}/>
                     </button>
-                    <input 
-                        type="text" 
-                        value={quantity} 
-                        readOnly 
-                        className="w-12 text-center py-1 bg-gray-200 text-gray-700"
-                    />
+                    <div className="relative flex items-center">
+                        <input 
+                            type="text" 
+                            value={quantity} 
+                            readOnly 
+                            className="w-12 text-center py-1 bg-gray-200 text-gray-700 pr-6" 
+                        />
+                        <span className="absolute right-2 text-gray-700">kg</span>
+                    </div>
                     <button onClick={handleIncrease} className="pr-4 pl-2 py-1">
                         <FaPlus size={20}/>
                     </button>
@@ -95,7 +98,6 @@ function CardProduct({ product }: CardProductProps) {
                 </button>
             </div>
         </div>
-    
     );
 }
 

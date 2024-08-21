@@ -731,7 +731,7 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chart.js@^4.1.1:
+chart.js@^4.1.1, chart.js@^4.4.3:
   version "4.4.3"
   resolved "https://registry.npmjs.org/chart.js/-/chart.js-4.4.3.tgz"
   integrity sha512-qK1gkGSRYcJzqrrzdR6a+I0vQ4/R+SoODXyAjscQ/4mzuNzySaMCd+hyVxitSY1+L2fjPD1Gbn+ibNqRmwQeLw==
