@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from "react";
 import UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../services/Service";
+import Product from "../models/Product";
 
 interface AuthContextProps {
     usuario: UsuarioLogin;
@@ -8,6 +9,11 @@ interface AuthContextProps {
     handleLogout(): void;
     handleLogin(usuario: UsuarioLogin): Promise<void>;
     isLoading: boolean;
+    adicionarProduto: (produto: Product) => void;
+    removerProduto: (produtoId: number) => void;
+    limparCarrinho: () => void;
+    items: Product[];
+    quantidadeItems: number
 }
 
 interface AuthProviderProps {
@@ -26,6 +32,29 @@ export function AuthProvider({ children }: AuthProviderProps) {
         token: "",
         is_seller: 0
     });
+
+    const [items, setItems] = useState<Product[]>([]);
+
+    const quantidadeItems = items.length;
+
+    function adicionarProduto(produto: Product) {
+        setItems(state => [...state, produto])
+    }
+
+    function removerProduto(produtoId: number) {
+        const indice = items.findIndex(items => items.id === produtoId)
+        let novoCart = [...items];
+
+        if(indice >= 0) {
+            novoCart.splice(indice, 1);
+            setItems(novoCart);
+        }
+    }
+
+    function limparCarrinho() {
+        alert("Compra Efetuada com Sucesso");
+        setItems([]);
+    }
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -57,7 +86,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading }}>
+        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading, adicionarProduto, removerProduto, limparCarrinho, items, quantidadeItems  }}>
             {children}
         </AuthContext.Provider>
     );
