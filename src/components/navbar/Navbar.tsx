@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot } from '@phosphor-icons/react';
+import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot, Cow } from '@phosphor-icons/react';
 import { toastAlert } from '../../utils/toastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Leaf, Tag } from 'phosphor-react';
@@ -53,7 +53,7 @@ function Navbar() {
                             <input
                                 type="text"
                                 placeholder="Digite o que você procura"
-                                className="w-[440px] h-10 px-4 placeholder-[#843C0A] border-b-[1px] bg-transparent outline-none border-[#c59e82a9]"
+                                className="w-[440px] h-10 px-4 placeholder-[#843C0A] bg-[#f3f3f3] outline-none "
                             />
                             <button
                                 className='absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-transparent z-10'
@@ -86,7 +86,7 @@ function Navbar() {
                 </div>
             </div>
             {dropdownOpen && (
-                <div ref={dropdownRef} className="absolute right-4 w-[150px] bg-gray-800 text-white rounded-lg mt-2">
+                <div ref={dropdownRef} className="absolute right-4 w-[150px] text-white rounded-lg bg-olive">
                     <ul className="flex flex-col">
                         {authenticated ? (
                             <>
@@ -114,24 +114,28 @@ function Navbar() {
                         <ul className='flex flex-row gap-10'>
 
 
-                        <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                        <Link to={'/categorias'}><li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
                                 <Tag size={20} className='font-[21px] text-[#843C0A]' />
                                 <p className='font-[21px] text-[#843C0A]'>Ofertas</p>
-                            </li>
+                            </li></Link>
                             
-                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
                                 <Carrot size={20} className='font-[21px] text-[#843C0A]' />
                                 <p className='font-[21px] text-[#843C0A]'>Hortifruti</p>
                             </li>
 
-                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2 '>
                                 <Leaf size={20} className='font-[21px] text-[#843C0A]' />
                                 <p className='font-[21px] text-[#843C0A]'>Açougue & Peixaria</p>
                             </li>
 
-                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
                                 <Leaf size={20} className='font-[21px] text-[#843C0A]' />
                                 <p className='font-[21px] text-[#843C0A]'>Orgânicos</p>
+                            </li>
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
+                                <Cow size={20} className='font-[21px] text-[#843C0A]' />
+                                <p className='font-[21px] text-[#843C0A]'>Frios, Queijos e Laticínios</p>
                             </li>
                         </ul>
                     </nav>

@@ -25,6 +25,7 @@ function Slider() {
     >
       <SwiperSlide>
         <img
+
           src="src/assets/slide.png"
           alt="Agricultor"
           className="w-full h-full object-cover rounded" 
@@ -33,22 +34,25 @@ function Slider() {
       <SwiperSlide>
         <img
           src="src/assets/techagro.jpg"
+
+          src="https://i.imgur.com/5rlvcav.png"
+
           alt="Agricultor"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-[600px] object-cover rounded pointer-events-none cursor-pointer" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="src/assets/news1.png"
+          src="https://i.imgur.com/pMFsGCm.png"
           alt="News"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-[600px] object-cover rounded" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/zurah-logo.png"
           alt="Logo"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-[600px] object-cover rounded" 
         />
       </SwiperSlide>
     </Swiper>
