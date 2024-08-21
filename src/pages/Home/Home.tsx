@@ -138,12 +138,11 @@ function Home() {
         </div>
       </main>
       <ListCategory />
-=======
+
     <div className="min-h-screen bg-[#FFFBF7] flex flex-col items-center">
       <main className=" w-full p-0"></main>
           <Slider />
       <ListProduct />
->>>>>>> a60217f6bedf9910eb3d9182298231f9ec75baad
     </div>
   );
 }
