@@ -4,7 +4,7 @@ import Slider from "../../components/slider/Slider";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#FAEBD7] flex flex-col items-center">
+    <div className="min-h-screen bg-[##FFF8EB] flex flex-col items-center">
       <main className="flex-grow w-full p-0">
         <section id="home" className="mb-12">
           <Slider />
@@ -30,7 +30,7 @@ function Home() {
                   alt="Cenouras"
                   className="w-full h-40 object-cover rounded"
                 />
-                <div className="absolute bottom-0 left-0 w-full bg-green-800 text-white text-center">
+                <div className="absolute bottom-0 left-0 w-full bg-green-800 text-white text-center opacity-65">
                   Vegetais
                 </div>
               </div>

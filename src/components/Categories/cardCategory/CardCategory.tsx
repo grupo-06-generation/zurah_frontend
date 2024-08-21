@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Category from "../../../models/Category";
-import { PencilSimple, Trash } from "@phosphor-icons/react";
 
 interface CardCategoryProps {
   category: Category;
@@ -12,8 +11,7 @@ function CardCategory({ category }: CardCategoryProps) {
       {/* Imagem Grande */}
       <div className="relative h-40 bg-gray-300">
         <img 
-          src="https://th.bing.com/th/id/OIP.S2_Eb5xlXHwqD0ThyqebKgHaD3?rs=1&pid=ImgDetMain" 
-          alt={category.name} 
+          src="../src/assets/frutinhas-veg.jpg" alt={category.name} 
           className="w-full h-full object-cover" 
         />
       </div>
