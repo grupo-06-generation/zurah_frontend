@@ -9,10 +9,11 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 function Slider() {
   return (
     <Swiper
+      rewind={true}
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
-        delay: 4500,
+        delay: 2500,
         disableOnInteraction: false,
       }}
       pagination={{
@@ -20,41 +21,39 @@ function Slider() {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper w-full h-96"
+      className="mySwiper w-full h-[50vh] md:h-[60vh] lg:h-[70vh]"
       effect="fade"
     >
       <SwiperSlide>
         <img
           src="src/assets/slide.png"
           alt="slid"
-          className="w-full h-full object-cover rounded"
+          className="w-full h-full object-cover "
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/techagro.jpg"
           alt="Agricultor"
-          className="w-full h-full object-cover rounded"
+          className="w-full h-full object-cover "
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/news1.png"
           alt="News"
-          className="w-full h-full object-cover rounded"
+          className="w-full h-full object-cover "
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/Design.png"
           alt="Logo"
-          className="w-full h-full object-cover rounded"
+          className="w-full h-full object-cover "
         />
       </SwiperSlide>
     </Swiper>
   );
 }
-("src/assets/techagro.jpg");
-
 
 export default Slider;

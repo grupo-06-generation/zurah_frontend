@@ -1,99 +1,157 @@
 import { Link } from "react-router-dom";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import Slider from "../../components/slider/Slider";
+import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#FAEBD7] flex flex-col items-center">
+    <div className="min-h-screen bg-[#fcdcb1] flex flex-col items-center">
       <main className="flex-grow w-full p-0">
         <section id="home" className="mb-12">
           <Slider />
-
         </section>
-        <div className="flex-grow w-full p-14">
+
+        <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
           <Link to={"/adicionar-categoria"}>
             <button>
               <a
                 href="#categorias"
-                className="text-[#A0522D] text-3xl font-bold"
+                className="text-[#A0522D] text-3xl font-bold m-5"
               >
                 Categorias
               </a>
             </button>
           </Link>
 
-          <section id="categorias" className="mb-14">
-            <div className="grid grid-cols-3 gap-10 mt-6">
-              <div className="relative">
+          {/* Produtos */}
+          <div className="w-full flex flex-col items-center">
+            {/* Grid de Produtos */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-3/4 ">
+              {/* Produto 1 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
                 <img
-                  src="src/assets/cenouras.jpg"
-                  alt="Cenouras"
-                  className="w-full h-40 object-cover rounded"
+                  src="https://via.placeholder.com/150"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
                 />
-                <div className="absolute bottom-0 left-0 w-full bg-green-800 text-white text-center">
-                  Vegetais
-                </div>
+                <h3 className="text-lg font-bold mb-2">Banana</h3>
+                <p className="text-gray-700 mb-2">R$ 100,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
               </div>
-              <div className="relative">
+
+              {/* Produto 2 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
                 <img
-                  src="src/assets/couveflor.jpg"
-                  alt="Verduras"
-                  className="w-full h-40 object-cover rounded"
+                  src="https://via.placeholder.com/150"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
                 />
-                <div className="absolute bottom-0 left-0 w-full bg-green-800 text-white text-center">
-                  Verduras
-                </div>
+                <h3 className="text-lg font-bold mb-2">Manga</h3>
+                <p className="text-gray-700 mb-2">R$ 200,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
               </div>
-              <div className="relative">
+
+              {/* Produto 3 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
                 <img
-                  src="src/assets/macaverde.jpg"
-                  alt="Frutas"
-                  className="w-full h-40 object-cover rounded"
+                  src="https://i.pinimg.com/564x/61/a3/14/61a31493dab5031c56fb79d232aacc4f.jpg"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
                 />
-                <div className="absolute bottom-0 left-0 w-full bg-green-800 bg-opacity-1 text-white text-center">
-                  Frutas
-                </div>
+                <h3 className="text-lg font-bold mb-2">Manga</h3>
+                <p className="text-gray-700 mb-2">R$ 150,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
               </div>
+
+              {/* Produto 4 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
+                />
+                <h3 className="text-lg font-bold mb-2">Manga</h3>
+                <p className="text-gray-700 mb-2">R$ 250,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
+              </div>
+
+              {/* Adicione mais produtos conforme necessário */}
             </div>
-          </section>
+          </div>
 
-          <section id="promocoes">
-            <h2 className="text-[#A0522D] text-3xl font-bold">Promoções</h2>
-            <div className="grid grid-cols-3 gap-8 mt-4">
-              <div className="relative">
+          <CarroselProduct />
+
+          {/* Produtos */}
+          <div className="w-full flex flex-col items-center">
+            {/* Grid de Produtos */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-3/4 ">
+              {/* Produto 1 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
                 <img
-                  src="src/assets/frutinhas-veg.jpg"
-                  alt="Vegetais e frutas"
-                  className="w-full h-40 object-cover rounded"
+                  src="https://via.placeholder.com/150"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
                 />
-                <div className="absolute bottom-0 left-0 w-full bg-orange-500 text-white text-center">
-                  Mix de frutas e vegetais
-                </div>
+                <h3 className="text-lg font-bold mb-2">Banana</h3>
+                <p className="text-gray-700 mb-2">R$ 100,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
               </div>
 
-              <div className="relative">
+              {/* Produto 2 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
                 <img
-                  src="src/assets/bananas.jpg"
-                  alt="Bananas"
-                  className="w-full h-40 object-cover rounded"
+                  src="https://via.placeholder.com/150"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
                 />
-                <div className="absolute bottom-0 left-0 w-full bg-orange-500 text-white text-center">
-                  Frutas em época de colheita
-                </div>
+                <h3 className="text-lg font-bold mb-2">Manga</h3>
+                <p className="text-gray-700 mb-2">R$ 200,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
               </div>
 
-              <div className="relative">
+              {/* Produto 3 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
                 <img
-                  src="src/assets/legumes-verduras.png"
-                  alt="Cenouras"
-                  className="w-full h-40 object-cover rounded"
+                  src="https://via.placeholder.com/150"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
                 />
-                <div className="absolute bottom-0 left-0 w-full bg-orange-500 text-white text-center">
-                  Oferta de combos
-                </div>
+                <h3 className="text-lg font-bold mb-2">Manga</h3>
+                <p className="text-gray-700 mb-2">R$ 150,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
               </div>
+
+              {/* Produto 4 */}
+              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Produto"
+                  className="w-full h-48 object-cover mb-4"
+                />
+                <h3 className="text-lg font-bold mb-2">Manga</h3>
+                <p className="text-gray-700 mb-2">R$ 250,00</p>
+                <button className="w-full p-2 bg-orange-500 text-white rounded">
+                  Comprar
+                </button>
+              </div>
+
+              {/* Adicione mais produtos conforme necessário */}
             </div>
-          </section>
+          </div>
         </div>
       </main>
       <ListCategory />
