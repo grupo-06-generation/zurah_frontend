@@ -9,7 +9,6 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 function Slider() {
   return (
     <Swiper
-      rewind={true}
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
@@ -20,52 +19,29 @@ function Slider() {
         clickable: true,
       }}
       navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper w-full h-[50vh] md:h-[60vh] lg:h-[70vh]"
       effect="fade"
+      modules={[Autoplay, Pagination, Navigation]}
+      className="mySwiper w-full h-96" 
     >
-      <SwiperSlide>
-        <img
-          src="src/assets/slide.png"
-          alt="slid"
-
-          className="w-full h-full object-cover "
-
-          className="w-full h-full object-cover"
-
-        />
-      </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/techagro.jpg"
           alt="Agricultor"
-
-          className="w-full h-full object-cover "
-
-          className="w-full h-full object-cover"
-
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/news1.png"
           alt="News"
-
-          className="w-full h-full object-cover "
-
-          className="w-full h-full object-cover"
-
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="src/assets/Design.png"
+          src="src/assets/zurah-logo.png"
           alt="Logo"
-
-          className="w-full h-full object-cover "
-
-          className="w-full h-full object-cover"
-
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
     </Swiper>
