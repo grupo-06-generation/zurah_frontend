@@ -9,7 +9,6 @@ import { TailSpin } from "react-loader-spinner";
 function ListProduct() {
     const [Product, setProduct] = useState<Product[]>([]);
   
-    // let navigate = useNavigate();
   
     async function buscarProduct() {
       try {

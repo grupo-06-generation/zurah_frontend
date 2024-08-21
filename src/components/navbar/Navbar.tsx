@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLDivElement>(null); 
+    const buttonRef = useRef<HTMLDivElement>(null);
     const { authenticated, handleLogout } = useContext(AuthContext);
     let navigate = useNavigate();
 
@@ -39,22 +39,25 @@ function Navbar() {
 
     return (
         <>
-            <div className='w-full bg-[#843c0a] text-white py-4 px-8' style={{ fontFamily: 'Linden Hill, sans-serif' }}>
+            <div className='w-full bg-[#fffbf7] text-[#843C0A] py-4 px-8'>
                 <div className="flex items-center justify-between">
                     <div className='flex items-center h-full w-[200px]'>
                         <Link to="/" className='h-full w-full'>
-                            <img src="src/assets/zurah-logo.PNG" alt="Logo" className="h-[40px] w-auto" />
+                            <img src="https://i.imgur.com/KIEEiTe.png" alt="Logo Zurah" className="h-[60px] w-auto" />
                         </Link>
                     </div>
 
-                    <form action="" className='flex mx-4'>
+                    <form action="">
                         <div className='relative flex items-center'>
                             <input
-                                type="search"
+                                type="text"
                                 placeholder="Digite o que você procura"
-                                className="w-[440px] h-10 px-4 rounded-full bg-[#e4e4e41e] border-none focus:outline-none focus:border-none placeholder-[#ffffff5d] pr-12"
+                                className="w-[440px] h-10 px-4 placeholder-[#843C0A] border-b-[1px] bg-transparent outline-none border-[#c59e82a9]"
                             />
-                            <button className='absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-transparent'>
+                            <button
+                                className='absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-transparent z-10'
+                                type="submit"
+                            >
                                 <MagnifyingGlass size={24} />
                             </button>
                         </div>
@@ -65,18 +68,17 @@ function Navbar() {
                             <div
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
                                 onClick={toggleDropdown}
-                                ref={buttonRef} 
                             >
-                                <UserCircle className="w-9 h-9 text-white flex items-center" />
+                                <Basket className="w-8 h-8 text-[#843C0A] flex items-center" />
                             </div>
                         </div>
-
                         <div className='relative'>
                             <div
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
                                 onClick={toggleDropdown}
+                                ref={buttonRef}
                             >
-                                <Basket className="w-7 h-7 text-white flex items-center" />
+                                <UserCircle className="w-8 h-8 text-[#843C0A] flex items-center" />
                             </div>
                         </div>
                     </div>
@@ -106,16 +108,21 @@ function Navbar() {
                 </div>
             )}
             <div>
-                <nav className="bg-[#9b5d45] text-white text-center py-2">
+                <nav className="bg-[#a77e639d] text-white font-normal text-center py-2">
                     <ul className="flex justify-center">
                         <Link to={'/categorias'}>
-                            <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Categorias</li>
+                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Categorias</li>
                         </Link>
-                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Promoções</li>
+                        <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Promoções</li>
                         <Link to={'/cadastrar-produto'}>
-                        <li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtores</li></Link>
-                        <Link to={'/produtos'}><li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Produtos</li></Link>
-                        <Link to={'/admin/zurah'}><li className="hover:bg-[#e4e4e41e] py-2 px-4 cursor-pointer">Cupons</li></Link>
+                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Produtores</li>
+                        </Link>
+                        <Link to={'/produtos'}>
+                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Produtos</li>
+                        </Link>
+                        <Link to={'/admin/zurah'}>
+                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Cupons</li>
+                        </Link>
                     </ul>
                 </nav>
             </div>

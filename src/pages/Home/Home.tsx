@@ -6,10 +6,8 @@ function Home() {
     return (
         <div className="min-h-screen bg-[#FAEBD7] flex flex-col items-center">
             <main className="flex-grow w-full p-12"> 
-                
-              
+
                 <section id="home" className="mb-12">
-                    <h2 className="font text-[#A0522D] text-3xl font-bold text-center pb-6">Novidades</h2>
                     <Slider />
                 </section>
 
