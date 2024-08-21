@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import Slider from "../../components/slider/Slider";
+import ListProduct from "../../components/Products/ListProduct/ListProduct";
 
 function Home() {
   return (
+<<<<<<< HEAD
     <div className="min-h-screen bg-[##FFF8EB] flex flex-col items-center">
       <main className="flex-grow w-full p-0">
         <section id="home" className="mb-12">
@@ -97,6 +99,12 @@ function Home() {
         </div>
       </main>
       <ListCategory />
+=======
+    <div className="min-h-screen bg-[#FFFBF7] flex flex-col items-center">
+      <main className=" w-full p-0"></main>
+          <Slider />
+      <ListProduct />
+>>>>>>> a60217f6bedf9910eb3d9182298231f9ec75baad
     </div>
   );
 }
