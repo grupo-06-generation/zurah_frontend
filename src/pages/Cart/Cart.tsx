@@ -1,26 +1,17 @@
 import { FaLessThan, FaCreditCard } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import CartCard from '../../components/Cart/CartCard/CartCard';
+import CartEmpty from '../../components/Cart/CartEmpty/CartEmpty';
 
 function Cart() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
-      <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full lg:w-1/2">
+      <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full lg:w-3/4 xl:w-1/2">
         <div className="m-6 w-full">
           <p className="text-gray-400 text-sm font-medium">CARRINHO</p>
           <hr className="mt-4"/>
 
-          {/* Componente card cart */}
-          <CartCard />
-          {/* Fim Componente card cart */}
-          <hr />
-          {/* Componente card cart */}
-          <CartCard />
-          {/* Fim Componente card cart */}
-          <hr />
-          {/* Componente card cart */}
-          <CartCard />
-          {/* Fim Componente card cart */}
+          <CartEmpty />
 
           <hr className='mb-4'/>
 
