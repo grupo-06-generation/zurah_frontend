@@ -27,7 +27,7 @@ function App() {
     <ToastContainer />
       <BrowserRouter>
       <NavbarWrapper />
-        <div className='min-h-[80vh]'>
+      <div className='min-h-[100vh]'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -46,11 +46,12 @@ function App() {
             <Route path="/deletar-produto/:id" element={<DeleteProduct />} />
             <Route path="/carrinho" element={<Cart />} />
           </Routes>
-        </div>
         <Footer />
-      </BrowserRouter >   
+        </div>
+      </BrowserRouter >  
     </AuthProvider>
     </>
+    
   );
 }
 
