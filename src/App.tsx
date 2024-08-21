@@ -18,6 +18,8 @@ import SellerHome from './pages/sellerHome/SellerHome';
 import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 import Cart from './pages/Cart/Cart';
 
+
+
 function App() {
   return (
     <>

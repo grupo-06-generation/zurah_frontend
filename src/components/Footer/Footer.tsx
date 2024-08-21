@@ -50,11 +50,16 @@ function Footer() {
 
                     <ul className='flex flex-row gap-4'>
                         <li className='transition-transform transform hover:scale-125 duration-300 ease-in-out cursor-pointer'>
-                            <LinkedinLogo size={32} />
+                            <a href="https://linktr.ee/projetozurah" target='_blank'>
+                                <LinkedinLogo size={32} />
+                            </a>
                         </li>
 
                         <li className='transition-transform transform hover:scale-125 duration-300 ease-in-out cursor-pointer'>
+                            <a href="http://" target="_blank" rel="noopener noreferrer">
                             <GithubLogo size={32} />
+                            </a>
+                            
                         </li>
                     </ul>
                 </div>
