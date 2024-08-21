@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Category from "../../../models/Category";
-import { PencilSimple, Trash } from "@phosphor-icons/react";
 
 interface CardCategoryProps {
   category: Category;
@@ -9,21 +8,20 @@ interface CardCategoryProps {
 function CardCategory({ category }: CardCategoryProps) {
   return (
     <div className="border flex flex-col rounded-2xl overflow-hidden shadow-lg max-w-xs mx-auto bg-white hover:shadow-xl transition-shadow duration-300">
-      {/* Imagem Grande */}
+
       <div className="relative h-40 bg-gray-300">
         <img 
-          src="https://th.bing.com/th/id/OIP.S2_Eb5xlXHwqD0ThyqebKgHaD3?rs=1&pid=ImgDetMain" 
-          alt={category.name} 
+          src="../src/assets/frutinhas-veg.jpg" alt={category.name} 
           className="w-full h-full object-cover" 
         />
       </div>
 
-      {/* Cabeçalho */}
+
       <header className="py-3 px-6 bg-[#843C0A] text-white font-bold text-2xl">
         {category.name}
       </header>
 
-      {/* Botões de Ação */}
+
       <div className="flex space-x-2 p-4">
         <Link
           to={`/editar-categoria/${category.id}`}

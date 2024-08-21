@@ -1,8 +1,9 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserCircle, MagnifyingGlass, Basket } from '@phosphor-icons/react';
+import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot } from '@phosphor-icons/react';
 import { toastAlert } from '../../utils/toastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
+import { Leaf, Tag } from 'phosphor-react';
 
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -39,7 +40,7 @@ function Navbar() {
 
     return (
         <>
-            <div className='w-full bg-[#fffbf7] text-[#843C0A] py-4 px-8'>
+            <div className='w-full bg-[#fffbf7] text-[#843C0A] py-4 px-8 pb-3'>
                 <div className="flex items-center justify-between">
                     <div className='flex items-center h-full w-[200px]'>
                         <Link to="/" className='h-full w-full'>
@@ -107,25 +108,35 @@ function Navbar() {
                     </ul>
                 </div>
             )}
-            <div>
-                <nav className="bg-[#a77e639d] text-white font-normal text-center py-2">
-                    <ul className="flex justify-center">
-                        <Link to={'/categorias'}>
-                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Categorias</li>
-                        </Link>
-                        <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Promoções</li>
-                        <Link to={'/cadastrar-produto'}>
-                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Produtores</li>
-                        </Link>
-                        <Link to={'/produtos'}>
-                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Produtos</li>
-                        </Link>
-                        <Link to={'/admin/zurah'}>
-                            <li className="hover:bg-[#8C5438] hover:scale-105 transition-transform py-2 px-4 cursor-pointer rounded-lg">Cupons</li>
-                        </Link>
-                    </ul>
-                </nav>
-            </div>
+            <section className='flex justify-center bg-[#fffbf7] border-b-[0.2px] border-[#c59e82a9] mb-5'>
+                <div className=''>
+                    <nav>
+                        <ul className='flex flex-row gap-10'>
+
+
+                        <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                                <Tag size={20} className='font-[21px] text-[#843C0A]' />
+                                <p className='font-[21px] text-[#843C0A]'>Ofertas</p>
+                            </li>
+                            
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                                <Carrot size={20} className='font-[21px] text-[#843C0A]' />
+                                <p className='font-[21px] text-[#843C0A]'>Hortifruti</p>
+                            </li>
+
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                                <Leaf size={20} className='font-[21px] text-[#843C0A]' />
+                                <p className='font-[21px] text-[#843C0A]'>Açougue & Peixaria</p>
+                            </li>
+
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-[#843C0A] cursor-pointer py-2'>
+                                <Leaf size={20} className='font-[21px] text-[#843C0A]' />
+                                <p className='font-[21px] text-[#843C0A]'>Orgânicos</p>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
         </>
     );
 }

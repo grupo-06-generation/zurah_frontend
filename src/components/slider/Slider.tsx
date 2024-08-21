@@ -28,28 +28,44 @@ function Slider() {
         <img
           src="src/assets/slide.png"
           alt="slid"
+
           className="w-full h-full object-cover "
+
+          className="w-full h-full object-cover"
+
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/techagro.jpg"
           alt="Agricultor"
+
           className="w-full h-full object-cover "
+
+          className="w-full h-full object-cover"
+
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/news1.png"
           alt="News"
+
           className="w-full h-full object-cover "
+
+          className="w-full h-full object-cover"
+
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/Design.png"
           alt="Logo"
+
           className="w-full h-full object-cover "
+
+          className="w-full h-full object-cover"
+
         />
       </SwiperSlide>
     </Swiper>

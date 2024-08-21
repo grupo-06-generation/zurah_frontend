@@ -5,10 +5,10 @@
 @tailwind utilities;
 
 
-body {
+/* body {
     font-family: 'Roboto', sans-serif;
     
-}
+} */
 
 @layer base {
     input[type="number"]::-webkit-inner-spin-button,

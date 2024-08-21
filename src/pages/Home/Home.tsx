@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import Slider from "../../components/slider/Slider";
-import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#fcdcb1] flex flex-col items-center">
+    <div className="min-h-screen bg-[#FAEBD7] flex flex-col items-center">
       <main className="flex-grow w-full p-0">
         <section id="home" className="mb-12">
           <Slider />
@@ -34,25 +33,9 @@ function Home() {
                   alt="Produto"
                   className="w-full h-48 object-cover mb-4"
                 />
-                <h3 className="text-lg font-bold mb-2">Banana</h3>
-                <p className="text-gray-700 mb-2">R$ 100,00</p>
-                <button className="w-full p-2 bg-orange-500 text-white rounded">
-                  Comprar
-                </button>
-              </div>
-
-              {/* Produto 2 */}
-              <div className="bg-white rounded shadow p-4 flex flex-col items-center">
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Produto"
-                  className="w-full h-48 object-cover mb-4"
-                />
-                <h3 className="text-lg font-bold mb-2">Manga</h3>
-                <p className="text-gray-700 mb-2">R$ 200,00</p>
-                <button className="w-full p-2 bg-orange-500 text-white rounded">
-                  Comprar
-                </button>
+                <div className="absolute bottom-0 left-0 w-full bg-green-800 text-white text-center">
+                  Vegetais
+                </div>
               </div>
 
               {/* Produto 3 */}
@@ -155,6 +138,12 @@ function Home() {
         </div>
       </main>
       <ListCategory />
+=======
+    <div className="min-h-screen bg-[#FFFBF7] flex flex-col items-center">
+      <main className=" w-full p-0"></main>
+          <Slider />
+      <ListProduct />
+>>>>>>> a60217f6bedf9910eb3d9182298231f9ec75baad
     </div>
   );
 }
