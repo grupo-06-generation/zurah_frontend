@@ -1,7 +1,7 @@
 import { BadgePercent, Beef, Carrot, Milk, Vegan } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Category from '../../models/Category';
-function CategoryConsumer({ category })
+function CategoryConsumer({ category }) {
 
     return (
         <>
