@@ -15,6 +15,7 @@ import { AuthContext } from "@/contexts/AuthContext";
 
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertTitle } from "@/components/ui/alert";
+import { toastAlert } from "../../../utils/toastAlert";
 
 interface DeleteProductModalProps {
     productId: number;
@@ -62,7 +63,8 @@ function DeleteProductModal({ productId, isOpen, onClose, onDeleteSuccess }: Del
                     'Authorization': token
                 }
             });
-            alert('Produto deletado com sucesso.');
+            toastAlert(`Produto ${product.name} deletado com sucesso`, 'deletado');
+            //alert('Produto deletado com sucesso.');
             onDeleteSuccess(); // Notifica a lista sobre a exclusão
             onClose();
         } catch (error) {
