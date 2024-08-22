@@ -1,7 +1,7 @@
 import { BadgePercent, Beef, Carrot, Milk, Vegan } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Category from '../../models/Category';
-function CategoryConsumer({ category }) {
+function CategoryConsumer() {
 
     return (
         <>
@@ -16,7 +16,7 @@ function CategoryConsumer({ category }) {
                 </div>
                 <div className="w-[1400px] h-[200px] flex flex-row justify-between items-center">
 
-                    <Link to={`/produtos/${category.id}`}>
+                    <Link to={`/produtos/`}>
                     <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                     <BadgePercent className='text-olive w-[100px] h-[100px]' />
                     </div>                   
