@@ -90,11 +90,14 @@ function Navbar() {
                     <ul className="flex flex-col">
                         {authenticated ? (
                             <>
+                            <Link to='/admin/zurah'>
                                 <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
+                                </Link>
                                 <li
                                     onClick={logout}
                                     className="border-t border-gray-700 hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg"
                                 >
+
                                     Sair
                                 </li>
                             </>
