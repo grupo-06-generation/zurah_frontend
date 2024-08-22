@@ -30,7 +30,7 @@ function CardProduct({ product }: CardProductProps) {
     };
 
     return (
-        <div className="w-[400px] h-full rounded-lg overflow-hidden shadow-lg m-4 bg-white">
+        <div className="w-[300px] rounded-lg overflow-hidden shadow-lg m-4 bg-white">
             <div className="relative">
                 <img 
                     className="w-full h-48 object-cover" 
