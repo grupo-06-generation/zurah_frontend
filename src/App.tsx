@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ListProduct from './components/Products/ListProduct/ListProduct';
 import ProductForm from './components/Products/productForm/ProductForm';
 import SellerHome from './pages/sellerHome/SellerHome';
-import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
+//import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 import Cart from './pages/Cart/Cart';
 
 function App() {

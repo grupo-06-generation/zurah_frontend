@@ -40,7 +40,7 @@ function CardProduct({ product }: CardProductProps) {
     };
 
     return (
-        <div className="w-[300px] rounded-lg overflow-hidden shadow-lg m-4 bg-white">
+        <div className="w-[400px] h-full rounded-lg overflow-hidden shadow-lg m-4 bg-white">
             <div className="relative">
                 <img 
                     className="w-full h-48 object-cover" 
@@ -87,7 +87,7 @@ function CardProduct({ product }: CardProductProps) {
                     {`Região: ${product.region}`}
                 </span>
             </div>
-            <div className="px-6 pb-4 flex items-center justify-between ">
+            <div className="px-6 pb-4 flex items-center justify-around">
                 <div className="flex items-center bg-gray-200 text-gray-700 rounded-lg">
                     <button onClick={handleDecrease} className="pl-4 pr-2 py-1">
                         <FaMinus size={20}/>
@@ -97,7 +97,7 @@ function CardProduct({ product }: CardProductProps) {
                             type="text" 
                             value={quantity} 
                             readOnly 
-                            className="w-12 text-center py-1 bg-gray-200 text-gray-700 pr-6" 
+                            className="w-12 text-center py-2 bg-gray-200 text-gray-700 pr-6" 
                         />
                         <span className="absolute right-2 text-gray-700">kg</span>
                     </div>

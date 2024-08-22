@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { buscar, deletar } from "../../../services/Service";
 import {
     AlertDialog,
@@ -27,9 +27,10 @@ interface DeleteProductModalProps {
 }
 
 function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalProps) { 
+    const [loading, setLoading] = useState(false);
     const [product, setProduct] = useState<any>({});
     const navigate = useNavigate();
-    const location = useLocation();
+    //const location = useLocation();
     
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
@@ -59,6 +60,7 @@ function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalPr
     }
 
     async function deletarProduct() {
+        setLoading(true);
         try {
             await deletar(`/product/${productId}`, {
                 headers: {
@@ -70,11 +72,13 @@ function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalPr
         } catch (error) {
             alert('Erro ao apagar o produto.');
         }
+        setLoading(false);
     }
 
     function closeModal() {
         onClose();
-        navigate(location.pathname.replace(`/deletar-produto/${productId}`, "/produtos")); // Limpa o ID da URL ao fechar o modal
+        window.location.reload();
+        navigate("/produtos"); // Limpa o ID da URL ao fechar o modal
     }
 
     return (
@@ -92,7 +96,9 @@ function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalPr
                 </Alert>
                 <AlertDialogFooter>
                     <AlertDialogCancel onClick={closeModal}>Não</AlertDialogCancel>
-                    <AlertDialogAction onClick={deletarProduct} className="bg-red-700">Sim</AlertDialogAction>
+                    <AlertDialogAction onClick={deletarProduct} className="bg-red-700">
+                        {loading ? 'Aguarde...' : 'Confirmar'}
+                    </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
