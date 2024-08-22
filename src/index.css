@@ -10,6 +10,7 @@ body {
 
 }
 
+
 @layer base {
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
@@ -22,3 +23,5 @@ body {
     border: none;
     outline: none;
   }
+
+  

@@ -98,18 +98,18 @@ function Register() {
                 <form action="" onSubmit={cadastrarNovoUsuario}>
                       <div className="mt-4">
                               <label className="block text-green-900 text-sm font-bold mb-2" htmlFor='name'>Nome</label>
-                              <input placeholder='Nome completo' className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text" required 
+                              <input placeholder='Nome completo' className="bg-[#f3f3f3] text-gray-800 outline-none py-2 px-4 block w-full appearance-none" type="text" required 
                     onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstadoInput(e)} value={usuario.name} id="nome" name="name"/>
                     </div>
                     <div className="mt-4">
                         <label className="block text-green-900 text-sm font-bold mb-2" htmlFor='usuario'>E-mail</label>
-                        <input placeholder='E-mail' id="usuario" value={usuario.usuario} name="usuario" className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" required 
+                        <input placeholder='E-mail' id="usuario" value={usuario.usuario} name="usuario" className="bg-[#f3f3f3] text-gray-800 outline-none py-2 px-4 block w-full appearance-none" type="email" required 
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstadoInput(e)}/>
                     </div>
                     
                     <div className="mt-4">
                       <label className="block text-green-900 text-sm font-bold mb-2" htmlFor="isSeller">Tipo de usuário</label>
-                      <select name="is_seller" id="isSeller" className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full" onChange={atualizarEstadoSelect}>
+                      <select name="is_seller" id="isSeller" className="bg-[#f3f3f3] text-gray-800 outline-none py-2 px-4 block w-full appearance-none" onChange={atualizarEstadoSelect}>
                         <option value="" className='text-gray-500' disabled={isDisabled}>Selecione uma opção</option>
                         <option value="1">Vendedor</option>
                         <option value="0">Comprador</option>
@@ -125,7 +125,7 @@ function Register() {
                       value={usuario.photo} 
                       onChange={atualizarEstadoInput}
                       placeholder="URL da Foto"
-                      className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                      className="bg-[#f3f3f3] text-gray-800 outline-none py-2 px-4 block w-full appearance-none"
                     />
                   </div>
 
@@ -138,7 +138,7 @@ function Register() {
                         value={usuario.password} 
                         onChange={atualizarEstadoInput}
                         placeholder="Senha"
-                        className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                        className="bg-[#f3f3f3] text-gray-800 outline-none py-2 px-4 block w-full appearance-none"
                       />
                   </div>
                   <div className="mt-4">
@@ -150,11 +150,11 @@ function Register() {
                         value={confirmaSenha} 
                         onChange={handleConfirmarSenha}
                         placeholder="Repita a senha"
-                        className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                        className="bg-[#f3f3f3] text-gray-800 outline-none py-2 px-4 block w-full appearance-none"
                       />
                   </div>
                     <div className="m-8 flex justify-center">
-                        <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700 flex justify-center">
+                        <button className="font-bold py-2 px-4 w-56 text-[#ffff] rounded-md hover:bg-orange-500 flex justify-center bg-[#843c0a]">
                         {isLoading ? <RotatingLines
                             strokeColor="white"
                             strokeWidth="5"
@@ -168,7 +168,7 @@ function Register() {
                 </form>
                 <div className="mt-4 flex items-center justify-between">
                     <span className="border-b w-1/5 md:w-1/4"></span>
-                    <Link to={'/login'} className="text-xs text-green-900 hover:text-green-500 uppercase">Ou faça login</Link>
+                    <Link to={'/login'} className="text-xs text-[#14532D] hover:text-[#22c55e] uppercase hover:scale-105">Ou faça login</Link>
                     <span className="border-b w-1/5 md:w-1/4"></span>
                 </div>
             </div>
