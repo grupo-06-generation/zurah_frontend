@@ -20,16 +20,7 @@ function Home() {
 
         
         <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
-          <Link to={"/adicionar-categoria"}>
-            <button>
-              <a
-                href="#categorias"
-                className="text-[#A0522D] text-3xl font-bold m-5"
-              >
-                Categorias
-              </a>
-            </button>
-          </Link>
+    
 
       
 
