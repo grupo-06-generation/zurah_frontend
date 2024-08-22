@@ -14,6 +14,19 @@ export function toastAlert(mensagem: string, tipo: string) {
         progress: undefined,
       });
       break;
+    
+    case 'deletado':
+      toast.success(mensagem, {
+        position: 'bottom-left',
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: 'light',
+        progress: undefined,
+      });
+      break;
 
     case 'info':
       toast.info(mensagem, {

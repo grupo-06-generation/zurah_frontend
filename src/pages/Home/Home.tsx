@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
+<<<<<<< HEAD
 import Rolagem from "../../components/Slider/Rolagem";
+=======
+import Slider from "../../components/Slider/Slider";
+>>>>>>> dev-wally
 import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer";
 import ListProduct from "../../components/Products/ListProduct/ListProduct";
 
