@@ -10,28 +10,23 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 import { AuthContext } from "@/contexts/AuthContext";
 
-import { AlertCircle } from "lucide-react"
- 
-import {
-  Alert,
-  AlertTitle,
-} from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 
 interface DeleteProductModalProps {
     productId: number;
     isOpen: boolean;
     onClose: () => void;
+    onDeleteSuccess: () => void; // Nova prop para notificar sobre exclusão bem-sucedida
 }
 
-function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalProps) { 
+function DeleteProductModal({ productId, isOpen, onClose, onDeleteSuccess }: DeleteProductModalProps) { 
     const [loading, setLoading] = useState(false);
     const [product, setProduct] = useState<any>({});
     const navigate = useNavigate();
-    //const location = useLocation();
-    
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
@@ -51,7 +46,7 @@ function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalPr
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 alert('O token expirou, favor logar novamente.');
-                handleLogout()
+                handleLogout();
                 navigate('/login');
             } else {
                 alert('Erro ao buscar produto.');
@@ -68,6 +63,7 @@ function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalPr
                 }
             });
             alert('Produto deletado com sucesso.');
+            onDeleteSuccess(); // Notifica a lista sobre a exclusão
             onClose();
         } catch (error) {
             alert('Erro ao apagar o produto.');
@@ -77,8 +73,6 @@ function DeleteProductModal({ productId, isOpen, onClose }: DeleteProductModalPr
 
     function closeModal() {
         onClose();
-        window.location.reload();
-        navigate("/produtos"); // Limpa o ID da URL ao fechar o modal
     }
 
     return (

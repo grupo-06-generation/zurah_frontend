@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import Product from "../../../models/Product";
 import DeleteProductModal from "../DeleteProduct/DeleteProductModal";
 
-
 interface CardProductProps {
     product: Product;
+    onDeleteSuccess: () => void; // Nova prop para notificar sobre exclusão bem-sucedida
 }
 
-function CardProduct({ product }: CardProductProps) {
+function CardProduct({ product, onDeleteSuccess }: CardProductProps) {
     const [quantity, setQuantity] = useState(1);
     const [totalPrice, setTotalPrice] = useState(product.price);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -30,13 +30,11 @@ function CardProduct({ product }: CardProductProps) {
     const openDeleteModal = (productId: number) => {
         setSelectedProductId(productId);
         setIsDeleteModalOpen(true);
-        window.history.pushState({}, '', `/deletar-produto/${productId}`);
     };
 
     const closeDeleteModal = () => {
         setIsDeleteModalOpen(false);
         setSelectedProductId(null);
-        window.history.pushState({}, '', `/produtos`);
     };
 
     return (
@@ -116,6 +114,7 @@ function CardProduct({ product }: CardProductProps) {
                     productId={selectedProductId} 
                     isOpen={isDeleteModalOpen} 
                     onClose={closeDeleteModal} 
+                    onDeleteSuccess={onDeleteSuccess} // Passa a função para o modal
                 />
             )}
         </div>
