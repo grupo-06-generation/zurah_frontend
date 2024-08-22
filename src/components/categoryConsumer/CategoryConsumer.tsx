@@ -14,54 +14,55 @@ function CategoryConsumer() {
                         Categorias
                     </h1>
                 </div>
-                <div className="w-[1400px] h-[200px] flex flex-row justify-between items-center">
+                <div className="w-[1400px] h-[200px] flex flex-row justify-between items-center mt-4">
 
-                    <Link to={`/produtos/`}>
-                    <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                    <BadgePercent className='text-olive w-[100px] h-[100px]' />
-                    </div>                   
-                    </Link>
-
-                    <Link to={'/adicionar-categoria'}>
-                    <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                    <Vegan className='text-olive w-[100px] h-[100px]' />
-                    </div>
-                    </Link>
-                    
-                    <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                    <Carrot className='text-olive w-[100px] h-[100px]' />
+                    <div className='flex flex-col items-center'>
+                        <Link to={`/produtos/`}>
+                            <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                                <BadgePercent className='text-olive w-[100px] h-[100px]' />
+                            </div>
+                        </Link>
+                        <h2 className='text-[21px]'>OFERTAS</h2>
                     </div>
 
-                    <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                    <Beef className='text-olive w-[100px] h-[100px]' />
+                    <div className='flex flex-col items-center'>
+                        <Link to={'/adicionar-categoria'}>
+                            <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                                <Vegan className='text-olive w-[100px] h-[100px]' />
+                            </div>
+                        </Link>
+                        <h2 className='text-[21px]'>OFERTAS</h2>
                     </div>
-                    
-                    <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                    <Milk className='text-olive w-[100px] h-[100px]' />
+
+                    <div className='flex flex-col items-center'>
+                        <Link to={'/adicionar-categoria'}>
+                            <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                                <Carrot className='text-olive w-[100px] h-[100px]' />
+                            </div>
+                        </Link>
+                        <h2 className='text-[21px]'>OFERTAS</h2>
                     </div>
-                </div>
-                <div>
-                    <ul className='flex justify-between items-center'>
-                        <li className=''>
-                            <a href="#">OFERTAS</a>
-                        </li>
 
-                        <li>
-                            <a href="#">ORGÂNICOS</a>
-                        </li>
+                    <div className='flex flex-col items-center'>
+                        <Link to={'/adicionar-categoria'}>
+                            <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                                <Beef className='text-olive w-[100px] h-[100px]' />
+                            </div>
+                        </Link>
+                        <h2 className='text-[21px]'>OFERTAS</h2>
+                    </div>
 
-                        <li>
-                            <a href="#">HORTIFRUTI</a>
-                        </li>
+                    <div className='flex flex-col items-center'>
+                        <Link to={'/adicionar-categoria'}>
+                            <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                                <Milk className='text-olive w-[100px] h-[100px]' />
+                            </div>
+                        </Link>
+                        <h2 className='text-[21px]'>OFERTAS</h2>
+                    </div>
 
-                        <li>
-                            <a href="#">AÇOUGUE & PEIXARIA</a>
-                        </li>
 
-                        <li>
-                            <a href="#">FRIOS, QUEIJOS E LATICÍNIOS</a>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
         </>
