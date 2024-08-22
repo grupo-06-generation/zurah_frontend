@@ -17,22 +17,26 @@ import ProductForm from './components/Products/productForm/ProductForm';
 import SellerHome from './pages/sellerHome/SellerHome';
 import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 import Cart from './pages/Cart/Cart';
+import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
+
+
 
 function App() {
   return (
+    <>
     <AuthProvider>
-      <ToastContainer />
+    <ToastContainer />
       <BrowserRouter>
-        <NavbarWrapper />
-        <div className='min-h-[80vh]'>
+      <NavbarWrapper />
+      <div className='w-[80vw] min-w-[1440px] max-w-[1770px] h-full mx-auto'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path="/sobre" element={<About />} />
-            <Route path="/recuperar-senha" element={<ForgotPassword />} />
-            <Route path="/categorias" element={<ListCategory />} />
+            <Route path="/recuperar-senha" element={<ForgotPassword/>} />
+            <Route path="/categorias" element={<ListCategory/>} />
             <Route path="/adicionar-categoria" element={<CategoryForm />} />
             <Route path="/editar-categoria/:id" element={<CategoryForm />} />
             <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
@@ -42,11 +46,14 @@ function App() {
             <Route path="/admin/zurah" element={<SellerHome />} />
             <Route path="/deletar-produto/:id" element={<DeleteProduct />} />
             <Route path="/carrinho" element={<Cart />} />
+            <Route path="/produtos/:id" element={<ListProductByCategory />} />
           </Routes>
-        </div>
         <Footer />
-      </BrowserRouter>
+        </div>
+      </BrowserRouter >  
     </AuthProvider>
+    </>
+    
   );
 }
 
