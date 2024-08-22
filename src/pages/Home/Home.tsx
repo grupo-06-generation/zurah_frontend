@@ -8,6 +8,7 @@ import ListProduct from "../../components/Products/ListProduct/ListProduct";
 
 function Home() {
   return (
+    <>
     
     <div className="min-h-screen bg-[#FFFBF7] flex flex-col items-center">
       <main className="flex-grow w-full p-0">
@@ -16,8 +17,6 @@ function Home() {
         </section>
 
        
-
-        
         <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
     
 
@@ -30,6 +29,7 @@ function Home() {
       </main>
       <ListCategory />
     </div>
+    </>
   );
 }
 

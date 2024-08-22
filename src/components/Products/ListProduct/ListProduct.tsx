@@ -7,12 +7,11 @@ import { TailSpin } from "react-loader-spinner";
 
 
 function ListProduct() {
-    const [Product, setProduct] = useState<Product[]>([]);
-  
+    const [item, setProduct] = useState<Product[]>([]);
   
     async function buscarProduct() {
       try {
-        await buscar('/product', setProduct, {});
+        await buscar('/product', setProduct);
       } catch (error: any) {
         alert('Erro ao buscar produtos');
         }
@@ -20,11 +19,11 @@ function ListProduct() {
   
     useEffect(() => {
       buscarProduct();
-    }, []);
+    }, [item.length]);
   
     return (
       <>
-        {Product.length === 0 && (
+        {item.length === 0 && (
           <div className="flex justify-center items-center m-5">
             <TailSpin
               visible={true}
@@ -39,7 +38,7 @@ function ListProduct() {
           </div>
         )}
         <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-          {Product.map((product) => (
+          {item.map((product) => (
             <CardProduct key={product.id} product={product} />
           ))}
         </div>
