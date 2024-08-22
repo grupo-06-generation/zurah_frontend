@@ -10,6 +10,6 @@ export default interface Product {
     price: number;
     region: string;
     photo: string;
-    category: Category | null;
+    category: Category;
     usuario: Usuario | null;
 }
