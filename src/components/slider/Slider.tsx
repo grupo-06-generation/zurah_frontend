@@ -23,6 +23,13 @@ function Slider() {
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper w-full h-96" 
     >
+        <SwiperSlide>
+        <img
+          src="src/assets/slide.png"
+          alt="Agricultor"
+          className="w-full h-full object-cover rounded" 
+        />
+      </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/techagro.jpg"
