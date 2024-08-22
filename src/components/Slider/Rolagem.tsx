@@ -6,7 +6,7 @@ import "swiper/css/autoplay";
 
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-function Slider() {
+function Rolagem() {
   return (
     <Swiper
       spaceBetween={30}
@@ -25,27 +25,27 @@ function Slider() {
     >
       <SwiperSlide>
         <img
-          src="https://i.imgur.com/pMFsGCm.png"
+          src="src/assets/techagro.jpg"
           alt="Agricultor"
-          className="w-full h-full object-cover rounded-lg" 
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src="https://i.imgur.com/H0JIGQd.png"
+          src="src/assets/news1.png"
           alt="News"
-          className="w-full h-full object rounded-lg" 
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="src/assets/zurah-logo.png"
           alt="Logo"
-          className="w-full h-full object-cover rounded-lg" 
+          className="w-full h-full object-cover rounded" 
         />
       </SwiperSlide>
     </Swiper>
   );
 }
 
-export default Slider;
+export default Rolagem;
