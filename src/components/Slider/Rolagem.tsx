@@ -6,7 +6,7 @@ import "swiper/css/autoplay";
 
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-function Slider() {
+function Rolagem() {
   return (
     <Swiper
       spaceBetween={30}
@@ -48,4 +48,4 @@ function Slider() {
   );
 }
 
-export default Slider;
+export default Rolagem;
