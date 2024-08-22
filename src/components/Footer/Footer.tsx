@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
-        <footer className="bg-[#fffbf7] text-white pt-9">
-            <div className="container mx-auto p-6">
-                <div className="flex justify-between items-start space-x-6">
+        <footer className="bg-[#FFFBF7] text-white pt-9">
+            <div className="container mx-auto p-6 ">
+                <div className="flex justify-between items-start space-x-6 ">
 
 
                     <div className="flex-1">

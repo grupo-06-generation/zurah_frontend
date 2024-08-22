@@ -2,15 +2,22 @@ import { Link } from "react-router-dom";
 import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import Slider from "../../components/slider/Slider";
+import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer";
+
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#FAEBD7] flex flex-col items-center">
+    
+    <div className="min-h-screen bg-[#FFFBF7] flex flex-col items-center">
       <main className="flex-grow w-full p-0">
         <section id="home" className="mb-12">
           <Slider />
         </section>
 
+       
+        <CategoryConsumer />
+
+        
         <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
           <Link to={"/adicionar-categoria"}>
             <button>
@@ -22,6 +29,9 @@ function Home() {
               </a>
             </button>
           </Link>
+
+       
+         
 
           {/* Produtos */}
           <div className="w-full flex flex-col items-center">
@@ -35,7 +45,6 @@ function Home() {
                   className="w-full h-48 object-cover mb-4"
                 />
                 <div className="absolute bottom-0 left-0 w-full bg-green-800 text-white text-center">
-                  Vegetais
                 </div>
               </div>
 
