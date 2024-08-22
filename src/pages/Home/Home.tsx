@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import Slider from "../../components/slider/Slider";
-import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListProduct from "../../components/Products/ListProduct/ListProduct";
 
 function Home() {
@@ -91,7 +90,7 @@ function Home() {
 
           <CarroselProduct />
 
-          {/* Produtos */}
+          {/* Mais Produtos */}
           <div className="w-full flex flex-col items-center">
             {/* Grid de Produtos */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-3/4 ">
@@ -158,11 +157,7 @@ function Home() {
         </div>
       </main>
       <ListCategory />
-
     </div>
-
-      </div>
-
   );
 }
 
