@@ -7,7 +7,7 @@ function ProductModal() {
   return (
     <>
       <Popup 
-      trigger={<button className='rounded bg-[#ff8000] text-[#1f2937] py-3 px-4'>Novo Produto</button>} modal>
+      trigger={<button className='rounded bg-olive text-[#fff8eb] py-3 px-3'>Novo Produto</button>} modal>
         <div>
           <ProductForm />
         </div>

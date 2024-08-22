@@ -25,30 +25,30 @@ function CarroselProduct() {
       >
         <SwiperSlide>
           <img
-            src="src/assets/brocolis-2.jpg"
+            src="src/assets/Zurah (4).png"
             alt="slid"
             className="w-full h-full object-cover "
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="src/assets/cenouras.jpg"
+            src="src/assets/Zurah (3).png"
             alt="Agricultor"
             className="w-full h-full object-cover "
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="src/assets/couveflor.jpg"
+            src="src/assets/Zurah (1).png"
             alt="Agricultor"
             className="w-full h-full object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="src/assets/frutinhas-veg.jpg"
+            src="src/assets/Zurah (2).png"
             alt="Agricultor"
-            className="w-full h-full object-cover "
+            className="w-[500] h-[500] object-cover "
           />
         </SwiperSlide>
         <SwiperSlide>

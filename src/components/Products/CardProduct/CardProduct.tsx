@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import Product from "../../../models/Product";
 import { FaTrashAlt } from "react-icons/fa";
@@ -6,6 +6,8 @@ import { FaPen } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { toastAlert } from "../../../utils/toastAlert";
 
 interface CardProductProps {
     product: Product;
@@ -14,6 +16,18 @@ interface CardProductProps {
 function CardProduct({ product }: CardProductProps) {
     const [quantity, setQuantity] = useState(1);
     const [totalPrice, setTotalPrice] = useState(product.price);
+
+    const { adicionarProduto } = useContext(AuthContext);
+
+    function addToCart(){
+        const input = document.getElementById('quantidade') as HTMLInputElement | null;
+
+        if(input !== null){
+            const value = parseFloat(input.value);
+            adicionarProduto(product, value);
+            toastAlert("Produto adicionado ao carrinho", 'sucesso')
+        }
+    }
 
     const handleIncrease = () => {
         const newQuantity = quantity + 1;
@@ -83,6 +97,7 @@ function CardProduct({ product }: CardProductProps) {
                         <input 
                             type="text" 
                             value={quantity} 
+                            id="quantidade"
                             readOnly 
                             className="w-12 text-center py-1 bg-gray-200 text-gray-700 pr-6" 
                         />
@@ -92,7 +107,8 @@ function CardProduct({ product }: CardProductProps) {
                         <FaPlus size={20}/>
                     </button>
                 </div>
-                <button className="flex items-center bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700">
+                <button className="flex items-center bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700"
+                    onClick={addToCart}>
                     <FaShoppingCart className="mr-2" />
                     Adicionar
                 </button>

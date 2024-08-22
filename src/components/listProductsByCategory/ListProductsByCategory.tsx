@@ -6,7 +6,7 @@ import CardProduct from "../../components/../components/Products/CardProduct/Car
 import { TailSpin } from "react-loader-spinner";
 
 function ListProductByCategory() {
-    const { id } = useParams<{ id: string }>(); // Pegando o ID da categoria via URL
+    const { id } = useParams<{ id: string }>(); 
     const [products, setProducts] = useState<Product[]>([]);
 
     async function buscarProdutos() {

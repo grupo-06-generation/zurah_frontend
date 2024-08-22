@@ -83,12 +83,12 @@ function Register() {
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
-        <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full sm:w-3/4">
+        <div className="flex bg-[#FFF] rounded-lg shadow-lg overflow-hidden w-full sm:w-3/4">
             <div className="hidden lg:block lg:w-1/2 bg-cover"
                 style={{ backgroundImage: "url('https://blog.7mboots.com.br/wp-content/uploads/2021/01/working-on-plantation-UJ9W6ZA-scaled.jpg')" }}>
             </div>
-            <div className="w-full p-8 lg:w-1/2">
-                <img src="src/assets/zurah-logo-green.PNG" alt="" className="h-auto w-[150px] mx-auto"/>
+            <div className=" w-full p-8 lg:w-1/2">
+                <img src="https://i.imgur.com/KIEEiTe.png" alt="" className="h-auto w-[150px] mx-auto"/>
                 <p className="text-xl text-gray-600 text-center mt-4 mb-8">Seja bem-vindo!</p>
                 <div className="mt-4 flex items-center justify-between">
                     <span className="border-b w-1/5 lg:w-1/4"></span>
