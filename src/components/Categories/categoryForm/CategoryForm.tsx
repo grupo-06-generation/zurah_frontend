@@ -97,7 +97,7 @@ function CategoryForm() {
   }, [token]);
 
   return (
-    <div className="container flex flex-col items-center justify-center mx-auto">
+    <div className="flex flex-col items-center min-h-screen justify-center">
       <h1 className="text-4xl text-center my-8">
         {id === undefined ? 'Cadastre uma nova Categoria' : 'Editar Categoria'}
       </h1>

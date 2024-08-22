@@ -20,11 +20,10 @@ import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
-    <>
     <AuthProvider>
-    <ToastContainer />
+      <ToastContainer />
       <BrowserRouter>
-      <NavbarWrapper />
+        <NavbarWrapper />
         <div className='min-h-[80vh]'>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -32,8 +31,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path="/sobre" element={<About />} />
-            <Route path="/recuperar-senha" element={<ForgotPassword/>} />
-            <Route path="/categorias" element={<ListCategory/>} />
+            <Route path="/recuperar-senha" element={<ForgotPassword />} />
+            <Route path="/categorias" element={<ListCategory />} />
             <Route path="/adicionar-categoria" element={<CategoryForm />} />
             <Route path="/editar-categoria/:id" element={<CategoryForm />} />
             <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
@@ -46,9 +45,8 @@ function App() {
           </Routes>
         </div>
         <Footer />
-      </BrowserRouter >   
+      </BrowserRouter>
     </AuthProvider>
-    </>
   );
 }
 

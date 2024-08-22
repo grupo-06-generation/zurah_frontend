@@ -1,82 +1,75 @@
-
+import { GithubLogo, LinkedinLogo } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 
-function Footer(){
-    return(
+function Footer() {
+    return (
+        <footer className="bg-[#FFFBF7] text-white pt-9">
+            <div className="container mx-auto p-6 ">
+                <div className="flex justify-between items-start space-x-6 ">
 
-        <footer className="bg-[#843C0A] text-white">
 
-            <img src="" alt="" />
-
-            <div className="grid grid-cols-12 p-14 pb-10 justify-center">
-
-                <div className="col-span-4">
-                    <span className="text-gray-100 font-bold font-['Linden_Hill'] text-[28px] hover:text-gray-300">
-                        <Link to="/" className='h-full w-full'>
-                            <img src="src/assets/zurah-logo.PNG" alt="" className="h-[40px] w-auto"/>
+                    <div className="flex-1">
+                        <Link to="/" className="block mb-3">
+                            <img
+                                src="https://i.imgur.com/KIEEiTe.png"
+                                alt="Zurah Logo"
+                                className="h-[55px] w-auto"
+                            />
                         </Link>
-                    </span>
-                    <p className='w-3/4 mt-3 text-gray-300'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam error nihil consequatur eaque. </p>
+                        <p>
+                        Conectando Sabor e Sustentabilidade<br/>
+                        do Campo à Mesa.
+                        </p>
+                    </div>
+
+
+                    <div className="flex-1">
+                        <h3 className="mb-4 font-semibold text-[#843C0A]">Páginas</h3>
+                        <ul className="text-white">
+                            <li className="mb-1 hover:text-[#843C0A]">
+                                <Link to={'/home'}>Principal</Link>
+                            </li>
+                            <li className="mb-1 hover:text-[#843C0A]">
+                                <Link to={'/sobre'}>Sobre Nós</Link>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div className="flex-wrap">
+                        <h3 className="mb-4 font-semibold text-[#843C0A]">Newsletter</h3>
+                        <form action="">
+                            <input type="text" className=" bg-[#f3f3f3] font-sans px-2 py-1 w-2/3 text-[#843C0A] mb-2 outline-none  " placeholder="email@email.com " required />
+
+                            <button type="submit" className="bg-[#843C0A] hover:bg-[#72401de0] text-[#ffff] px-3 py-1 rounded-lg mt-1 ">Inscrever-se</button>
+                        </form>
+                    </div>
                 </div>
 
-                <div className="col-span-2">
-                    {/* <h3 className="text-gray-50 mb-4 font-semibold">Categorias</h3> */}
-                    {/* <ul className="text-gray-300">
-                        <li className="mb-1 hover:text-white">
-                            Sobre Nós
+                <div className="flex justify-center py-6 ">
+
+                    <ul className='flex flex-row gap-4'>
+                        <li className='transition-transform transform hover:scale-125 duration-300 ease-in-out cursor-pointer'>
+                            <a href="https://linktr.ee/projetozurah" target='_blank'>
+                                <LinkedinLogo size={32} />
+                            </a>
                         </li>
-                        <li className="mb-1 hover:text-white">
-                            Contato
-                        </li>
-                        <li className="mb-1 hover:text-white">
-                            Frutas
+
+                        <li className='transition-transform transform hover:scale-125 duration-300 ease-in-out cursor-pointer'>
+                            <a href="http://" target="_blank" rel="noopener noreferrer">
+                            <GithubLogo size={32} />
+                            </a>
                             
-                        </li>
-                    </ul> */}
-                </div>
-
-                <div className="col-span-2">
-                    <h3 className="text-gray-50 mb-4 font-semibold">Páginas</h3>
-                    <ul className="text-gray-300">
-                        <li className="mb-1 hover:text-white">
-                            <Link to={'/home'}>Principal</Link>
-                        </li>
-                        <li className="mb-1 hover:text-white">
-                            <Link to={'/contact'}>Contato</Link>
-                        </li>
-                        <li className="mb-1 hover:text-white">
-                            <Link to={'/sobre'}>Sobre Nós</Link>
                         </li>
                     </ul>
                 </div>
 
-                <div className="col-span-4">
-                    <h3 className="text-gray-50 mb-4 font-semibold ">Newsletter</h3>
-                    <form action="" >
-                        <input type="email" className="mr-3 rounded-sm font-sans px-2 py-1 w-2/3 text-gray-800" placeholder='email@email.com' required/>
-                        <button type="submit" className='bg-green-500 hover:bg-green-700 text-white px-3 py-1 rounded-sm'>Inscrever-se</button>
-                    </form>
+                <div className="text-center py-4 border-t-[0.2px] border-[#c59e82a9]">
+                    <p>© Zurah 2024. Todos os direitos reservados.</p>
                 </div>
             </div>
-
-            <div className='flex justify-center pb-10'>
-                <a href="#">
-                    <img src="src/assets/redes-sociais/facebook.svg" alt="" className="w-10 h-10 mx-4 transition-transform transform hover:scale-125 duration-300 ease-in-out"/>
-                </a>
-                <a href="#">
-                    <img src="src/assets/redes-sociais/instagram.svg" alt="" className="w-10 h-10 mx-4 transition-transform transform hover:scale-125 duration-300 ease-in-out"/>
-                </a>
-                <a href="#">
-                    <img src="src/assets/redes-sociais/github.svg" alt="" className="w-10 h-10 mx-4 transition-transform transform hover:scale-125 duration-300 ease-in-out"/>
-                </a>
-            </div>
-
-            <div className="flex items-center justify-center p-6">
-                <p>© 2024 Zurah. All rights reserved.</p>
-            </div>
-
         </footer>
-    )
+    );
 }
 
 export default Footer;
