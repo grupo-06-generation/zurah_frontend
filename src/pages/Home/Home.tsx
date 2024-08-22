@@ -16,7 +16,7 @@ function Home() {
         </section>
 
        
-        <CategoryConsumer />
+
 
         
         <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
