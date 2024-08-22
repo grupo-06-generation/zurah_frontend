@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
-import Slider from "../../components/slider/Slider";
+import Slider from "../../components/Slider/Slider";
 import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer";
 import ListProduct from "../../components/Products/ListProduct/ListProduct";
 
