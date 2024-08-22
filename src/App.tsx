@@ -28,7 +28,7 @@ function App() {
     <ToastContainer />
       <BrowserRouter>
       <NavbarWrapper />
-      <div className='w-[80vw] min-w-[1440px] max-w-[1770px] h-full mx-auto'>
+      <div className='w-[80vw] max-w-[1770px] h-full mx-auto'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
