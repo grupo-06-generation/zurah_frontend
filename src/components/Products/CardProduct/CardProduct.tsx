@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import Product from "../../../models/Product";
-import { FaTrashAlt } from "react-icons/fa";
-import { FaPen } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa";
-import { FaMinus } from "react-icons/fa6";
+import { FaShoppingCart, FaTrashAlt, FaPen, FaPlus, FaMinus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Product from "../../../models/Product";
+import DeleteProductModal from "../DeleteProduct/DeleteProductModal";
+
 
 interface CardProductProps {
     product: Product;
@@ -14,19 +12,31 @@ interface CardProductProps {
 function CardProduct({ product }: CardProductProps) {
     const [quantity, setQuantity] = useState(1);
     const [totalPrice, setTotalPrice] = useState(product.price);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
 
     const handleIncrease = () => {
-        const newQuantity = quantity + 1;
-        setQuantity(newQuantity);
-        setTotalPrice((prevTotal) => prevTotal + product.price);
+        setQuantity(quantity + 1);
+        setTotalPrice(totalPrice + product.price);
     };
 
     const handleDecrease = () => {
         if (quantity > 1) {
-            const newQuantity = quantity - 1;
-            setQuantity(newQuantity);
-            setTotalPrice((prevTotal) => prevTotal - product.price);
+            setQuantity(quantity - 1);
+            setTotalPrice(totalPrice - product.price);
         }
+    };
+
+    const openDeleteModal = (productId: number) => {
+        setSelectedProductId(productId);
+        setIsDeleteModalOpen(true);
+        window.history.pushState({}, '', `/deletar-produto/${productId}`);
+    };
+
+    const closeDeleteModal = () => {
+        setIsDeleteModalOpen(false);
+        setSelectedProductId(null);
+        window.history.pushState({}, '', `/produtos`);
     };
 
     return (
@@ -46,9 +56,12 @@ function CardProduct({ product }: CardProductProps) {
                     <span className="ml-2 text-gray-700 font-bold">{product.usuario?.name}</span>
                 </div>
                 <div className="absolute top-2 right-2 flex items-center gap-4">
-                    <Link to={`/deletar-produto/${product.id}`} className="bg-white rounded-xl py-1 px-2 opacity-90">
+                    <button 
+                        className="bg-white rounded-xl py-1 px-2 opacity-90" 
+                        onClick={() => openDeleteModal(product.id)}
+                    >
                         <FaTrashAlt />
-                    </Link>
+                    </button>
                     <Link to={`/editar-produto/${product.id}`} className="bg-white rounded-xl py-1 px-2 opacity-90">
                         <FaPen />
                     </Link>
@@ -97,6 +110,14 @@ function CardProduct({ product }: CardProductProps) {
                     Adicionar
                 </button>
             </div>
+
+            {selectedProductId && (
+                <DeleteProductModal 
+                    productId={selectedProductId} 
+                    isOpen={isDeleteModalOpen} 
+                    onClose={closeDeleteModal} 
+                />
+            )}
         </div>
     );
 }

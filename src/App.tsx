@@ -40,7 +40,7 @@ function App() {
             <Route path="/cadastrar-produto" element={<ProductForm />} />
             <Route path="/editar-produto/:id" element={<ProductForm />} />
             <Route path="/admin/zurah" element={<SellerHome />} />
-            <Route path="/deletar-produto/:id" element={<DeleteProduct />} />
+            
             <Route path="/carrinho" element={<Cart />} />
           </Routes>
         </div>
