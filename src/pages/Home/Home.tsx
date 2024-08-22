@@ -82,7 +82,7 @@ function Home() {
 
           <CarroselProduct />
 
-          {/* Produtos */}
+          {/* Mais Produtos */}
           <div className="w-full flex flex-col items-center">
             {/* Grid de Produtos */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-3/4 ">
@@ -145,10 +145,11 @@ function Home() {
               {/* Adicione mais produtos conforme necessário */}
             </div>
           </div>
+          <ListProduct />
         </div>
       </main>
       <ListCategory />
-      </div>
+    </div>
   );
 }
 

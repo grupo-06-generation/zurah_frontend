@@ -18,24 +18,21 @@ import SellerHome from './pages/sellerHome/SellerHome';
 import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 import Cart from './pages/Cart/Cart';
 
-
-
 function App() {
   return (
-    <>
     <AuthProvider>
-    <ToastContainer />
+      <ToastContainer />
       <BrowserRouter>
-      <NavbarWrapper />
-      <div className=''>
+        <NavbarWrapper />
+        <div className='min-h-[80vh]'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path="/sobre" element={<About />} />
-            <Route path="/recuperar-senha" element={<ForgotPassword/>} />
-            <Route path="/categorias" element={<ListCategory/>} />
+            <Route path="/recuperar-senha" element={<ForgotPassword />} />
+            <Route path="/categorias" element={<ListCategory />} />
             <Route path="/adicionar-categoria" element={<CategoryForm />} />
             <Route path="/editar-categoria/:id" element={<CategoryForm />} />
             <Route path="/deletar-categoria/:id" element={<DeleteCategory />} />
@@ -46,12 +43,10 @@ function App() {
             <Route path="/deletar-produto/:id" element={<DeleteProduct />} />
             <Route path="/carrinho" element={<Cart />} />
           </Routes>
-        <Footer />
         </div>
-      </BrowserRouter >  
+        <Footer />
+      </BrowserRouter>
     </AuthProvider>
-    </>
-    
   );
 }
 
