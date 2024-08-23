@@ -128,11 +128,6 @@ function Navbar() {
                                 <p className='font-[21px] text-[#843C0A]'>Hortifruti</p>
                             </li>
 
-                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2 '>
-                                <Leaf size={20} className='font-[21px] text-[#843C0A]' />
-                                <p className='font-[21px] text-[#843C0A]'>Açougue & Peixaria</p>
-                            </li>
-
                             <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
                                 <Leaf size={20} className='font-[21px] text-[#843C0A]' />
                                 <p className='font-[21px] text-[#843C0A]'>Orgânicos</p>
