@@ -8,7 +8,7 @@ import { toastAlert } from "@/utils/toastAlert";
 
 function ListaProductHome() {
     const [products, setProducts] = useState<Product[]>([]);
-  
+
     async function buscarProducts() {
         try {
             await buscar('/product', setProducts, {});
@@ -16,7 +16,7 @@ function ListaProductHome() {
             toastAlert('Erro ao buscar produtos', 'erro');
         }
     }
-  
+
     useEffect(() => {
         buscarProducts();
     }, []);
@@ -42,9 +42,11 @@ function ListaProductHome() {
                     />
                 </div>
             )}
-            <div className='container mt-4 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+            <div className='mt-4 mb-56 flex flex-wrap gap-6 justify-between'>
                 {products.map((product) => (
-                    <CardProductHome key={product.id} product={product} />
+                    <div key={product.id} className='h-full'>
+                        <CardProductHome product={product} />
+                    </div>
                 ))}
             </div>
         </>
