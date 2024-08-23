@@ -30,3 +30,11 @@
   opacity: 1;
   font-size: 28px;
 }
+
+.swiper-pagination-bullet-active-next {
+  color: #843C0A;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #843C0A ;
+}

@@ -118,7 +118,7 @@ function ProductForm() {
 
     try {
       if (id) {
-        await atualizar(`/product`, product, setProduct, {
+        await atualizar("/product", product, setProduct, {
           headers: {
             Authorization: token,
           },
@@ -298,4 +298,4 @@ function ProductForm() {
   );
 }
 
-export default ProductForm;
+export default ProductForm;
