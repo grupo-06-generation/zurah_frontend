@@ -130,7 +130,7 @@ function Login() {
                         <span className="border-b w-1/5 md:w-1/4"></span>
                         <Link
                             to="/register"
-                            className="text-xs font-medium uppercase transition-transform duration-300 hover:scale-105 hover:text-green-600"
+                            className="text-xs uppercase transition-transform duration-300 hover:scale-105 text-[#14532D] hover:text-[#22c55e] "
                         >
                             Ou Cadastrar-se
                         </Link>

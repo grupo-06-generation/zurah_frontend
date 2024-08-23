@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ListProduct from './components/Products/ListProduct/ListProduct';
 import ProductForm from './components/Products/productForm/ProductForm';
 import SellerHome from './pages/sellerHome/SellerHome';
-import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
+//import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 import Cart from './pages/Cart/Cart';
 import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
 
@@ -44,7 +44,7 @@ function App() {
             <Route path="/cadastrar-produto" element={<ProductForm />} />
             <Route path="/editar-produto/:id" element={<ProductForm />} />
             <Route path="/admin/zurah" element={<SellerHome />} />
-            <Route path="/deletar-produto/:id" element={<DeleteProduct />} />
+            
             <Route path="/carrinho" element={<Cart />} />
             <Route path="/produtos/:id" element={<ListProductByCategory />} />
           </Routes>

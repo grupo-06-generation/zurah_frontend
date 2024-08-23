@@ -9,11 +9,12 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 function Rolagem() {
   return (
     <Swiper
+      rewind={true}
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
+      delay: 2500,
+      disableOnInteraction: false,
       }}
       pagination={{
         clickable: true,
@@ -21,27 +22,27 @@ function Rolagem() {
       navigation={true}
       effect="fade"
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper w-full h-96" 
+      className="mySwiper w-full h-96"
     >
       <SwiperSlide>
         <img
           src="https://i.imgur.com/pMFsGCm.png"
           alt="Agricultor"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-full object-cover rounded"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="https://i.imgur.com/H0JIGQd.png"
           alt="News"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-full object-cover rounded"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src="https://i.imgur.com/M2f5g1V.png"
           alt="Logo"
-          className="w-full h-full object-cover rounded" 
+          className="w-full h-full object-cover rounded"
         />
       </SwiperSlide>
     </Swiper>

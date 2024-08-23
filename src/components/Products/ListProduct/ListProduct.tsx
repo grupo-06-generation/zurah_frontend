@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-//import { useNavigate } from "react-router-dom";
 import Product from "../../../models/Product";
 import CardProduct from "../CardProduct/CardProduct";
 import { buscar } from "../../../services/Service";
 import { TailSpin } from "react-loader-spinner";
-
 
 function ListProduct() {
     const [item, setProduct] = useState<Product[]>([]);
@@ -45,6 +43,6 @@ function ListProduct() {
        
       </>
     );
-  }
-  
-  export default ListProduct;
+}
+
+export default ListProduct;
