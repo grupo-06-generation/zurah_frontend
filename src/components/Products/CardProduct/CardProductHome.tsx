@@ -26,7 +26,7 @@ function CardProductHome({product}: CardProductHomeProps) {
 
   return (
     <div className="w-[270px]">
-        <Card className="flex flex-col items-center border border-gray-400">
+        <Card className="flex flex-col items-center border border-gray-400 h-[404px]">
             <div className="relative w-full">
                 <img 
                     className="w-full px-0 h-48 object-cover rounded-md" 
@@ -35,7 +35,7 @@ function CardProductHome({product}: CardProductHomeProps) {
                 />
                 <div className="absolute top-2 left-2 flex items-center bg-white rounded-lg py-1 px-2 bg-opacity-60">
                     <Img 
-                        notFoundSrc="https://i.pinimg.com/originals/e5/df/45/e5df457e8de5d0aae37691c00e8a672e.jpg"
+                        notfoundsrc="https://i.pinimg.com/originals/e5/df/45/e5df457e8de5d0aae37691c00e8a672e.jpg"
                         src={product.usuario?.photo} 
                         alt={product.usuario?.name} 
                         className="w-6 h-6 rounded-full border-2 border-white"
@@ -45,7 +45,7 @@ function CardProductHome({product}: CardProductHomeProps) {
             </div>
             <CardHeader className="p-4">
                 <CardTitle>{product.name}</CardTitle>
-                <CardDescription>{product.description}</CardDescription>
+                <CardDescription className=" line-clamp-2">{product.description}</CardDescription>
             </CardHeader>
             <CardContent className="p-2">
                 <p className="text-xl font-semibold">R$ {product.price.toFixed(2)}</p>
