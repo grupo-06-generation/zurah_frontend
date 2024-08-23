@@ -15,7 +15,7 @@ function Home() {
         <section id="home" className="mb-12">
           <Rolagem />
         </section>
-        <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
+        <div className="flex-grow w-full p-14 flex flex-col items-center pb-6 space-y-10">
 
           <CategoryConsumer />
           
@@ -24,7 +24,6 @@ function Home() {
           <CarroselProduct />
         </div>
       </main>
-      <ListCategory />
     </div>
     </>
   );
