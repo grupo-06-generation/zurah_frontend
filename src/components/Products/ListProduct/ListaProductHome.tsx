@@ -3,6 +3,8 @@ import Product from "../../../models/Product";
 import { buscar } from "../../../services/Service";
 import { TailSpin } from "react-loader-spinner";
 import CardProductHome from "../CardProduct/CardProductHome";
+import { Separator } from "@/components/ui/separator";
+import { toastAlert } from "@/utils/toastAlert";
 
 function ListaProductHome() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -11,7 +13,7 @@ function ListaProductHome() {
         try {
             await buscar('/product', setProducts, {});
         } catch (error: any) {
-            alert('Erro ao buscar produtos');
+            toastAlert('Erro ao buscar produtos', 'erro');
         }
     }
   

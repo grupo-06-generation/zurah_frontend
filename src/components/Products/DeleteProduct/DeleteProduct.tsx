@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Product from "../../../models/Product";
 import { buscar, deletar } from "../../../services/Service";
+import { toastAlert } from "@/utils/toastAlert";
 
 
 function DeleteProduct() { 
@@ -23,7 +24,7 @@ function DeleteProduct() {
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente.');
+                toastAlert('O token expirou, favor logar novamente.', 'info');
                 handleLogout();
             } else {
                 alert('Erro ao buscar produto.');

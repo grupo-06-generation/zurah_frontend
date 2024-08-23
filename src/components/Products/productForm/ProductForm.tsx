@@ -118,7 +118,7 @@ function ProductForm() {
 
     try {
       if (id) {
-        await atualizar(`/product`, product, setProduct, {
+        await atualizar("/product", product, setProduct, {
           headers: {
             Authorization: token,
           },
@@ -139,7 +139,7 @@ function ProductForm() {
         toastAlert('O token expirou, favor logar novamente', 'info');
         handleLogout();
       } else {
-        toastAlert('Erro ao processar o produto', 'error');
+        toastAlert('Erro ao processar o produto', 'erro');
         
       }
     }
@@ -298,4 +298,4 @@ function ProductForm() {
   );
 }
 
-export default ProductForm;
+export default ProductForm;

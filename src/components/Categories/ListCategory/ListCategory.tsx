@@ -3,6 +3,7 @@ import Category from "../../../models/Category";
 import { buscar } from "../../../services/Service";
 import { TailSpin } from "react-loader-spinner";
 import CardCategory from "../cardCategory/CardCategory";
+import { toastAlert } from "@/utils/toastAlert";
 
 
 function ListCategory() {
@@ -13,7 +14,7 @@ function ListCategory() {
         try {
             await buscar('/category', setCategory )
         } catch (error: any) {
-            alert(error);
+            toastAlert(error, 'erro');
         }
     }
 
