@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 function Cart() {
 
-  const { items, quantidadeItems, limparCarrinho, removerProduto } = useContext(AuthContext);
+  const { items, quantidadeItems, limparCarrinho, precoTotal } = useContext(AuthContext);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
@@ -36,7 +36,7 @@ function Cart() {
               </Link>
             </div>
             <div className='w-1/2 flex justify-end'>
-              <p className='text-gray-600 font-medium'>SUBTOTAL: R$ 109,99</p>
+              <p className='text-gray-600 font-medium'>SUBTOTAL: R$ {precoTotal}</p>
             </div>
           </div>
           
@@ -45,9 +45,9 @@ function Cart() {
       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full lg:w-3/4 xl:w-1/2 mt-2 xl:mt-4">
         <div className='m-6 flex items-center justify-between w-full'>
           <div>
-            <p className='text-gray-600 font-normal text-xs mb-1'>SUBTOTAL: R$ 109,99</p>
+            <p className='text-gray-600 font-normal text-xs mb-1'>SUBTOTAL: R$ {precoTotal}</p>
             <p className='text-gray-600 font-normal text-xs mb-2'>FRETE: R$ 00,00</p>
-            <p className='text-gray-600 font-medium text-xl'>TOTAL: R$ 109,99</p>
+            <p className='text-gray-600 font-medium text-xl'>TOTAL: R$ {precoTotal}</p>
           </div>
           <button className='bg-green-500 flex items-center gap-3 text-white p-4 rounded' onClick={limparCarrinho}>
             <FaCreditCard size={20} />
