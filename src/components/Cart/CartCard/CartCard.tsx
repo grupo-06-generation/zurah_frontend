@@ -29,7 +29,7 @@ function CartCard({ item }: CartCardProps) {
             <p className="ml-2 text-sm text-gray-500 font-medium truncate overflow-ellipsis ">{item.name}</p>
         </div>
         <div className="flex items-center gap-4 w-1/3 justify-end">
-            <p className="ml-2 text-sm text-gray-500 font-medium" id="price-cart-card">R${item.price}</p>
+            <p className="ml-2 text-sm text-gray-500 font-medium" id="price-cart-card">R${item.price.toFixed(2)}</p>
         </div>
     </div>
   )
