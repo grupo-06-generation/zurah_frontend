@@ -46,11 +46,11 @@ function DeleteProductModal({ productId, isOpen, onClose, onDeleteSuccess }: Del
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente.');
+                toastAlert('O token expirou, favor logar novamente.', 'info');
                 handleLogout();
                 navigate('/login');
             } else {
-                alert('Erro ao buscar produto.');
+                toastAlert('Erro ao buscar produto.', 'erro');
             }
         }
     }
@@ -68,7 +68,7 @@ function DeleteProductModal({ productId, isOpen, onClose, onDeleteSuccess }: Del
             onDeleteSuccess(); // Notifica a lista sobre a exclusão
             onClose();
         } catch (error) {
-            alert('Erro ao apagar o produto.');
+            toastAlert('Erro ao apagar o produto.', 'erro');
         }
         setLoading(false);
     }
