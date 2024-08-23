@@ -268,8 +268,9 @@ function SellerHome() {
               </div>
             </div>
           </div>
-         <div className="mt-10"> <ProductModal /></div>
-          
+          <div className="mt-10"> 
+            <ProductModal />
+          </div>
         </main>
       </div>
     </div>
