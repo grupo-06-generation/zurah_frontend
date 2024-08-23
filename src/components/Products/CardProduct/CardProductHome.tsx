@@ -35,7 +35,7 @@ function CardProductHome({product}: CardProductHomeProps) {
                 />
                 <div className="absolute top-2 left-2 flex items-center bg-white rounded-lg py-1 px-2 bg-opacity-60">
                     <Img 
-                        notFoundSrc="https://i.pinimg.com/originals/e5/df/45/e5df457e8de5d0aae37691c00e8a672e.jpg"
+                        notfoundsrc="https://i.pinimg.com/originals/e5/df/45/e5df457e8de5d0aae37691c00e8a672e.jpg"
                         src={product.usuario?.photo} 
                         alt={product.usuario?.name} 
                         className="w-6 h-6 rounded-full border-2 border-white"
