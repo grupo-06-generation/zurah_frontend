@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Category from "../../../models/Category";
-// import { useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
 import { TailSpin } from "react-loader-spinner";
 import CardCategory from "../cardCategory/CardCategory";
