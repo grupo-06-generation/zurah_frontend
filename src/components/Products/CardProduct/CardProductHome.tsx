@@ -25,9 +25,9 @@ function CardProductHome({product}: CardProductHomeProps) {
   return (
     <div className="w-[270px]">
         <Card className="flex flex-col items-center border border-gray-400">
-            <div className="relative">
+            <div className="relative w-full">
                 <img 
-                    className="w-full h-48 object-cover" 
+                    className="w-full px-0 h-48 object-cover rounded-md" 
                     src={product.photo} 
                     alt={product.name} 
                 />
