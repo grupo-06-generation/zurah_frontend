@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
-import Rolagem from "../../components/Slider/Rolagem";
 import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer";
 import ListProduct from "../../components/Products/ListProduct/ListProduct";
+import Rolagem from "../../components/Slider/Rolagem";
 
 
 function Home() {
