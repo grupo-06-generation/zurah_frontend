@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot, Cow } from '@phosphor-icons/react';
+import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot, Cow, CoffeeBean } from '@phosphor-icons/react';
 import { toastAlert } from '../../utils/toastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Leaf, Tag } from 'phosphor-react';
@@ -66,14 +66,13 @@ function Navbar() {
 
                     <div className='flex items-center space-x-4'>
                         <div className='relative'>
-                            <Link
-                                to="/carrinho"
-                                className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
-                                onClick={toggleDropdown}
-                            >
+                            <Link to={'/carrinho'}>
+                            <div>
                                 <Basket className="w-8 h-8 text-[#843C0A] flex items-center" />
+                            </div>
                             </Link>
                         </div>
+                        
                         <div className='relative'>
                             <div
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
@@ -87,16 +86,16 @@ function Navbar() {
                 </div>
             </div>
             {dropdownOpen && (
-                <div ref={dropdownRef} className="absolute right-4 w-[150px] text-white rounded-lg bg-olive">
+                <div ref={dropdownRef} className=" z-[100] absolute right-4 w-[150px] text-white rounded-xl bg-olive">
                     <ul className="flex flex-col">
                         {authenticated ? (
                             <>
                             <Link to='/admin/zurah'>
-                                <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
+                                <li className="hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
                                 </Link>
                                 <li
                                     onClick={logout}
-                                    className="border-t border-gray-700 hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg"
+                                    className="border-t border-[#80800057] hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-xl"
                                 >
 
                                     Sair
@@ -104,7 +103,7 @@ function Navbar() {
                             </>
                         ) : (
                             <Link to="/login" className="text-white no-underline">
-                                <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">
+                                <li className="hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-xl">
                                     Entrar
                                 </li>
                             </Link>
@@ -126,6 +125,11 @@ function Navbar() {
                             <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
                                 <Carrot size={20} className='font-[21px] text-[#843C0A]' />
                                 <p className='font-[21px] text-[#843C0A]'>Hortifruti</p>
+                            </li>
+
+                            <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2 '>
+                                <CoffeeBean size={20} className='font-[21px] text-[#843C0A]' />
+                                <p className='font-[21px] text-[#843C0A]'>Cereais</p>
                             </li>
 
                             <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
