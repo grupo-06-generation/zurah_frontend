@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import Product from "../../../models/Product";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaShoppingCart } from "react-icons/fa";
-import { useContext } from "react";
+import { ImgHTMLAttributes, useContext } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
 import { toastAlert } from "@/utils/toastAlert";
+import Img from "@/components/Img/Img";
 interface CardProductHomeProps{
     product: Product;
 }
@@ -22,6 +23,7 @@ function CardProductHome({product}: CardProductHomeProps) {
         }
     }
 
+
   return (
     <div className="w-[270px]">
         <Card className="flex flex-col items-center border border-gray-400">
@@ -32,7 +34,8 @@ function CardProductHome({product}: CardProductHomeProps) {
                     alt={product.name} 
                 />
                 <div className="absolute top-2 left-2 flex items-center bg-white rounded-lg py-1 px-2 bg-opacity-60">
-                    <img 
+                    <Img 
+                        notFoundSrc="https://i.pinimg.com/originals/e5/df/45/e5df457e8de5d0aae37691c00e8a672e.jpg"
                         src={product.usuario?.photo} 
                         alt={product.usuario?.name} 
                         className="w-6 h-6 rounded-full border-2 border-white"
