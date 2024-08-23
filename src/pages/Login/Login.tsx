@@ -111,7 +111,7 @@ function Login() {
                             </Link>
                         </div>
                         <div className="m-8 flex justify-center">
-                            <button className="font-bold py-2 px-4 w-56 text-[#ffff] rounded-md hover:bg-[#87400e] text-[#fff8eb] flex justify-center bg-[#843c0a]">
+                            <button className="font-bold py-2 px-4 w-56 text-[#ffff] rounded-md hover:bg-orange-500 text-[#fff8eb] flex justify-center bg-[#843c0a]">
                                 {isLoading ? (
                                     <RotatingLines
                                         strokeColor="white"

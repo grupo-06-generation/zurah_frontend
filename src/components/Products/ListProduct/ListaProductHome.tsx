@@ -23,10 +23,9 @@ function ListaProductHome() {
 
     return (
         <>
-            <Separator className="mt-40"></Separator>
-            <div className="m-5 space-y-3">
-                <h1 className="text-5xl font-semibold tracking-tight">Confira alguns produtos</h1>
-                <p className="text-lg text-muted-foreground">Uma lista especial de produtos selecionados</p>
+            <div className="m-5">
+                <h1 className="font-semibold tracking-tight text-olive text-[30px]">CONFIRA ALGUNS PRODUTOS</h1>
+                <p className="text-[17px] text-muted-foreground flex justify-center">Uma lista especial de produtos selecionados</p>
             </div>
             <div data-orientation="horizontal" role="none" className="shrink-0 bg-border h-[1px] w-full my-6"></div>
             {products.length === 0 && (

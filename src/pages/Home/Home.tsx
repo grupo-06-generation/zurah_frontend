@@ -3,6 +3,7 @@ import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer";
 
+
 import Rolagem from "../../components/Slider/Rolagem";
 import ListaProductHome from "@/components/Products/ListProduct/ListaProductHome";
 
@@ -16,7 +17,6 @@ function Home() {
           <Rolagem />
         </section>
 
-
         <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
 
           <CategoryConsumer />
@@ -26,8 +26,8 @@ function Home() {
           <CarroselProduct />
         </div>
       </main>
-      <ListCategory />
     </div>
+
     </>
   );
 }

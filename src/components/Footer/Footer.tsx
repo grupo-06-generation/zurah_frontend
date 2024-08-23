@@ -16,7 +16,7 @@ function Footer() {
                                 className="h-[55px] w-auto"
                             />
                         </Link>
-                        <p>
+                        <p className='text-[#843C0A]'> 
                         Conectando Sabor e Sustentabilidade<br/>
                         do Campo à Mesa.
                         </p>
