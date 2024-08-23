@@ -105,13 +105,13 @@ function Login() {
                             </label>
                             <Link
                                 to="/recuperar-senha"
-                                className="text-xs text-orange-600 hover:text-orange-400"
+                                className="text-xs text-[#87400e] hover:text-[#c45e16]"
                             >
                                 Esqueceu a senha?
                             </Link>
                         </div>
                         <div className="m-8 flex justify-center">
-                            <button className="font-bold py-2 px-4 w-56 text-[#ffff] rounded-md hover:bg-orange-500 flex justify-center bg-[#843c0a]">
+                            <button className="font-bold py-2 px-4 w-56 text-[#ffff] rounded-md hover:bg-[#87400e] text-[#fff8eb] flex justify-center bg-[#843c0a]">
                                 {isLoading ? (
                                     <RotatingLines
                                         strokeColor="white"
