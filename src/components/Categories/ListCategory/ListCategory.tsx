@@ -10,12 +10,9 @@ function ListCategory() {
 
     const [category, setCategory] = useState<Category[]>([]);
 
-    // let navigate = useNavigate();
-
     async function getCategory() {
         try {
-            await buscar('/category', setCategory, {
-            });
+            await buscar('/category', setCategory )
         } catch (error: any) {
             alert(error);
         }
@@ -24,6 +21,7 @@ function ListCategory() {
     useEffect(() => {
         getCategory();
     }, [category.length]);
+    console.log(category);
 
     return (
         <>

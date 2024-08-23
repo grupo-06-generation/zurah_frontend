@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer";
-//import ListProduct from "../../components/Products/ListProduct/ListProduct";
+
 import Rolagem from "../../components/Slider/Rolagem";
 import ListaProductHome from "@/components/Products/ListProduct/ListaProductHome";
 
@@ -15,7 +15,7 @@ function Home() {
         <section id="home" className="mb-12">
           <Rolagem />
         </section>
-        <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
+        <div className="flex-grow w-full p-14 flex flex-col items-center pb-6 space-y-10">
 
           <CategoryConsumer />
           
@@ -24,7 +24,6 @@ function Home() {
           <CarroselProduct />
         </div>
       </main>
-      <ListCategory />
     </div>
     </>
   );

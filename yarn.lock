@@ -1084,6 +1084,17 @@ classnames@^2.2.5:
   resolved "https://registry.npmjs.org/classnames/-/classnames-2.5.1.tgz"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+clsx@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/clsx/-/clsx-2.0.0.tgz"
+  integrity sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==
+
+>>>>>>> 91f4fc3951ff1c685553b378283201fb346f6a0f
+>>>>>>> 448051440bd1387bb2aa4fc57a3239f2a776bf47
 clsx@^2.1.0, clsx@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz"
