@@ -16,7 +16,7 @@ function Footer() {
                                 className="h-[55px] w-auto"
                             />
                         </Link>
-                        <p>
+                        <p className='text-[#843C0A]'> 
                         Conectando Sabor e Sustentabilidade<br/>
                         do Campo à Mesa.
                         </p>
@@ -25,12 +25,15 @@ function Footer() {
 
                     <div className="flex-1">
                         <h3 className="mb-4 font-semibold text-[#843C0A]">Páginas</h3>
-                        <ul className="text-white">
-                            <li className="mb-1 hover:text-[#843C0A]">
+                        <ul className="text-[#843C0A]">
+                            <li className="mb-1 hover:text-[#c45e16]">
                                 <Link to={'/home'}>Principal</Link>
                             </li>
-                            <li className="mb-1 hover:text-[#843C0A]">
+                            <li className="mb-1 hover:text-[#c45e16]">
                                 <Link to={'/sobre'}>Sobre Nós</Link>
+                            </li>
+                            <li className="mb-1 hover:text-[#c45e16]">
+                                <Link to={'/cadastrar-produto'}>Cadastrar Produto</Link>
                             </li>
                         </ul>
                     </div>
@@ -41,7 +44,7 @@ function Footer() {
                         <form action="">
                             <input type="text" className=" bg-[#f3f3f3] font-sans px-2 py-1 w-2/3 text-[#843C0A] mb-2 outline-none  " placeholder="email@email.com " required />
 
-                            <button type="submit" className="bg-[#843C0A] hover:bg-[#72401de0] text-[#ffff] px-3 py-1 rounded-lg mt-1 ">Inscrever-se</button>
+                            <button type="submit" className="bg-[#843C0A] hover:bg-orange-500 text-[#ffff] px-3 py-1 rounded-lg mt-1 ">Inscrever-se</button>
                         </form>
                     </div>
                 </div>

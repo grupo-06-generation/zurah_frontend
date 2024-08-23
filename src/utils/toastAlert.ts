@@ -5,12 +5,25 @@ export function toastAlert(mensagem: string, tipo: string) {
     case 'sucesso':
       toast.success(mensagem, {
         position: 'top-right',
-        autoClose: 2000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
         draggable: false,
-        theme: 'colored',
+        theme: 'light',
+        progress: undefined,
+      });
+      break;
+    
+    case 'deletado':
+      toast.success(mensagem, {
+        position: 'bottom-left',
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: 'light',
         progress: undefined,
       });
       break;
@@ -36,7 +49,7 @@ export function toastAlert(mensagem: string, tipo: string) {
         closeOnClick: true,
         pauseOnHover: false,
         draggable: false,
-        theme: 'colored',
+        theme: 'light',
         progress: undefined,
       });
       break;

@@ -11,6 +11,7 @@ import "./Carrossel.css";
 
 // Importando Modulos do Carrossel
 import { Navigation, Pagination } from 'swiper/modules';
+import React from "react";
 
 function Carrossel() {
 

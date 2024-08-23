@@ -2,6 +2,8 @@ import { createContext, ReactNode, useState } from "react";
 import UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../services/Service";
 import Product from "../models/Product";
+import { toast } from "react-toastify";
+import { toastAlert } from "@/utils/toastAlert";
 
 interface AuthContextProps {
     usuario: UsuarioLogin;
@@ -9,14 +11,15 @@ interface AuthContextProps {
     handleLogout(): void;
     handleLogin(usuario: UsuarioLogin): Promise<void>;
     isLoading: boolean;
-    adicionarProduto: (produto: Product, qtd: number) => void;
+    adicionarProduto: (produto: Product) => void;
     aumentarQtdKg: (produtoId: number) => void;
     diminuirQtdKg: (produtoId: number) => void;
     removerProduto: (produtoId: number) => void;
     limparCarrinho: () => void;
     items: Product[];
     kgItems: number[];
-    quantidadeItems: number
+    quantidadeItems: number;
+    precoTotal: string;
 }
 
 interface AuthProviderProps {
@@ -41,9 +44,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const quantidadeItems = items.length;
 
-    function adicionarProduto(produto: Product, qtd: number) {
+    const precoTotal = items.reduce((acc, curr) => acc + curr.price, 0).toFixed(2);
+
+    function adicionarProduto(produto: Product) {
         setItems(state => [...state, produto])
-        setKgItems(state => [...state, qtd]);
     }
 
     function aumentarQtdKg(produtoId: number) {
@@ -82,9 +86,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function limparCarrinho() {
-        alert("Compra Efetuada com Sucesso");
-        setItems([]);
-        setKgItems([]);
+        if(quantidadeItems !== 0){
+            toastAlert("Compra Efetuada com Sucesso", 'sucesso');
+            setItems([]);
+            setKgItems([]);
+        } else {
+            toastAlert("Seu carrinho está vazio", 'info');
+        }
+
     }
 
     const [isLoading, setIsLoading] = useState(false);
@@ -95,10 +104,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(true);
         try {
             await login(`/usuarios/login`, userLogin, setUsuario);
-            alert("Usuário logado com sucesso");
+            //alert("Usuário logado com sucesso");
+            toastAlert("Usuário logado com sucesso", "sucesso");
         } catch (error) {
             console.log(error);
-            alert("Dados do usuário inconsistentes");
+            //alert("Dados do usuário inconsistentes");
+            toastAlert("Dados do usuário inconsistentes", "erro");
         } finally {
             setIsLoading(false);
         }
@@ -117,7 +128,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading, adicionarProduto, aumentarQtdKg, diminuirQtdKg, removerProduto, limparCarrinho, items, kgItems, quantidadeItems  }}>
+        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading, adicionarProduto, aumentarQtdKg, diminuirQtdKg, removerProduto, limparCarrinho, items, kgItems, quantidadeItems, precoTotal  }}>
             {children}
         </AuthContext.Provider>
     );

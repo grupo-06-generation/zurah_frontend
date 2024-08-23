@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
 import Category from "../../../models/Category";
-// import { useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
 import { TailSpin } from "react-loader-spinner";
 import CardCategory from "../cardCategory/CardCategory";
+import { toastAlert } from "@/utils/toastAlert";
 
 
 function ListCategory() {
 
     const [category, setCategory] = useState<Category[]>([]);
 
-    // let navigate = useNavigate();
-
     async function getCategory() {
         try {
-            await buscar('/category', setCategory, {
-            });
+            await buscar('/category', setCategory )
         } catch (error: any) {
-            alert(error);
+            toastAlert(error, 'erro');
         }
     }
 
     useEffect(() => {
         getCategory();
     }, [category.length]);
+    console.log(category);
 
     return (
         <>

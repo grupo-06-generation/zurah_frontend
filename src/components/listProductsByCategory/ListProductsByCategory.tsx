@@ -1,49 +1,54 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Product from "../../models/Product";
-import { buscar } from "../../services/Service";
-import CardProduct from "../../components/../components/Products/CardProduct/CardProduct";
-import { TailSpin } from "react-loader-spinner";
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import Product from "../../../models/Product";
+// import { buscar } from "../../services
+// import { TailSpin } from "react-loader-spinner";
+// import CardProduct from "../Products/CardProduct/CardProduct";
 
-function ListProductByCategory() {
-    const { id } = useParams<{ id: string }>(); 
-    const [products, setProducts] = useState<Product[]>([]);
+// function ListProductsByCategory() {
+//     const { categoryId } = useParams<{ categoryId: string }>();
+//     const [products, setProducts] = useState<Product[]>([]);
 
-    async function buscarProdutos() {
-        try {
-            await buscar(`/category/${id}/products`, setProducts, {});
-        } catch (error: any) {
-            alert('Erro ao buscar produtos');
-        }
-    }
+//     async function getProductsByCategory() {
+//         try {
+//             await buscar(`/category/${categoryId}/products`, setProducts);
+//         } catch (error: any) {
+//             alert(error);
+//         }
+//     }
 
-    useEffect(() => {
-        buscarProdutos();
-    }, [id]);
+//     useEffect(() => {
+//         if (categoryId) {
+//             getProductsByCategory();
+//         }
+//     }, [categoryId]);
 
-    return (
-        <>
-            {products.length === 0 && (
-                <div className="flex justify-center items-center m-5">
-                    <TailSpin
-                        visible={true}
-                        height="80"
-                        width="80"
-                        color="#4fa94d"
-                        ariaLabel="tail-spin-loading"
-                        radius="1"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                    />
-                </div>
-            )}
-            <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {products.map((product) => (
-                    <CardProduct key={product.id} product={product} />
-                ))}
-            </div>
-        </>
-    );
-}
+//     return (
+//         <>
+//             {products.length === 0 && (
+//                 <TailSpin
+//                     visible={true}
+//                     height="80"
+//                     width="80"
+//                     color="#4fa94d"
+//                     ariaLabel="tail-spin-loading"
+//                     radius="1"
+//                     wrapperStyle={{}}
+//                     wrapperClass=""
+//                 />
+//             )}
 
-export default ListProductByCategory;
+//             <div className="flex justify-center w-full my-4">
+//                 <div className="container flex flex-col">
+//                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//                         {products.map((product) => (
+//                             <CardProduct key={product.id} product={product} />
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     );
+// }
+
+// export default ListProductsByCategory;

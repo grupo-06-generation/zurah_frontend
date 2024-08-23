@@ -1,31 +1,62 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import Category from "../../../models/Category";
 import Product from "../../../models/Product";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { toastAlert } from "../../../utils/toastAlert";
+import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Select, SelectGroup, SelectContent, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Link } from "react-router-dom";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react"
 
 function ProductForm() {
   let navigate = useNavigate();
+  const location = useLocation();
   const { id } = useParams<{ id: string }>();
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
-
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [categories, setCategories] = useState<Category[]>([]);
   const [category, setCategory] = useState<Category>({ id: 0, name: '', description: '' });
   const [product, setProduct] = useState<Product>({
     id: 0,
     name: '',
     expire: '',
-    price: 0,
-    quantity: 0,
+    price: 1,
+    quantity: 1,
     region: '',
     description: '',
     photo: '',
     category: null,
     usuario: null,
   });
+
+  const mudandoPagina = (() => {
+    setProduct(
+      {id: 0,
+      name: '',
+      expire: '',
+      price: 1,
+      quantity: 1,
+      region: '',
+      description: '',
+      photo: '',
+      category: null,
+      usuario: null}
+    )
+  })
+
+  useEffect(() => {
+    // Define o valor inicial do Select com a categoria atual do produto
+    if (product.category) {
+      setSelectedCategory(product.category.name);
+    }
+  }, [product.category]);
 
   useEffect(() => {
     if (token === '') {
@@ -87,7 +118,7 @@ function ProductForm() {
 
     try {
       if (id) {
-        await atualizar(`/product`, product, setProduct, {
+        await atualizar("/product", product, setProduct, {
           headers: {
             Authorization: token,
           },
@@ -108,135 +139,163 @@ function ProductForm() {
         toastAlert('O token expirou, favor logar novamente', 'info');
         handleLogout();
       } else {
-        toastAlert('Erro ao processar o produto', 'error');
+        toastAlert('Erro ao processar o produto', 'erro');
         
       }
     }
   };
 
   return (
-    <div className="container flex flex-col items-center">
-      <h1 className="text-2xl text-center py-3">{id ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <label htmlFor="name"></label>
-          <input
-            value={product.name}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Nome"
-            name="name"
-            required
-            className="border-b-2 outline-none"
-          />
+    <div className="w-full flex flex-col items-center my-[50px]">
+      <div className="flex justify-between">
+        <div className="mx-28">
+          <h1 className="text-[30px] text-left">{id ? 'Editar Produto ' : 'Cadastrar Produto '}</h1>
+          <p className="text-[20px]">Confira todas as informações antes de salvar.</p>
         </div>
-
-        <div className="flex flex-col gap-2">
-          <label htmlFor="description"></label>
-          <input
-            value={product.description}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Descrição"
-            name="description"
-            required
-            className="border-b-2 outline-none"
-          />
+        <div className="flex items-center">
+          <Link to="/cadastrar-produto" onClick={mudandoPagina}>
+            {id ? <Button className="bg-[#843c0a]">Cadastrar Novo</Button> : ''}
+          </Link>
         </div>
-
-        <div className="flex flex-col gap-2">
-          <label htmlFor="price"></label>
-          <input
-            value={product.price}
-            onChange={handleInputChange}
-            type="number"
-            placeholder="Preço"
-            name="price"
-            required
-            className="border-b-2 outline-none"
-          />
+      </div>
+      <div>
+        <Separator className="m-10 "/>
+      </div>
+      <div className="flex flex-col justify-center">
+        <div className="w-full">
+          <Alert>
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>
+              {id ? `Editando Produto ${product.id}` : 'Cadastrando Produto'}
+            </AlertTitle>
+          </Alert>
         </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6 w-96">
 
-        <div className="flex flex-col gap-2">
-          <label htmlFor="expire"></label>
-          <input
-            value={product.expire}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Expiração"
-            name="expire"
-            required
-            className="border-b-2 outline-none"
-          />
-        </div>
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="name">Name</Label>
+            <Input
+              value={product.name}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="Name"
+              name="name"
+              className="col-span-3"
+              required
+            />
+          </div>
+          
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="description">Descrição</Label>
+            <Input
+              value={product.description}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="Descrição"
+              name="description"
+              className="col-span-3"
+              required
+            />
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <label htmlFor="quantity"></label>
-          <input
-            value={product.quantity}
-            onChange={handleInputChange}
-            type="number"
-            placeholder="Quantidade"
-            name="quantity"
-            required
-            className="border-b-2 outline-none"
-          />
-        </div>
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="price">Preço</Label>
+            <Input
+              value={product.price}
+              onChange={handleInputChange}
+              type="number"
+              placeholder="Preço"
+              name="price"
+              className="col-span-3"
+              required
+            />
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <label htmlFor="region"></label>
-          <input
-            value={product.region}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Região"
-            name="region"
-            required
-            className="border-b-2 outline-none"
-          />
-        </div>
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="expire">Expiração</Label>
+            <Input
+              value={product.expire}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="Expiração"
+              name="expire"
+              className="col-span-3"
+              required
+            />
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <label htmlFor="Foto"></label>
-          <input
-            value={product.photo}
-            onChange={handleInputChange}
-            type="string"
-            placeholder="Foto do Produto:"
-            name="photo"
-            required
-            className="border-b-2 outline-none"
-          />
-        </div>
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="quantity">Quantidade</Label>
+            <Input
+              value={product.quantity}
+              onChange={handleInputChange}
+              type="number"
+              placeholder="Quantidade"
+              name="quantity"
+              className="col-span-3"
+              required
+            />
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <p>Categoria</p>
-          <select
-            name="category"
-            id="category"
-            className="border p-2 border-slate-800 rounded"
-            onChange={(e) => setCategory(categories.find((cat) => cat.id === Number(e.target.value)) || category)}
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="region">Região</Label>
+            <Input
+              value={product.region}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="Região"
+              name="region"
+              className="col-span-3"
+              required
+            />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="photo">Foto</Label>
+            <Input
+              value={product.photo}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="Foto do Produto"
+              name="photo"
+              className="col-span-3"
+              required
+            />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-2">
+            <Label htmlFor="category">Categoria</Label>
+            <Select 
+              onValueChange={(value) => {
+                setSelectedCategory(value); // Atualiza o estado local com a nova seleção
+                setCategory(categories.find((cat) => cat.name === value) || category);
+              }}
+              value={selectedCategory} // Vincula o valor do Select ao estado local
+            >
+              <SelectTrigger id="category" className=" rounded col-span-3">
+                <SelectValue placeholder="Selecione uma categoria"/>
+              </SelectTrigger>
+              <SelectGroup>
+                <SelectContent>
+                  {categories.map((cat) => (
+                    <SelectItem key={cat.id} value={cat.name}>
+                      {cat.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </SelectGroup>
+            </Select>
+          </div>
+
+          <Button
+            type="submit" className="w-1/3 bg-[#843c0a]"
           >
-            <option value="" disabled>
-              Selecione uma categoria
-            </option>
-            {categories.map((cat) => (
-              <option key={cat.id} value={cat.id}>
-                {cat.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <button
-          type="submit"
-          className="rounded bg-[#843C0A] hover:bg-[#9B5D45] text-white font-bold w-1/2 mx-auto block py-2"
-        >
-          {id ? 'Editar' : 'Cadastrar'}
-        </button>
-      </form>
+            {id ? 'Editar' : 'Cadastrar'}
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }
 
-export default ProductForm;
+export default ProductForm;

@@ -30,7 +30,7 @@ function About() {
             </div>
             <div className="col-span-4 p-4">
               <div className="flex items-center justify-center m-6">
-                <img src="https://i.imgur.com/x15L6Rb.jpeg" alt="cesta de leguminosas" className="rounded-3xl w-[370px] h-[400px] "/>
+                <img src="../src/assets/about-image.jpg" alt="cesta de legumes" className="rounded-3xl w-[370px] h-[400px] "/>
               </div>
             </div>
             <div className="col-span-4 p-6">

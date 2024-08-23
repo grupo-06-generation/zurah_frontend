@@ -23,13 +23,13 @@ function emailForm({ setEmailFound } : setEmailFoundProps) {
                         <p className="text-xs text-center text-gray-500 uppercase">digite seu email para resetar a senha</p>
                         <span className="border-b w-1/5 lg:w-1/4"></span>
                     </div>
-                    <form action="" onSubmit={() => setEmailFound}>
+                    <form action="" onSubmit={setEmailFound}>
                         <div className="mt-4">
                             <label className="block text-green-900 text-sm font-bold mb-2">E-mail</label>
-                            <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" required />
+                            <input className="bg-[#f3f3f3] text-gray-800 outline-none py-2 px-4 block w-full appearance-none" type="email" placeholder="E-mail" required />
                         </div>
                         <div className="m-8 flex justify-center">
-                            <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700 flex justify-center">
+                            <button className="font-bold py-2 px-4 w-56 text-[#ffff] rounded-md hover:bg-orange-500 flex justify-center bg-[#843c0a]">
                             {isLoading ? <RotatingLines
                                 strokeColor="white"
                                 strokeWidth="5"
@@ -43,7 +43,7 @@ function emailForm({ setEmailFound } : setEmailFoundProps) {
                     </form>
                     <div className="mt-4 flex items-center justify-between">
                     <span className="border-b w-1/5 md:w-1/4"></span>
-                    <Link to={'/login'} className="text-xs text-green-900 hover:text-green-500 uppercase">ou voltar para login</Link>
+                    <Link to={'/login'} className="text-xs text-[#14532D] hover:text-[#22c55e] uppercase p-1 text-center">ou voltar para login</Link>
                     <span className="border-b w-1/5 md:w-1/4"></span>
                 </div>
 
