@@ -44,7 +44,7 @@ function Footer() {
                         <form action="">
                             <input type="text" className=" bg-[#f3f3f3] font-sans px-2 py-1 w-2/3 text-[#843C0A] mb-2 outline-none  " placeholder="email@email.com " required />
 
-                            <button type="submit" className="bg-[#843C0A] hover:bg-[#72401de0] text-[#ffff] px-3 py-1 rounded-lg mt-1 ">Inscrever-se</button>
+                            <button type="submit" className="bg-[#843C0A] hover:bg-orange-500 text-[#ffff] px-3 py-1 rounded-lg mt-1 ">Inscrever-se</button>
                         </form>
                     </div>
                 </div>
