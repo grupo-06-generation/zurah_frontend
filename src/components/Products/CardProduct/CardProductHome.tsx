@@ -26,7 +26,7 @@ function CardProductHome({product}: CardProductHomeProps) {
 
   return (
     <div className="w-[270px]">
-        <Card className="flex flex-col items-center border border-gray-400">
+        <Card className="flex flex-col items-center border border-gray-400 h-[404px]">
             <div className="relative w-full">
                 <img 
                     className="w-full px-0 h-48 object-cover rounded-md" 
@@ -45,7 +45,7 @@ function CardProductHome({product}: CardProductHomeProps) {
             </div>
             <CardHeader className="p-4">
                 <CardTitle>{product.name}</CardTitle>
-                <CardDescription>{product.description}</CardDescription>
+                <CardDescription className=" line-clamp-2">{product.description}</CardDescription>
             </CardHeader>
             <CardContent className="p-2">
                 <p className="text-xl font-semibold">R$ {product.price.toFixed(2)}</p>
