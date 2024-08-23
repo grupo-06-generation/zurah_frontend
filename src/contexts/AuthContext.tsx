@@ -18,7 +18,8 @@ interface AuthContextProps {
     limparCarrinho: () => void;
     items: Product[];
     kgItems: number[];
-    quantidadeItems: number
+    quantidadeItems: number;
+    precoTotal: string;
 }
 
 interface AuthProviderProps {
@@ -42,6 +43,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const [kgItems, setKgItems] = useState<number[]>([]);
 
     const quantidadeItems = items.length;
+
+    const precoTotal = items.reduce((acc, curr) => acc + curr.price, 0).toFixed(2);
 
     function adicionarProduto(produto: Product) {
         setItems(state => [...state, produto])
@@ -83,9 +86,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function limparCarrinho() {
-        toastAlert("Compra Efetuada com Sucesso", 'sucesso');
-        setItems([]);
-        setKgItems([]);
+        if(quantidadeItems !== 0){
+            toastAlert("Compra Efetuada com Sucesso", 'sucesso');
+            setItems([]);
+            setKgItems([]);
+        } else {
+            toastAlert("Seu carrinho está vazio", 'info');
+        }
+
     }
 
     const [isLoading, setIsLoading] = useState(false);
@@ -120,7 +128,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading, adicionarProduto, aumentarQtdKg, diminuirQtdKg, removerProduto, limparCarrinho, items, kgItems, quantidadeItems  }}>
+        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading, adicionarProduto, aumentarQtdKg, diminuirQtdKg, removerProduto, limparCarrinho, items, kgItems, quantidadeItems, precoTotal  }}>
             {children}
         </AuthContext.Provider>
     );

@@ -1,7 +1,7 @@
 import React, { ImgHTMLAttributes } from 'react'
 
 interface ImgProps extends ImgHTMLAttributes<HTMLImageElement> {
-    notFoundSrc?: string;
+  notfoundsrc?: string;
     alternative?: string;
 }
 
@@ -13,8 +13,8 @@ function Img(props: ImgProps) {
       onError={e => {
         props?.onError?.(e)
 
-        if (!props.notFoundSrc) return
-        e.currentTarget.src = props.notFoundSrc
+        if (!props.notfoundsrc) return
+        e.currentTarget.src = props.notfoundsrc
       }}
     />
   )
