@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot, Cow } from '@phosphor-icons/react';
+import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot, Cow, CoffeeBean } from '@phosphor-icons/react';
 import { toastAlert } from '../../utils/toastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Leaf, Tag } from 'phosphor-react';
@@ -66,13 +66,13 @@ function Navbar() {
 
                     <div className='flex items-center space-x-4'>
                         <div className='relative'>
-                            <div
-                                className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
-                                onClick={toggleDropdown}
-                            >
+                            <Link to={'/carrinho'}>
+                            <div>
                                 <Basket className="w-8 h-8 text-[#843C0A] flex items-center" />
                             </div>
+                            </Link>
                         </div>
+                        
                         <div className='relative'>
                             <div
                                 className="hover:bg-[#e4e4e41e] rounded-full w-12 h-12 flex items-center justify-center cursor-pointer"
@@ -86,7 +86,7 @@ function Navbar() {
                 </div>
             </div>
             {dropdownOpen && (
-                <div ref={dropdownRef} className="absolute right-4 w-[150px] text-white rounded-lg bg-olive">
+                <div ref={dropdownRef} className="fixed right-4 w-[150px] text-white rounded-lg bg-olive">
                     <ul className="flex flex-col">
                         {authenticated ? (
                             <>
@@ -128,8 +128,8 @@ function Navbar() {
                             </li>
 
                             <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2 '>
-                                <Leaf size={20} className='font-[21px] text-[#843C0A]' />
-                                <p className='font-[21px] text-[#843C0A]'>Açougue & Peixaria</p>
+                                <CoffeeBean size={20} className='font-[21px] text-[#843C0A]' />
+                                <p className='font-[21px] text-[#843C0A]'>Cereais</p>
                             </li>
 
                             <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
