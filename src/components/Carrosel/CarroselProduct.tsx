@@ -20,7 +20,7 @@ function CarroselProduct() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper w-11/12 h-72 m-20 " 
+        className="mySwiper w-11/12 h-80 m-20 " 
         effect="fade"
       >
         <SwiperSlide>
