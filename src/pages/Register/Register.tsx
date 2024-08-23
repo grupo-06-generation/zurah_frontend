@@ -5,6 +5,7 @@ import { cadastrarUsuario } from '../../services/Service'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import { RotatingLines } from 'react-loader-spinner'
+import { toastAlert } from '@/utils/toastAlert'
 
 function Register() {
 
@@ -70,12 +71,12 @@ function Register() {
     if (confirmaSenha === usuario.password && usuario.password.length >= 8) {
       try {
         await cadastrarUsuario(`/usuarios/register`, usuario, setUsuarioResposta)
-        alert('Usuário cadastrado com sucesso')
+        toastAlert('Usuário cadastrado com sucesso', 'sucesso');
       } catch (error) {
-        alert('Erro ao cadastrar o Usuário')
+        toastAlert('Erro ao cadastrar o Usuário', 'erro')
       }
     } else {
-      alert('Dados inconsistentes. Verifique as informações de cadastro.')
+      toastAlert('Dados inconsistentes. Verifique as informações de cadastro.', 'erro')
       setUsuario({ ...usuario, password: "" })
       setConfirmaSenha("")
     }

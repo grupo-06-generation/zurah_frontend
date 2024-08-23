@@ -83,7 +83,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function limparCarrinho() {
-        alert("Compra Efetuada com Sucesso");
+        toastAlert("Compra Efetuada com Sucesso", 'sucesso');
         setItems([]);
         setKgItems([]);
     }
