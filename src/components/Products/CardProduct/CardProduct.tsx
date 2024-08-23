@@ -12,20 +12,21 @@ interface CardProductProps {
 }
 
 function CardProduct({ product, onDeleteSuccess }: CardProductProps) {
+
+    const { adicionarProduto, authenticated } = useContext(AuthContext);
+
     const [quantity, setQuantity] = useState(1);
     const [totalPrice, setTotalPrice] = useState(product.price);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
 
-    const { adicionarProduto } = useContext(AuthContext);
 
     function addToCart(){
-        const input = document.getElementById('quantidade') as HTMLInputElement | null;
-
-        if(input !== null){
-            const value = parseFloat(input.value);
-            adicionarProduto(product, value);
+        if( authenticated ){
+            adicionarProduto(product);
             toastAlert("Produto adicionado ao carrinho", 'sucesso')
+        } else {
+            toastAlert("Você precisa estar logado", "error")
         }
     }
 

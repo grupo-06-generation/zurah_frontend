@@ -10,6 +10,7 @@ function CodeInput({ setCodeValid } : codeInputProps) {
 
   const {isLoading} = useContext(AuthContext);
 
+
   return (
     <>
       <div className="hidden lg:block lg:w-1/2 bg-cover"
@@ -24,12 +25,12 @@ function CodeInput({ setCodeValid } : codeInputProps) {
             </div>
           <form action="" onSubmit={setCodeValid}>
           <div className="flex justify-center gap-4">
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
-            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" required/>
+            <input type="number" className="px-1 py-4 w-[40px] text-center text-xl border-solid border-slate-300 border-2 rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" required/>
           </div>
           <div className="mb-2 mt-6 flex justify-center">
             <button className="font-bold py-2 px-4 w-56 text-white bg-green-500 rounded-md hover:bg-green-700 flex justify-center">

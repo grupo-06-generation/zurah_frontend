@@ -2,17 +2,32 @@ import { Button } from "@/components/ui/button";
 import Product from "../../../models/Product";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "@/contexts/AuthContext";
+import { toastAlert } from "@/utils/toastAlert";
 interface CardProductHomeProps{
     product: Product;
 }
 
 function CardProductHome({product}: CardProductHomeProps) {
+
+    const { adicionarProduto, authenticated } = useContext(AuthContext);
+
+    function addToCart(){
+        if( authenticated ){
+            adicionarProduto(product);
+            toastAlert("Produto adicionado ao carrinho", 'sucesso')
+        } else {
+            toastAlert("Você precisa estar logado", "error")
+        }
+    }
+
   return (
     <div className="w-[270px]">
         <Card className="flex flex-col items-center border border-gray-400">
-            <div className="relative">
+            <div className="relative w-full">
                 <img 
-                    className="w-full h-48 object-cover" 
+                    className="w-full px-0 h-48 object-cover rounded-md" 
                     src={product.photo} 
                     alt={product.name} 
                 />
@@ -33,7 +48,7 @@ function CardProductHome({product}: CardProductHomeProps) {
                 <p className="text-xl font-semibold">R$ {product.price.toFixed(2)}</p>
             </CardContent>
             <CardFooter className="flex justify-center p-2 pb-4">
-                <Button className="bg-[#843c0a]">
+                <Button className="bg-[#843c0a]" onClick={addToCart}>
                     <FaShoppingCart className="mr-2" />
                     Adicionar
                 </Button>
