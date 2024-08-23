@@ -11,7 +11,7 @@ function CardCategory({ category }: CardCategoryProps) {
 
       <div className="relative h-40 bg-gray-300">
         <img 
-          src="../src/assets/frutinhas-veg.jpg" alt={category.name} 
+          src="https://content.paodeacucar.com/wp-content/uploads/2020/01/frutas-e-verduras-de-janeiro-capa.jpg" alt={category.name} 
           className="w-full h-full object-cover" 
         />
       </div>
