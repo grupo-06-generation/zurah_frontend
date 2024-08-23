@@ -11,7 +11,7 @@ interface AuthContextProps {
     handleLogout(): void;
     handleLogin(usuario: UsuarioLogin): Promise<void>;
     isLoading: boolean;
-    adicionarProduto: (produto: Product, qtd: number) => void;
+    adicionarProduto: (produto: Product) => void;
     aumentarQtdKg: (produtoId: number) => void;
     diminuirQtdKg: (produtoId: number) => void;
     removerProduto: (produtoId: number) => void;
@@ -43,9 +43,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const quantidadeItems = items.length;
 
-    function adicionarProduto(produto: Product, qtd: number) {
+    function adicionarProduto(produto: Product) {
         setItems(state => [...state, produto])
-        setKgItems(state => [...state, qtd]);
     }
 
     function aumentarQtdKg(produtoId: number) {

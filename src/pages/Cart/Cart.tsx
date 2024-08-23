@@ -19,7 +19,7 @@ function Cart() {
             items.map((produto, index) => (
               <>
                 <hr/>
-                <CartCard key={index} id={index} item={produto}/>
+                <CartCard key={index} item={produto}/>
               </>
             ))
           ) : (<CartEmpty/>)
