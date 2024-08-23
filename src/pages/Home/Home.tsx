@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import CarroselProduct from "../../components/Carrosel/CarroselProduct";
 import ListCategory from "../../components/Categories/ListCategory/ListCategory";
 import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer";
-import ListProduct from "../../components/Products/ListProduct/ListProduct";
+//import ListProduct from "../../components/Products/ListProduct/ListProduct";
 import Rolagem from "../../components/Slider/Rolagem";
-
+import ListaProductHome from "@/components/Products/ListProduct/ListaProductHome";
 
 function Home() {
   return (
@@ -20,10 +20,9 @@ function Home() {
         <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
 
           <CategoryConsumer />
-          
-          <ListProduct />
-
           <CarroselProduct />
+
+          <ListaProductHome/>
         </div>
       </main>
       <ListCategory />
