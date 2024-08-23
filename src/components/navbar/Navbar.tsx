@@ -86,16 +86,16 @@ function Navbar() {
                 </div>
             </div>
             {dropdownOpen && (
-                <div ref={dropdownRef} className="fixed right-4 w-[150px] text-white rounded-lg bg-olive">
+                <div ref={dropdownRef} className=" z-[100] absolute right-4 w-[150px] text-white rounded-xl bg-olive">
                     <ul className="flex flex-col">
                         {authenticated ? (
                             <>
                             <Link to='/admin/zurah'>
-                                <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
+                                <li className="hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-lg">Configurações</li>
                                 </Link>
                                 <li
                                     onClick={logout}
-                                    className="border-t border-gray-700 hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg"
+                                    className="border-t border-[#80800057] hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-xl"
                                 >
 
                                     Sair
@@ -103,7 +103,7 @@ function Navbar() {
                             </>
                         ) : (
                             <Link to="/login" className="text-white no-underline">
-                                <li className="hover:bg-gray-700 py-2 px-4 cursor-pointer rounded-lg">
+                                <li className="hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-xl">
                                     Entrar
                                 </li>
                             </Link>
