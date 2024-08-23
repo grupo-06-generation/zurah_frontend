@@ -46,7 +46,7 @@ function App() {
               <Route path="/admin/zurah" element={<SellerHome />} />
               
               <Route path="/carrinho" element={<Cart />} />
-              {/* <Route path="/produtos/:id" element={<ListProductByCategory />} /> */}
+
             </Routes>
         </div>
         <Footer />

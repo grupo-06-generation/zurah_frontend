@@ -44,7 +44,7 @@ function ListaProductHome() {
             )}
             <div className='mt-4 mb-56 flex flex-wrap gap-6 justify-between'>
                 {products.map((product) => (
-                    <div key={product.id} className='h-full'>
+                    <div key={product.id} className='h-[500px] min-w-[300px]'>
                         <CardProductHome product={product} />
                     </div>
                 ))}

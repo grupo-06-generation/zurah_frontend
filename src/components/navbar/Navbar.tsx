@@ -4,6 +4,7 @@ import { UserCircle, MagnifyingGlass, Basket, OrangeSlice, Grains, Barn, Carrot,
 import { toastAlert } from '../../utils/toastAlert';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Leaf, Tag } from 'phosphor-react';
+import Product from '@/models/Product';
 
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -38,6 +39,10 @@ function Navbar() {
         };
     }, []);
 
+
+
+
+
     return (
         <>
             <div className='w-full bg-[#fffbf7] text-[#843C0A] py-4 px-8 pb-3'>
@@ -48,12 +53,14 @@ function Navbar() {
                         </Link>
                     </div>
 
-                    <form action="">
+                    <form action="/produtos">
                         <div className='relative flex items-center'>
                             <input
                                 type="text"
                                 placeholder="Digite o que você procura"
                                 className="w-[440px] h-10 px-4 placeholder-[#843C0A] bg-[#f3f3f3] outline-none "
+
+
                             />
                             <button
                                 className='absolute right-0 top-1/2 transform -translate-y-1/2 p-2 bg-transparent z-10'
@@ -62,6 +69,7 @@ function Navbar() {
                                 <MagnifyingGlass size={24} />
                             </button>
                         </div>
+                        
                     </form>
 
                     <div className='flex items-center space-x-4'>
