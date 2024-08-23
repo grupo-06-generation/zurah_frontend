@@ -16,7 +16,7 @@ import ProductForm from './components/Products/productForm/ProductForm';
 import SellerHome from './pages/sellerHome/SellerHome';
 //import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 import Cart from './pages/Cart/Cart';
-import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
+// import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
 import ListProduct from './components/Products/ListProduct/ListProduct';
 
 

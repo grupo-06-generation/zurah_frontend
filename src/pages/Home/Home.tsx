@@ -16,7 +16,6 @@ function Home() {
           <Rolagem />
         </section>
 
-       
         <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
 
           <CategoryConsumer />
@@ -26,7 +25,6 @@ function Home() {
           <CarroselProduct />
         </div>
       </main>
-      <ListCategory />
     </div>
     </>
   );
