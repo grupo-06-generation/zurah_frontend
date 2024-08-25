@@ -19,6 +19,7 @@ import Cart from './pages/Cart/Cart';
 // import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
 import ListProduct from './components/Products/ListProduct/ListProduct';
 import ProductAbout from './pages/productabout/ProductAbout';
+import ProductsByCategory from './components/productsByCategory/ProductsByCategory';
 
 
 
@@ -49,7 +50,9 @@ function App() {
              
 
               <Route path="/carrinho" element={<Cart />} />
-              {/* <Route path="/produtos/:id" element={<ListProductByCategory />} /> */}
+
+              <Route path="/products-cat/:id" element={<ProductsByCategory />} />
+
             </Routes>
         </div>
         <Footer />

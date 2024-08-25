@@ -53,21 +53,21 @@ function Footer() {
 
                     <ul className='flex flex-row gap-4'>
                         <li className='transition-transform transform hover:scale-125 duration-300 ease-in-out cursor-pointer'>
-                            <a href="https://linktr.ee/projetozurah" target='_blank'>
-                                <LinkedinLogo size={32} />
+                            <a href="https://linktr.ee/projetozurah" target='_blank' >
+                                <LinkedinLogo size={32} color='#843C0A' />
                             </a>
                         </li>
 
                         <li className='transition-transform transform hover:scale-125 duration-300 ease-in-out cursor-pointer'>
                             <a href="http://" target="_blank" rel="noopener noreferrer">
-                            <GithubLogo size={32} />
+                            <GithubLogo size={32} color='#843C0A' />
                             </a>
                             
                         </li>
                     </ul>
                 </div>
 
-                <div className="text-center py-4 border-t-[0.2px] border-[#c59e82a9]">
+                <div className="text-center text-gray-700 py-4 border-t-[0.2px] border-[#c59e82a9]">
                     <p>© Zurah 2024. Todos os direitos reservados.</p>
                 </div>
             </div>
