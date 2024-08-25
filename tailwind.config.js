@@ -1,19 +1,19 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
     colors: {
-      ...colors, 
-      "olive": "#556B2F"
+      ...colors,
+      olive: "#556B2F",
     },
     container: {
       center: true,
@@ -86,4 +86,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
