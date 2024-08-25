@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+<<<<<<< HEAD
 import { FaShoppingCart, FaPlus, FaMinus } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
@@ -53,6 +54,20 @@ function ProductAbout() {
   useEffect(() => {
     setTotalPrice(product.price * quantity);
   }, [product.price, quantity]);
+=======
+import { FaShoppingCart } from "react-icons/fa";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "@/contexts/AuthContext";
+import { toastAlert } from "@/utils/toastAlert";
+
+function ProductAbout() {
+  const location = useLocation();
+  const { product } = location.state || {}; // Pegando o produto do estado passado
+
+  const navigate = useNavigate();
+  const { adicionarProduto, authenticated } = useContext(AuthContext);
+>>>>>>> f263803a97062f2536c26a32a9c3a68bed85744e
 
   function addToCart() {
     if (authenticated) {
@@ -66,6 +81,16 @@ function ProductAbout() {
   function increaseQuantity() {
     setQuantity((prev) => prev + 1);
   }
+  // Verifique se o produto está presente, senão redirecione ou exiba uma mensagem de erro
+  if (!product) {
+    return <div>Produto não encontrado.</div>;
+  }
+
+  return (
+    <div className="flex justify-center">
+      <div className="">
+        <img src={product.photo} alt={product.name} />
+      </div>
 
   function decreaseQuantity() {
     if (quantity > 1) {
