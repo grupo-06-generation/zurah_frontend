@@ -6,6 +6,7 @@ import { ImgHTMLAttributes, useContext } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
 import { toastAlert } from "@/utils/toastAlert";
 import Img from "@/components/Img/Img";
+import { Link } from "react-router-dom";
 interface CardProductHomeProps{
     product: Product;
 }
@@ -26,7 +27,8 @@ function CardProductHome({product}: CardProductHomeProps) {
 
   return (
     <div className="w-[270px]">
-        <Card className="flex flex-col items-center border border-gray-400 h-[404px]">
+       <Link to={`/informacaoproduto/${product.id}`} className='block'> 
+       <Card className="flex flex-col items-center border border-gray-400 h-[404px]">
             <div className="relative w-full">
                 <img 
                     className="w-full px-0 h-48 object-cover rounded-md" 
@@ -57,6 +59,7 @@ function CardProductHome({product}: CardProductHomeProps) {
                 </Button>
             </CardFooter>
         </Card>
+        </Link>
     </div>
   )
 }

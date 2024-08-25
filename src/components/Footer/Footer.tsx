@@ -35,7 +35,7 @@ function Footer() {
                             <li className="mb-1 hover:text-[#c45e16]">
                                 <Link to={'/cadastrar-produto'}>Cadastrar Produto</Link>
                             </li>
-                        </ul>
+                            </ul>
                     </div>
 
 

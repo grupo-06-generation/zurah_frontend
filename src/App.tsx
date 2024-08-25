@@ -18,6 +18,7 @@ import SellerHome from './pages/sellerHome/SellerHome';
 import Cart from './pages/Cart/Cart';
 // import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
 import ListProduct from './components/Products/ListProduct/ListProduct';
+import ProductAbout from './pages/productabout/ProductAbout';
 
 
 
@@ -44,7 +45,9 @@ function App() {
               <Route path="/cadastrar-produto" element={<ProductForm />} />
               <Route path="/editar-produto/:id" element={<ProductForm />} />
               <Route path="/admin/zurah" element={<SellerHome />} />
-              
+              <Route path="/informacaoproduto/:id" element={<ProductAbout/>} />
+             
+
               <Route path="/carrinho" element={<Cart />} />
               {/* <Route path="/produtos/:id" element={<ListProductByCategory />} /> */}
             </Routes>
