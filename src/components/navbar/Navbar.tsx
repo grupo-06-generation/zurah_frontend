@@ -105,7 +105,6 @@ function Navbar() {
                                     onClick={logout}
                                     className="border-t border-[#80800057] hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-xl"
                                 >
-
                                     Sair
                                 </li>
                             </>
@@ -125,14 +124,16 @@ function Navbar() {
                         <ul className='flex flex-row gap-10'>
 
 
-                        <Link to={'/categorias'}><li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
+                        <Link to={'/products-cat/56'}><li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
                                 <Tag size={20} className='font-[21px] text-[#843C0A]' />
                                 <p className='font-[21px] text-[#843C0A]'>Ofertas</p>
                             </li></Link>
                             
                             <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2'>
-                                <Carrot size={20} className='font-[21px] text-[#843C0A]' />
-                                <p className='font-[21px] text-[#843C0A]'>Hortifruti</p>
+                                <Link to="products-cat/57">
+                                    <Carrot size={20} className='font-[21px] text-[#843C0A]' />
+                                    <p className='font-[21px] text-[#843C0A]'>Hortifruti</p>
+                                </Link>
                             </li>
 
                             <li className='flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2 '>
