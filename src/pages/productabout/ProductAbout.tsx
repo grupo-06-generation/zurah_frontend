@@ -9,43 +9,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FaShoppingCart } from "react-icons/fa";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
 import { toastAlert } from "@/utils/toastAlert";
-import { buscar } from "@/services/Service";
 
 function ProductAbout() {
-  const [product, setProduct] = useState<Product>({} as Product);
-  const { id } = useParams<{ id: string }>();
+  const location = useLocation();
+  const { product } = location.state || {}; // Pegando o produto do estado passado
+
   const navigate = useNavigate();
   const { adicionarProduto, authenticated } = useContext(AuthContext);
-
-  const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
-
-  async function buscarPorId(id: string) {
-    try {
-      await buscar(`/product/${id}`, setProduct, {
-        headers: {
-          Authorization: token,
-        },
-      });
-    } catch (error: any) {
-      if (error.toString().includes("403")) {
-        toastAlert("O token expirou, favor logar novamente.", "info");
-        handleLogout();
-      } else {
-        toastAlert("Erro ao buscar produto.", "erro");
-      }
-    }
-  }
-
-  useEffect(() => {
-    if (id !== undefined) {
-      buscarPorId(id);
-    }
-  }, [id]);
 
   function addToCart() {
     if (authenticated) {
@@ -54,6 +28,11 @@ function ProductAbout() {
     } else {
       toastAlert("Você precisa estar logado", "error");
     }
+  }
+
+  // Verifique se o produto está presente, senão redirecione ou exiba uma mensagem de erro
+  if (!product) {
+    return <div>Produto não encontrado.</div>;
   }
 
   return (

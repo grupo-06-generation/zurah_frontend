@@ -6,13 +6,14 @@ import { ImgHTMLAttributes, useContext } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
 import { toastAlert } from "@/utils/toastAlert";
 import Img from "@/components/Img/Img";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 interface CardProductHomeProps{
     product: Product;
 }
 
 function CardProductHome({product}: CardProductHomeProps) {
-
+    const navigate = useNavigate();
     const { adicionarProduto, authenticated } = useContext(AuthContext);
 
     function addToCart(){
@@ -24,11 +25,13 @@ function CardProductHome({product}: CardProductHomeProps) {
         }
     }
 
+    function handleCardClick() {
+        navigate(`/informacaoproduto/${product.id}`, { state: { product } });
+    }
 
   return (
-    <div className="w-[270px]">
-       <Link to={`/informacaoproduto/${product.id}`} className='block'> 
-       <Card className="flex flex-col items-center border border-gray-400 h-[404px]">
+    <div className="w-[270px]" onClick={handleCardClick}>
+        <Card className="flex flex-col items-center border border-gray-400 h-[404px]">
             <div className="relative w-full">
                 <img 
                     className="w-full px-0 h-48 object-cover rounded-md" 
@@ -59,7 +62,6 @@ function CardProductHome({product}: CardProductHomeProps) {
                 </Button>
             </CardFooter>
         </Card>
-        </Link>
     </div>
   )
 }
