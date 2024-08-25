@@ -1,4 +1,4 @@
-/*import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Product from "../../models/Product";
 import {
   Card,
@@ -66,8 +66,6 @@ function ProductAbout() {
 
   const navigate = useNavigate();
   const { adicionarProduto, authenticated } = useContext(AuthContext);
-=======
->>>>>>> cca6bae41ac860e8dae11b621328f43abf7ffe0f
 
   function addToCart() {
     if (authenticated) {
@@ -154,5 +152,5 @@ function ProductAbout() {
     </div>
   );
 }
-
+}
 export default ProductAbout;
