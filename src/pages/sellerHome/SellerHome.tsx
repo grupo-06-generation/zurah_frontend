@@ -12,9 +12,7 @@ import {
 } from "@phosphor-icons/react";
 import Popup from "reactjs-popup";
 import ProductForm from "../../components/Products/productForm/ProductForm";
-import "../../components/Products/productModal/ProductModal.css";
 import "../../index.css";
-import ProductModal from "../../components/Products/productModal/ProductModal";
 
 Chart.register(...registerables);
 
@@ -61,7 +59,7 @@ function SellerHome() {
 
   return (
     <div className="min-h-screen flex bg-gray-100 px-5 py-5">
-      <aside className="w-64 bg-[#843C0A] text-[#fff8eb] p-6 absolute h-[800px] rounded-lg shadow-lg">
+      <aside className="w-64 bg-[#843C0A] text-[#fff8eb] p-6 absolute h-auto rounded-lg shadow-lg">
         <h2 className="text-[23px] font-bold mb-6 flex justify-center border-b-2 pb-2 ">
           MENU
         </h2>
@@ -267,9 +265,6 @@ function SellerHome() {
                 <Line data={data} />
               </div>
             </div>
-          </div>
-          <div className="mt-10"> 
-            <ProductModal />
           </div>
         </main>
       </div>
