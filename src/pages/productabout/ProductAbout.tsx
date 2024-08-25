@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Product from "../../models/Product";
 import {
+  Card,
   CardContent,
   CardDescription,
   CardFooter,
@@ -21,30 +22,30 @@ function ProductAbout() {
   const { adicionarProduto, authenticated } = useContext(AuthContext);
 
   const { usuario, handleLogout } = useContext(AuthContext);
-    const token = usuario.token;
+  const token = usuario.token;
 
-    async function buscarPorId(id: string) {
-        try {
-            await buscar(`/product/${id}`, setProduct, {
-                headers: {
-                    'Authorization': token
-                }
-            });
-        } catch (error: any) {
-            if (error.toString().includes('403')) {
-                toastAlert('O token expirou, favor logar novamente.', 'info');
-                handleLogout();
-            } else {
-                toastAlert('Erro ao buscar produto.','erro');
-            }
-        }
+  async function buscarPorId(id: string) {
+    try {
+      await buscar(`/product/${id}`, setProduct, {
+        headers: {
+          Authorization: token,
+        },
+      });
+    } catch (error: any) {
+      if (error.toString().includes("403")) {
+        toastAlert("O token expirou, favor logar novamente.", "info");
+        handleLogout();
+      } else {
+        toastAlert("Erro ao buscar produto.", "erro");
+      }
     }
+  }
 
-    useEffect(() => {
-        if (id !== undefined) {
-            buscarPorId(id);
-        }
-    }, [id]);
+  useEffect(() => {
+    if (id !== undefined) {
+      buscarPorId(id);
+    }
+  }, [id]);
 
   function addToCart() {
     if (authenticated) {
@@ -57,29 +58,27 @@ function ProductAbout() {
 
   return (
     <div className="flex justify-center">
-      <div className="flex-col">
+      <div className="">
         <img src={product.photo} alt={product.name} />
       </div>
 
-      <div>
-        <h1>{product.name}</h1>
-      </div>
-
-      <CardHeader className="p-4">
-        <CardTitle>{product.name}</CardTitle>
-        <CardDescription className="line-clamp-2">
-          {product.description}
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="p-2">
-        <p className="text-xl font-semibold">R$ {product.price.toFixed(2)}</p>
-      </CardContent>
-      <CardFooter className="flex justify-center p-2 pb-4">
-        <Button className="bg-[#843c0a]" onClick={addToCart}>
-          <FaShoppingCart className="mr-2" />
-          Adicionar
-        </Button>
-      </CardFooter>
+      <Card>
+        <CardHeader className="p-4">
+          <CardTitle>{product.name}</CardTitle>
+          <CardDescription className="line-clamp-2">
+            {product.description}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="p-2">
+          <p className="text-xl font-semibold">R$ {product.price}</p>
+        </CardContent>
+        <CardFooter className="flex justify-center p-2 pb-4">
+          <Button className="bg-[#843c0a]" onClick={addToCart}>
+            <FaShoppingCart className="mr-2" />
+            Adicionar
+          </Button>
+        </CardFooter>
+      </Card>
     </div>
   );
 }
