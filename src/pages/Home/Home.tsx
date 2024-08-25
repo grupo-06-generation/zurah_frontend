@@ -5,7 +5,7 @@ import CategoryConsumer from "../../components/categoryConsumer/CategoryConsumer
 import Rolagem from "../../components/Slider/Rolagem";
 import ListaProductHome from "@/components/Products/ListProduct/ListaProductHome";
 import { Search } from "lucide-react";
-import ProductsByCategory from "@/productsByCategory/ProductsByCategory";
+import ProductsByCategory from "@/components/productsByCategory/ProductsByCategory";
 
 
 function Home() {

@@ -18,6 +18,7 @@ import SellerHome from './pages/sellerHome/SellerHome';
 import Cart from './pages/Cart/Cart';
 // import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
 import ListProduct from './components/Products/ListProduct/ListProduct';
+import ProductsByCategory from './components/productsByCategory/ProductsByCategory';
 
 
 
@@ -46,6 +47,8 @@ function App() {
               <Route path="/admin/zurah" element={<SellerHome />} />
               
               <Route path="/carrinho" element={<Cart />} />
+
+              <Route path="/products-cat/:id" element={<ProductsByCategory />} />
 
             </Routes>
         </div>
