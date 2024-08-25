@@ -8,6 +8,4 @@ export default interface Usuario {
     photo: string;
     password: string;
     product?: Product | null;
-
-
 }

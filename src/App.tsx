@@ -14,14 +14,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductForm from './components/Products/productForm/ProductForm';
 import SellerHome from './pages/sellerHome/SellerHome';
-//import DeleteProduct from './components/Products/DeleteProduct/DeleteProduct';
 import Cart from './pages/Cart/Cart';
-// import ListProductByCategory from './components/listProductsByCategory/ListProductsByCategory';
 import ListProduct from './components/Products/ListProduct/ListProduct';
 import ProductAbout from './pages/productabout/ProductAbout';
 import ProductsByCategory from './components/productsByCategory/ProductsByCategory';
-
-
+import SellerRoute from './components/SellerRoute/SellerRoute';
+import Perfil from './components/Perfil/Perfil';
 
 function App() {
   return (
@@ -45,14 +43,17 @@ function App() {
               <Route path="/produtos" element={<ListProduct />} />
               <Route path="/cadastrar-produto" element={<ProductForm />} />
               <Route path="/editar-produto/:id" element={<ProductForm />} />
-              <Route path="/admin/zurah" element={<SellerHome />} />
               <Route path="/informacaoproduto/:id" element={<ProductAbout/>} />
-             
-
               <Route path="/carrinho" element={<Cart />} />
-
               <Route path="/products-cat/:id" element={<ProductsByCategory />} />
-
+              <Route path="/admin/zurah" 
+                element={
+                  <SellerRoute>
+                    <SellerHome />
+                  </SellerRoute>
+                } 
+              />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
         </div>
         <Footer />
