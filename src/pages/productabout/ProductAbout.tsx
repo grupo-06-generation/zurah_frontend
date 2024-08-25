@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-<<<<<<< HEAD
 import { FaShoppingCart, FaPlus, FaMinus } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
@@ -54,7 +53,6 @@ function ProductAbout() {
   useEffect(() => {
     setTotalPrice(product.price * quantity);
   }, [product.price, quantity]);
-=======
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
@@ -67,7 +65,6 @@ function ProductAbout() {
 
   const navigate = useNavigate();
   const { adicionarProduto, authenticated } = useContext(AuthContext);
->>>>>>> f263803a97062f2536c26a32a9c3a68bed85744e
 
   function addToCart() {
     if (authenticated) {
