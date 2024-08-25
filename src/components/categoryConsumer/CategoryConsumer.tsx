@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CategoryConsumer() {
   return (
     <>
-      <div className="flex justify-center items-center flex-wrap mb-24 mx-24">
+      <div className="flex justify-center items-center flex-wrap mb-24">
         <div className="flex flex-col flex-wrap border-b-[1px] w-[1400px] mb-9">
           <h2 className="text-[20px] text-olive leading-3 font-medium">
             Compre por
