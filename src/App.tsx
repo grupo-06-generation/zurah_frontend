@@ -20,6 +20,7 @@ import ProductAbout from './pages/productabout/ProductAbout';
 import ProductsByCategory from './components/productsByCategory/ProductsByCategory';
 import SellerRoute from './components/SellerRoute/SellerRoute';
 import Perfil from './components/Perfil/Perfil';
+import PerfilRoute from './components/Perfil/PerfilRoute';
 
 function App() {
   return (
@@ -53,7 +54,13 @@ function App() {
                   </SellerRoute>
                 } 
               />
-              <Route path="/perfil" element={<Perfil />} />
+              <Route path="/perfil" 
+                element={
+                  <PerfilRoute>
+                    <Perfil />
+                  </PerfilRoute>
+                } 
+              />
             </Routes>
         </div>
         <Footer />
