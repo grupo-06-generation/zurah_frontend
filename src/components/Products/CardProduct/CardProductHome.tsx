@@ -9,11 +9,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FaMinus, FaPlus, FaShoppingCart } from "react-icons/fa";
-import { ImgHTMLAttributes, useContext, useState } from "react";
-
+import { useState, useContext } from "react";
+import { AuthContext } from "@/contexts/AuthContext"; // Importando o AuthContext
 import { toastAlert } from "@/utils/toastAlert";
 import Img from "@/components/Img/Img";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface CardProductHomeProps {
   product: Product;
@@ -21,12 +21,14 @@ interface CardProductHomeProps {
 
 function CardProductHome({ product }: CardProductHomeProps) {
   const navigate = useNavigate();
+  const { adicionarProduto } = useContext(AuthContext); // Usando o AuthContext
 
   const [quantity, setQuantity] = useState(1);
 
+  // Função para adicionar o produto ao carrinho usando o contexto
   function addToCart() {
-      adicionarProduto(product);
-      toastAlert("Produto adicionado ao carrinho", "sucesso");
+    adicionarProduto({ ...product, quantity });
+    toastAlert("Produto adicionado ao carrinho", "sucesso");
   }
 
   const handleIncrease = () => {
@@ -38,6 +40,7 @@ function CardProductHome({ product }: CardProductHomeProps) {
       setQuantity(quantity - 1);
     }
   };
+
   function handleCardClick() {
     navigate(`/informacaoproduto/${product.id}`, { state: { product } });
   }
