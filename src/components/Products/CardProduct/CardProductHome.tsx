@@ -49,13 +49,13 @@ function CardProductHome({ product }: CardProductHomeProps) {
 
   return (
     <div className="lg:w-72 w-48">
-      <Card className="flex flex-col border border-gray-400 lg:h-96 h-64">
+      <Card className="flex flex-col border border-gray-400 lg:h-96 h-72">
         <div
           className="relative w-full hover:cursor-pointer"
           onClick={handleCardClick}
         >
           <img
-            className="lg:w-full w-72 px-0 lg:h-48 h-14 object-cover rounded-md"
+            className="lg:w-full w-72 px-0 lg:h-48 h-24 object-cover rounded-md"
             src={product.photo}
             alt={product.name}
           />
