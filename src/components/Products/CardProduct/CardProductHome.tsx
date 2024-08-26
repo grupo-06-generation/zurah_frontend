@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { FaMinus, FaPlus, FaShoppingCart } from "react-icons/fa";
 import { ImgHTMLAttributes, useContext, useState } from "react";
-import { AuthContext } from "@/contexts/AuthContext";
+
 import { toastAlert } from "@/utils/toastAlert";
 import Img from "@/components/Img/Img";
 import { Link, useNavigate } from "react-router-dom";
@@ -21,17 +21,12 @@ interface CardProductHomeProps {
 
 function CardProductHome({ product }: CardProductHomeProps) {
   const navigate = useNavigate();
-  const { adicionarProduto, authenticated } = useContext(AuthContext);
 
   const [quantity, setQuantity] = useState(1);
 
   function addToCart() {
-    if (authenticated) {
       adicionarProduto(product);
       toastAlert("Produto adicionado ao carrinho", "sucesso");
-    } else {
-      toastAlert("Você precisa estar logado", "error");
-    }
   }
 
   const handleIncrease = () => {
