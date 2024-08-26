@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { UserIcon, PackageIcon, TagIcon } from "lucide-react";
 import EditCategory from "./EditCategory";
 import EditPerfil from "./EditPerfil";
 import EditProduct from "./EditProduct";
+import { AuthContext } from "@/contexts/AuthContext";
 
 export default function Perfil() {
   // Estado para controlar qual card está selecionado
   const [selectedCard, setSelectedCard] = useState("Perfil");
+
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario?.token;
+  const firstLetterUppercase = usuario.name.charAt(0).toUpperCase();
+  
 
   return (
     <div className="grid h-auto w-full lg:grid-cols-[280px_1fr]">
@@ -24,7 +30,7 @@ export default function Perfil() {
               <Link
                 to="#"
                 onClick={() => setSelectedCard("Perfil")}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${
+                className={`flex items-center gap-3 my-1 rounded-lg px-3 py-2 transition-all ${
                   selectedCard === "Perfil"
                     ? "bg-green-700 text-white"
                     : "bg-muted text-primary hover:bg-green-500 hover:text-white"
@@ -36,7 +42,7 @@ export default function Perfil() {
               <Link
                 to="#"
                 onClick={() => setSelectedCard("Produtos")}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${
+                className={`flex items-center gap-3 my-1 rounded-lg px-3 py-2 transition-all ${
                   selectedCard === "Produtos"
                     ? "bg-green-700 text-white"
                     : "text-muted-foreground hover:bg-green-500 hover:text-white"
@@ -48,7 +54,7 @@ export default function Perfil() {
               <Link
                 to="#"
                 onClick={() => setSelectedCard("Categorias")}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${
+                className={`flex items-center gap-3 my-1 rounded-lg px-3 py-2 transition-all ${
                   selectedCard === "Categorias"
                     ? "bg-green-700 text-white"
                     : "text-muted-foreground hover:bg-green-500 hover:text-white"
@@ -64,10 +70,10 @@ export default function Perfil() {
       <div className="flex flex-col">
         <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-muted/40 px-6">
           <Avatar className="h-9 w-9">
-            <AvatarImage src="/placeholder-user.jpg" alt="@shadcn" />
-            <AvatarFallback>U</AvatarFallback>
+            <AvatarImage src={usuario.photo} alt={usuario.name} />
+            <AvatarFallback>{firstLetterUppercase}</AvatarFallback>
           </Avatar>
-          <span className="text-muted-foreground">Nome do Usuário</span>
+          <span className="text-muted-foreground">{usuario.name}</span>
         </header>
         <main className="flex-1 overflow-auto">
           <div className="grid gap-6 p-4 md:p-6 w-[800px]">

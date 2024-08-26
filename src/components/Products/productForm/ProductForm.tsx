@@ -272,7 +272,7 @@ function ProductForm() {
               }}
               value={selectedCategory} // Vincula o valor do Select ao estado local
             >
-              <SelectTrigger id="category" className=" rounded col-span-3">
+              <SelectTrigger id="category" className="rounded col-span-3">
                 <SelectValue placeholder="Selecione uma categoria"/>
               </SelectTrigger>
               <SelectGroup>
