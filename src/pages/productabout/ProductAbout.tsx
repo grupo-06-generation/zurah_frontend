@@ -18,9 +18,8 @@ import { Terminal } from "lucide-react";
 function ProductAbout() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { adicionarProduto, authenticated } = useContext(AuthContext);
+  const { adicionarProduto } = useContext(AuthContext);
 
-  // Pegando o produto do estado passado na navegação
   const { product } = location.state || {};
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -29,24 +28,16 @@ function ProductAbout() {
     if (product) {
       setTotalPrice(product.price * quantity);
     } else {
-      // Caso o produto não esteja no state, redireciona para a Home ou mostra um erro
       navigate("/home");
       toastAlert("Produto não encontrado.", "erro");
     }
   }, [product, quantity, navigate]);
 
-  // Função para adicionar produto ao carrinho
   function addToCart() {
-    if (authenticated) {
-      adicionarProduto({ ...product, quantity });
-      toastAlert("Produto adicionado ao carrinho", "sucesso");
-    } else {
-      toastAlert("Você precisa estar logado", "error");
-      navigate("/login");
-    }
+    adicionarProduto({ ...product, quantity });
+    toastAlert("Produto adicionado ao carrinho", "sucesso");
   }
 
-  // Funções para aumentar e diminuir a quantidade do produto
   function increaseQuantity() {
     setQuantity((prev) => prev + 1);
   }
