@@ -9,11 +9,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FaMinus, FaPlus, FaShoppingCart } from "react-icons/fa";
-import { useState, useContext } from "react";
-import { AuthContext } from "@/contexts/AuthContext"; // Importando o AuthContext
+import { ImgHTMLAttributes, useContext, useState } from "react";
+import { AuthContext } from "@/contexts/AuthContext";
 import { toastAlert } from "@/utils/toastAlert";
 import Img from "@/components/Img/Img";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface CardProductHomeProps {
   product: Product;
@@ -21,14 +21,17 @@ interface CardProductHomeProps {
 
 function CardProductHome({ product }: CardProductHomeProps) {
   const navigate = useNavigate();
-  const { adicionarProduto } = useContext(AuthContext); 
+  const { adicionarProduto, authenticated } = useContext(AuthContext);
 
   const [quantity, setQuantity] = useState(1);
 
-  
   function addToCart() {
-    adicionarProduto({ ...product, quantity });
-    toastAlert("Produto adicionado ao carrinho", "sucesso");
+    if (authenticated) {
+      adicionarProduto(product);
+      toastAlert("Produto adicionado ao carrinho", "sucesso");
+    } else {
+      toastAlert("Você precisa estar logado", "error");
+    }
   }
 
   const handleIncrease = () => {
@@ -40,20 +43,19 @@ function CardProductHome({ product }: CardProductHomeProps) {
       setQuantity(quantity - 1);
     }
   };
-
   function handleCardClick() {
     navigate(`/informacaoproduto/${product.id}`, { state: { product } });
   }
 
   return (
-    <div className="w-[270px]">
-      <Card className="flex flex-col border border-gray-400 h-[388px]">
+    <div className="lg:w-72 w-48">
+      <Card className="flex flex-col border border-gray-400 lg:h-96 h-64">
         <div
           className="relative w-full hover:cursor-pointer"
           onClick={handleCardClick}
         >
           <img
-            className="w-full px-0 h-48 object-cover rounded-md"
+            className="lg:w-full w-72 px-0 lg:h-48 h-14 object-cover rounded-md"
             src={product.photo}
             alt={product.name}
           />
@@ -62,21 +64,21 @@ function CardProductHome({ product }: CardProductHomeProps) {
               notfoundsrc="https://i.pinimg.com/originals/e5/df/45/e5df457e8de5d0aae37691c00e8a672e.jpg"
               src={product.usuario?.photo}
               alt={product.usuario?.name}
-              className="w-6 h-6 rounded-full border-2 border-white"
+              className="lg:w-6 w-4 lg:h-6 h-4 rounded-full border-2 border-white"
             />
-            <span className="ml-2 text-gray-600 font-bold">
+            <span className="ml-2 text-gray-600 font-bold text-xs">
               {product.usuario?.name}
             </span>
           </div>
         </div>
         <CardHeader className="p-4">
-          <CardTitle>{product.name}</CardTitle>
+          <CardTitle className="text-lg">{product.name}</CardTitle>
           <CardDescription className=" line-clamp-1">
             {product.description}
           </CardDescription>
         </CardHeader>
         <CardContent className="p-2">
-          <p className="text-xl font-semibold ml-2">
+          <p className="text-lg font-semibold ml-2">
             R$ {product.price.toFixed(2)}
           </p>
         </CardContent>
@@ -99,9 +101,10 @@ function CardProductHome({ product }: CardProductHomeProps) {
               <FaPlus size={10} />
             </button>
           </div>
-          <Button className="bg-[#843c0a]" onClick={addToCart}>
-            <FaShoppingCart className="mr-2" />
-            Adicionar
+          <Button className="bg-[#843c0a] w-10 lg:w-32" onClick={addToCart}>
+            <FaShoppingCart className="content-center lg:mr-2 scale-150" />
+            {}
+            <span className="hidden lg:inline">Adicionar</span>
           </Button>
         </CardFooter>
       </Card>
