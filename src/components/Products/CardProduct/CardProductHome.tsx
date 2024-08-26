@@ -26,12 +26,8 @@ function CardProductHome({ product }: CardProductHomeProps) {
   const [quantity, setQuantity] = useState(1);
 
   function addToCart() {
-    if (authenticated) {
-      adicionarProduto(product);
-      toastAlert("Produto adicionado ao carrinho", "sucesso");
-    } else {
-      toastAlert("Você precisa estar logado", "error");
-    }
+    adicionarProduto(product);
+    toastAlert("Produto adicionado ao carrinho", "sucesso");
   }
 
   const handleIncrease = () => {
@@ -43,6 +39,7 @@ function CardProductHome({ product }: CardProductHomeProps) {
       setQuantity(quantity - 1);
     }
   };
+
   function handleCardClick() {
     navigate(`/informacaoproduto/${product.id}`, { state: { product } });
   }

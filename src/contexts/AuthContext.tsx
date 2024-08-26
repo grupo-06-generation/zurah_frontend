@@ -6,130 +6,148 @@ import { toast } from "react-toastify";
 import { toastAlert } from "@/utils/toastAlert";
 
 interface AuthContextProps {
-    usuario: UsuarioLogin;
-    authenticated: boolean;
-    handleLogout(): void;
-    handleLogin(usuario: UsuarioLogin): Promise<void>;
-    isLoading: boolean;
-    adicionarProduto: (produto: Product) => void;
-    aumentarQtdKg: (produtoId: number) => void;
-    diminuirQtdKg: (produtoId: number) => void;
-    removerProduto: (produtoId: number) => void;
-    limparCarrinho: () => void;
-    items: Product[];
-    kgItems: number[];
-    quantidadeItems: number;
-    precoTotal: string;
+  usuario: UsuarioLogin;
+  authenticated: boolean;
+  handleLogout(): void;
+  handleLogin(usuario: UsuarioLogin): Promise<void>;
+  isLoading: boolean;
+  adicionarProduto: (produto: Product) => void;
+  aumentarQtdKg: (produtoId: number) => void;
+  diminuirQtdKg: (produtoId: number) => void;
+  removerProduto: (produtoId: number) => void;
+  limparCarrinho: () => void;
+  items: Product[];
+  kgItems: number[];
+  quantidadeItems: number;
+  precoTotal: string;
 }
 
 interface AuthProviderProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 export const AuthContext = createContext({} as AuthContextProps);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-    const [usuario, setUsuario] = useState<UsuarioLogin>({
-        id: 0,
-        name: "",
-        usuario: "",
-        password: "",
-        photo: "",
-        token: "",
-        is_seller: 0
+  const [usuario, setUsuario] = useState<UsuarioLogin>({
+    id: 0,
+    name: "",
+    usuario: "",
+    password: "",
+    photo: "",
+    token: "",
+    is_seller: 0,
+  });
+
+  const [items, setItems] = useState<Product[]>([]);
+  const [kgItems, setKgItems] = useState<number[]>([]);
+
+  const quantidadeItems = items.length;
+
+  const precoTotal = items
+    .reduce((acc, curr) => acc + curr.price, 0)
+    .toFixed(2);
+
+  function adicionarProduto(produto: Product) {
+    setItems((state) => [...state, produto]);
+    setKgItems((state) => [...state, 1]);
+  }
+
+  function aumentarQtdKg(produtoId: number) {
+    const indice = items.findIndex((items) => items.id === produtoId);
+
+    let novoKgItems = kgItems;
+
+    if (novoKgItems[indice] > 0) {
+      novoKgItems[indice] = novoKgItems[indice] + 1;
+      setKgItems(novoKgItems);
+    }
+  }
+
+  function diminuirQtdKg(produtoId: number) {
+    const indice = items.findIndex((items) => items.id === produtoId);
+    let novoKgItems = kgItems;
+
+    if (novoKgItems[indice] > 0) {
+      novoKgItems[indice] = novoKgItems[indice] - 1;
+      setKgItems(novoKgItems);
+    }
+  }
+
+  function removerProduto(produtoId: number) {
+    const indice = items.findIndex((items) => items.id === produtoId);
+    let novoCart = [...items];
+    let novoKgItems = [...kgItems];
+
+    if (indice >= 0) {
+      novoCart.splice(indice, 1);
+      novoKgItems.splice(indice, 1);
+      setItems(novoCart);
+      setKgItems(novoKgItems);
+    }
+  }
+
+  function limparCarrinho() {
+    if (quantidadeItems !== 0) {
+      toastAlert("Compra Efetuada com Sucesso", "sucesso");
+      setItems([]);
+      setKgItems([]);
+    } else {
+      toastAlert("Seu carrinho está vazio", "info");
+    }
+  }
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const authenticated = !!usuario.token;
+
+  async function handleLogin(userLogin: UsuarioLogin) {
+    setIsLoading(true);
+    try {
+      await login(`/usuarios/login`, userLogin, setUsuario);
+      //alert("Usuário logado com sucesso");
+      toastAlert("Usuário logado com sucesso", "sucesso");
+    } catch (error) {
+      console.log(error);
+      //alert("Dados do usuário inconsistentes");
+      toastAlert("Dados do usuário inconsistentes", "erro");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  function handleLogout() {
+    setUsuario({
+      id: 0,
+      name: "",
+      usuario: "",
+      password: "",
+      photo: "",
+      token: "",
+      is_seller: 0,
     });
+  }
 
-    const [items, setItems] = useState<Product[]>([]);
-    const [kgItems, setKgItems] = useState<number[]>([]);
-
-    const quantidadeItems = items.length;
-
-    const precoTotal = items.reduce((acc, curr) => acc + curr.price, 0).toFixed(2);
-
-    function adicionarProduto(produto: Product) {
-        setItems(state => [...state, produto])
-    }
-
-    function aumentarQtdKg(produtoId: number) {
-        const indice = items.findIndex(items => items.id === produtoId);
-
-        let novoKgItems = kgItems;
-
-        if(novoKgItems[indice] > 0) {
-            novoKgItems[indice] = novoKgItems[indice] + 1;
-            setKgItems(novoKgItems);
-        }
-    }
-
-    function diminuirQtdKg(produtoId: number) {
-        const indice = items.findIndex(items => items.id === produtoId);
-        let novoKgItems = kgItems;
-
-        if(novoKgItems[indice] > 0) {
-            novoKgItems[indice] = novoKgItems[indice] - 1;
-            setKgItems(novoKgItems);
-        }
-
-    }
-
-    function removerProduto(produtoId: number) {
-        const indice = items.findIndex(items => items.id === produtoId)
-        let novoCart = [...items];
-        let novoKgItems = [...kgItems];
-
-        if(indice >= 0) {
-            novoCart.splice(indice, 1);
-            novoKgItems.splice(indice, 1);
-            setItems(novoCart);
-            setKgItems(novoKgItems);
-        }
-    }
-
-    function limparCarrinho() {
-        if(quantidadeItems !== 0){
-            toastAlert("Compra Efetuada com Sucesso", 'sucesso');
-            setItems([]);
-            setKgItems([]);
-        } else {
-            toastAlert("Seu carrinho está vazio", 'info');
-        }
-
-    }
-
-    const [isLoading, setIsLoading] = useState(false);
-
-    const authenticated = !!usuario.token;
-
-    async function handleLogin(userLogin: UsuarioLogin) {
-        setIsLoading(true);
-        try {
-            await login(`/usuarios/login`, userLogin, setUsuario);
-            //alert("Usuário logado com sucesso");
-            toastAlert("Usuário logado com sucesso", "sucesso");
-        } catch (error) {
-            console.log(error);
-            //alert("Dados do usuário inconsistentes");
-            toastAlert("Dados do usuário inconsistentes", "erro");
-        } finally {
-            setIsLoading(false);
-        }
-    }
-
-    function handleLogout() {
-        setUsuario({
-            id: 0,
-            name: "",
-            usuario: "",
-            password: "",
-            photo: "",
-            token: "",
-            is_seller: 0
-        });
-    }
-
-    return (
-        <AuthContext.Provider value={{ usuario, authenticated, handleLogin, handleLogout, isLoading, adicionarProduto, aumentarQtdKg, diminuirQtdKg, removerProduto, limparCarrinho, items, kgItems, quantidadeItems, precoTotal  }}>
-            {children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider
+      value={{
+        usuario,
+        authenticated,
+        handleLogin,
+        handleLogout,
+        isLoading,
+        adicionarProduto,
+        aumentarQtdKg,
+        diminuirQtdKg,
+        removerProduto,
+        limparCarrinho,
+        items,
+        kgItems,
+        quantidadeItems,
+        precoTotal,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }
