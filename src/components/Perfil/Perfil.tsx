@@ -51,18 +51,6 @@ export default function Perfil() {
                 <PackageIcon className="h-4 w-4" />
                 Produtos
               </Link>
-              <Link
-                to="#"
-                onClick={() => setSelectedCard("Categorias")}
-                className={`flex items-center gap-3 my-1 rounded-lg px-3 py-2 transition-all ${
-                  selectedCard === "Categorias"
-                    ? "bg-green-700 text-white"
-                    : "text-muted-foreground hover:bg-green-500 hover:text-white"
-                }`}
-              >
-                <TagIcon className="h-4 w-4" />
-                Categorias
-              </Link>
             </nav>
           </div>
         </div>
@@ -76,7 +64,7 @@ export default function Perfil() {
           <span className="text-muted-foreground">{usuario.name}</span>
         </header>
         <main className="flex-1 overflow-auto">
-          <div className="grid gap-6 p-4 md:p-6 w-[800px]">
+          <div className="grid gap-6 p-4 md:p-6 w-[1200px]">
             {selectedCard === "Perfil" && (
               <div>
                 {/* Componente para editar o perfil */}
@@ -87,12 +75,6 @@ export default function Perfil() {
               <div>
                 {/* Componente para editar produtos */}
                 <EditProduct />
-              </div>
-            )}
-            {selectedCard === "Categorias" && (
-              <div>
-                {/* Componente para editar categorias */}
-                <EditCategory />
               </div>
             )}
           </div>

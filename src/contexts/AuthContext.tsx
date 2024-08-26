@@ -4,6 +4,7 @@ import { login } from "../services/Service";
 import Product from "../models/Product";
 import { toast } from "react-toastify";
 import { toastAlert } from "@/utils/toastAlert";
+import Usuario from "@/models/Usuario";
 
 interface AuthContextProps {
   usuario: UsuarioLogin;
@@ -41,11 +42,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const [items, setItems] = useState<Product[]>([]);
   const [kgItems, setKgItems] = useState<number[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const authenticated = !!usuario.token;
 
   const quantidadeItems = items.length;
 
   const precoTotal = items
-    .reduce((acc, curr) => acc + curr.price, 0)
+    .reduce((acc, curr, idx) => acc + curr.price * kgItems[idx], 0)
     .toFixed(2);
 
   function adicionarProduto(produto: Product) {
@@ -54,41 +58,33 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   function aumentarQtdKg(produtoId: number) {
-    const indice = items.findIndex((items) => items.id === produtoId);
-
-    let novoKgItems = kgItems;
-
-    if (novoKgItems[indice] > 0) {
-      novoKgItems[indice] = novoKgItems[indice] + 1;
-      setKgItems(novoKgItems);
+    const indice = items.findIndex((item) => item.id === produtoId);
+    if (indice >= 0) {
+      setKgItems((state) =>
+        state.map((kg, idx) => (idx === indice ? kg + 1 : kg))
+      );
     }
   }
 
   function diminuirQtdKg(produtoId: number) {
-    const indice = items.findIndex((items) => items.id === produtoId);
-    let novoKgItems = kgItems;
-
-    if (novoKgItems[indice] > 0) {
-      novoKgItems[indice] = novoKgItems[indice] - 1;
-      setKgItems(novoKgItems);
+    const indice = items.findIndex((item) => item.id === produtoId);
+    if (indice >= 0 && kgItems[indice] > 1) {
+      setKgItems((state) =>
+        state.map((kg, idx) => (idx === indice ? kg - 1 : kg))
+      );
     }
   }
 
   function removerProduto(produtoId: number) {
-    const indice = items.findIndex((items) => items.id === produtoId);
-    let novoCart = [...items];
-    let novoKgItems = [...kgItems];
-
+    const indice = items.findIndex((item) => item.id === produtoId);
     if (indice >= 0) {
-      novoCart.splice(indice, 1);
-      novoKgItems.splice(indice, 1);
-      setItems(novoCart);
-      setKgItems(novoKgItems);
+      setItems((state) => state.filter((_, idx) => idx !== indice));
+      setKgItems((state) => state.filter((_, idx) => idx !== indice));
     }
   }
 
   function limparCarrinho() {
-    if (quantidadeItems !== 0) {
+    if (quantidadeItems > 0) {
       toastAlert("Compra Efetuada com Sucesso", "sucesso");
       setItems([]);
       setKgItems([]);
@@ -97,19 +93,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const authenticated = !!usuario.token;
-
   async function handleLogin(userLogin: UsuarioLogin) {
     setIsLoading(true);
     try {
       await login(`/usuarios/login`, userLogin, setUsuario);
-      //alert("Usuário logado com sucesso");
       toastAlert("Usuário logado com sucesso", "sucesso");
     } catch (error) {
-      console.log(error);
-      //alert("Dados do usuário inconsistentes");
+      console.error(error);
       toastAlert("Dados do usuário inconsistentes", "erro");
     } finally {
       setIsLoading(false);

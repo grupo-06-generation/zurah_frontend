@@ -64,7 +64,7 @@ function DeleteProductModal({ productId, isOpen, onClose, onDeleteSuccess }: Del
                 }
             });
             toastAlert(`Produto ${product.name} deletado com sucesso`, 'deletado');
-            //alert('Produto deletado com sucesso.');
+            
             onDeleteSuccess(); // Notifica a lista sobre a exclusão
             onClose();
         } catch (error) {

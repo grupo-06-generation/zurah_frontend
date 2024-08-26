@@ -62,7 +62,18 @@ function EditPerfil() {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    setNewUser({
+        id: usuario.id,
+        name: name,
+        usuario: email,
+        password: senha,
+        photo: foto,
+        is_seller: parseInt(isSeller),
+      })
+  }), [name, email, senha, foto, isSeller];
+
+  async function handleSubmit (e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
 
     setNewUser({
@@ -75,7 +86,7 @@ function EditPerfil() {
     })
 
     try {
-      await atualizar(`/users/update`, newUser, setUsuarioResposta, {
+      await atualizar(`/usuarios/update`, newUser, setUsuarioResposta, {
         headers: {
           Authorization: token,
         },
@@ -86,7 +97,7 @@ function EditPerfil() {
       console.error("Erro ao atualizar o perfil:", error);
       toastAlert("Erro ao atualizar o perfil. Tente novamente.", "error");
     }
-  };
+  }
 
   return (
     <div className="">
