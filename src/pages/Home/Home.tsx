@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
 
-      <div className="min-h-screen bg-[#FFFBF7] flex flex-col items-center">
+      <div className="min-h-screen bg-[#ffffff] flex flex-col items-center">
         <main className="flex-grow w-full p-0">
           <section id="home" className="mb-12">
             <Rolagem />
