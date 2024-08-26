@@ -7,20 +7,16 @@ import ListaProductHome from "@/components/Products/ListProduct/ListaProductHome
 import { Search } from "lucide-react";
 import ProductsByCategory from "@/components/productsByCategory/ProductsByCategory";
 
-
 function Home() {
   return (
     <>
-
       <div className="min-h-screen bg-[#ffffff] flex flex-col items-center">
-        <main className="flex-grow w-full p-0">
+        <main className="flex-grow w-5/6 p-0">
           <section id="home" className="mb-12">
             <Rolagem />
           </section>
 
           <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
-            
-
             <CategoryConsumer />
 
             <ListaProductHome />
@@ -29,7 +25,6 @@ function Home() {
           </div>
         </main>
       </div>
-
     </>
   );
 }

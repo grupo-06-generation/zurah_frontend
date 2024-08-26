@@ -53,8 +53,8 @@ function Navbar() {
 
   return (
     <>
-      <div className="w-full bg-[#fffbf7] text-[#843C0A] py-4 px-8 pb-3">
-        <div className="flex items-center justify-between">
+      <div className="w-11/12 bg-[#fffbf7] text-[#843C0A] py-4 sm:px-8 px-4">
+        <div className="flex items-center  space-x-8 sm:justify-between">
           <div className="flex items-center h-full w-[200px]">
             <Link to="/" className="h-full w-full">
               <img
@@ -66,7 +66,8 @@ function Navbar() {
           </div>
 
           <form action="/produtos">
-            <div className="relative flex items-center">
+            {}
+            <div className="hidden relative sm:flex items-center">
               <input
                 type="text"
                 placeholder="Digite o que você procura"
@@ -81,7 +82,7 @@ function Navbar() {
             </div>
           </form>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center sm:space-x-4 space-x-2">
             <div className="relative">
               <Link to={"/carrinho"}>
                 <div>
@@ -132,7 +133,9 @@ function Navbar() {
           </ul>
         </div>
       )}
-      <section className="flex justify-center bg-[#fffbf7] border-b-[0.2px] border-[#c59e82a9] mb-5">
+
+      {}
+      <section className="hidden sm:flex justify-center bg-[#fffbf7] border-b-[0.2px] border-[#c59e82a9] mb-5">
         <div className="">
           <nav>
             <ul className="flex flex-row gap-20">
