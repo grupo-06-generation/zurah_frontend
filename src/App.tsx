@@ -48,13 +48,7 @@ function App() {
               <Route path="/informacaoproduto/:id" element={<ProductAbout/>} />
               <Route path="/carrinho" element={<Cart />} />
               <Route path="/products-cat/:id" element={<ProductsByCategory />} />
-              <Route path="/admin/zurah" 
-                element={
-                  <SellerRoute>
-                    <SellerHome />
-                  </SellerRoute>
-                } 
-              />
+              
               <Route path="/perfil" 
                 element={
                   <PerfilRoute>
