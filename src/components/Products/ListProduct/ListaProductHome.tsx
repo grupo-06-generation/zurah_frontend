@@ -23,7 +23,7 @@ function ListaProductHome() {
 
   return (
     <>
-      <div className="m-6 ">
+      <div className="sm:mt-32 lg:mt-1">
         <h1 className="font-semibold tracking-tight text-olive text-[30px]">
           CONFIRA ALGUNS PRODUTOS
         </h1>
