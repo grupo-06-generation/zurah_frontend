@@ -47,6 +47,10 @@ function EditProduct() {
 
     const handleCreateProduct = () => {
         navigate('/cadastrar-produto');
+    }
+    
+    const handleEditProduct = (id: string) => {
+        navigate(`/editar-produto/${id}`);
     };
 
     return (
@@ -103,6 +107,7 @@ function EditProduct() {
                                                 variant="outline"
                                                 size="icon"
                                                 className="bg-gray-500 hover:bg-gray-300 text-white"
+                                                onClick={() => handleEditProduct(product.id.toString())}
                                             >
                                                 <FilePenIcon className="h-4 w-4" />
                                                 <span className="sr-only">Edit</span>

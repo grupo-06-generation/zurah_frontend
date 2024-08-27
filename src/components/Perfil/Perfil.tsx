@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { UserIcon, PackageIcon, TagIcon } from "lucide-react";
@@ -8,13 +8,18 @@ import EditProduct from "./EditProduct";
 import { AuthContext } from "@/contexts/AuthContext";
 
 export default function Perfil() {
-  // Estado para controlar qual card está selecionado
-  const [selectedCard, setSelectedCard] = useState("Perfil");
+
+  const [selectedCard, setSelectedCard] = useState<string>(() => {
+    return localStorage.getItem("selectedCard") || "Perfil";
+  });
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario?.token;
   const firstLetterUppercase = usuario.name.charAt(0).toUpperCase();
   
+  useEffect(() => {
+    localStorage.setItem("selectedCard", selectedCard);
+  }, [selectedCard]);
 
   return (
     <div className="grid h-auto w-full lg:grid-cols-[280px_1fr]">
