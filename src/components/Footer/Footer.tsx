@@ -33,7 +33,7 @@ function Footer() {
                                 <Link to={'/sobre'}>Sobre Nós</Link>
                             </li>
                             <li className="mb-1 hover:text-[#c45e16]">
-                                <Link to={'/cadastrar-produto'}>Cadastrar Produto</Link>
+                                <Link to={'/categorias'}>Categorias</Link>
                             </li>
                             </ul>
                     </div>
