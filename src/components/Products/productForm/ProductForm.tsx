@@ -81,16 +81,7 @@ function ProductForm() {
         })
       }
 
-      const fetchCategory = async () => {
-        await buscar(`/category/${id}`, setCategory, {
-          headers: {
-            Authorization: token,
-          },
-        })
-      }
-
       fetchProduct()
-      fetchCategory()
     }
   }, [id, token])
 
@@ -111,7 +102,6 @@ function ProductForm() {
     setProduct((prevProduct) => ({
       ...prevProduct,
       [name]: value,
-      category: category,
       usuario: usuario,
     }))
   }
@@ -126,6 +116,19 @@ function ProductForm() {
     setPopoverOpen(false);
   }
 
+  const handleCategoryChange = (value: string) => {
+    const selectedCat = categories.find((cat) => cat.name === value)
+    console.log(selectedCat)
+    if (selectedCat !== undefined) {
+      setCategory(selectedCat)
+      setSelectedCategory(selectedCat.name)
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        category: selectedCat,
+      }))
+    }
+  }
+  
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -293,12 +296,9 @@ function ProductForm() {
           <div className="grid grid-cols-4 items-center gap-2">
             <Label htmlFor="category">Categoria</Label>
             <Select
-              value={selectedCategory}
-              onValueChange={(value) => {
-                setCategory(categories.find((cat) => cat.name === value) || category)
-                setSelectedCategory(value)
-              }}
-              defaultValue={product.category?.name || ''}
+              value={product.category?.name}
+              onValueChange={handleCategoryChange}
+              defaultValue={product.category?.name}
               name="category"
               required
             >

@@ -99,7 +99,7 @@ function EditProduct() {
                                 <TableRow key={index}>
                                     <TableCell>{product.name}</TableCell>
                                     <TableCell><Badge variant='secondary'> {product.category?.name} </Badge></TableCell>
-                                    <TableCell>R$ {product.price.toFixed(2)}</TableCell>
+                                    <TableCell>R$ {product.price.toFixed(2).replace(".", ",")}</TableCell>
                                     <TableCell>{product.quantity}</TableCell>
                                     <TableCell>{product.region}</TableCell>
                                     <TableCell>{new Date(product.expire).toLocaleDateString('pt-BR')}</TableCell>
