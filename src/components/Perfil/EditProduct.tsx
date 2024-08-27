@@ -40,7 +40,7 @@ function EditProduct() {
     };
 
     function onDeleteSuccess(): void {
-        throw new Error('Function not implemented.');
+        buscarProducts();
     }
 
     return (
