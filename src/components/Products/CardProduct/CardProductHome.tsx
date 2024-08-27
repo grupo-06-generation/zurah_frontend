@@ -82,8 +82,8 @@ function CardProductHome({ product }: CardProductHomeProps) {
             R$ {product.price.toFixed(2)}
           </p>
         </CardContent>
-        <CardFooter className="flex flex-col lg:p-2 p-1 lg:justify-center mt-2">
-          <div className="flex items-center bg-[#D1B69A] text-gray-700 rounded-lg lg:mr-3 text-sm">
+        <CardFooter className="flex flex-col lg:flex-row lg:p-2 p-1 lg:justify-center mt-2">
+          <div className="flex items-center bg-[#D1B69A] text-gray-700 rounded-lg lg:mr-3 text-sm lg:mt-1">
             <button
               onClick={handleDecrease}
               className="lg:pl-4 lg:pr-2 pl-2 pr-1 py-1"
@@ -108,7 +108,7 @@ function CardProductHome({ product }: CardProductHomeProps) {
             </button>
           </div>
           <Button
-            className="bg-[#843c0a] w-28 h-9 lg:w-32 mt-2"
+            className="bg-[#843c0a] w-28 h-9 lg:w-32 mt-2 lg:mt-1"
             onClick={addToCart}
           >
             <FaShoppingCart className="content-center lg:mr-2 scale-125" />
