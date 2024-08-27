@@ -13,7 +13,8 @@ module.exports = {
   theme: {
     colors: {
       ...colors, 
-      "olive": "#556B2F"
+      "olive": "#556B2F",
+      "pink-white": "#FFF7EC"
     },
     container: {
       center: true,

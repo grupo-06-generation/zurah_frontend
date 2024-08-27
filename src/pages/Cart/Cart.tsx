@@ -10,7 +10,7 @@ function Cart() {
   const { items, quantidadeItems, limparCarrinho, precoTotal } = useContext(AuthContext);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] p-12 bg-pink-white">
       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full lg:w-3/4 xl:w-1/2">
         <div className="m-6 w-full">
           <p className="text-gray-400 text-sm font-medium mb-4">CARRINHO</p>

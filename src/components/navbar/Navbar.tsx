@@ -111,7 +111,7 @@ function Navbar() {
                     </ul>
                 </div>
             )}
-            <section className='flex justify-center bg-[#fffbf7] border-b-[0.2px] border-[#c59e82a9] mb-5'>
+            <section className='flex justify-center bg-[#fffbf7] border-b-[0.2px] border-[#c59e82a9]'>
                 <div className=''>
                     <nav>
                         <ul className='flex flex-row gap-10'>
@@ -144,6 +144,7 @@ function Navbar() {
                     </nav>
                 </div>
             </section>
+            <div className='pb-5 bg-[#fffbf7]'></div>
         </>
     );
 }
