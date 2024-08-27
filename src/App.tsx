@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import About from './pages/About/About';
-import Navbar from './components/navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Register from './pages/Register/Register';
 import { AuthProvider } from './contexts/AuthContext';
@@ -21,6 +20,8 @@ import ProductsByCategory from './components/productsByCategory/ProductsByCatego
 import SellerRoute from './components/SellerRoute/SellerRoute';
 import Perfil from './components/Perfil/Perfil';
 import PerfilRoute from './components/Perfil/PerfilRoute';
+import { Header } from './components/header/Header';
+
 
 function App() {
   return (
@@ -66,6 +67,8 @@ function App() {
         <Footer />
       </BrowserRouter >  
     </AuthProvider>
+
+
     </>
     
   );
@@ -79,7 +82,7 @@ function NavbarWrapper() {
     return null;
   }
 
-  return <Navbar />;
+  return <Header />;
 }
 
 export default App;
