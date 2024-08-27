@@ -12,8 +12,9 @@ module.exports = {
   prefix: "",
   theme: {
     colors: {
-      ...colors,
-      olive: "#556B2F",
+      ...colors, 
+      "olive": "#556B2F",
+      "pink-white": "#FFF7EC"
     },
     container: {
       center: true,

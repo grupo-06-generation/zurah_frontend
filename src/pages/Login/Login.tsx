@@ -33,7 +33,7 @@ function Login() {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
+        <div className="flex items-center justify-center min-h-[80vh] p-12 bg-pink-white">
             <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full sm:w-3/4 relative">
         
                 <div className="hidden lg:block lg:w-1/2 relative">
