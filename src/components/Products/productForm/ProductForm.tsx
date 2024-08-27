@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectGroup, SelectContent, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link } from "react-router-dom";
 import { Alert, AlertTitle } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react"
+import { AlertCircle } from "lucide-react";
 
 function ProductForm() {
   let navigate = useNavigate();
@@ -104,10 +104,23 @@ function ProductForm() {
     setProduct((prevProduct) => ({ ...prevProduct, category }));
   }, [category]);
 
+  // formatar a data para o formato dia/mês/ano
+  const formatDate = (dateString: string): string => {
+    const [year, month, day] = dateString.split("-");
+    return `${day}/${month}/${year}`;
+  };
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let { name, value } = e.target;
+
+    // Verifica se o campo é "expire" e formata a data
+    if (name === "expire" && value) {
+      value = formatDate(value);
+    }
+
     setProduct((prevProduct) => ({
       ...prevProduct,
-      [e.target.name]: e.target.value,
+      [name]: value,
       category: category,
       usuario: usuario,
     }));
@@ -267,19 +280,20 @@ function ProductForm() {
             <Label htmlFor="category">Categoria</Label>
             <Select 
               onValueChange={(value) => {
-                setSelectedCategory(value); // Atualiza o estado local com a nova seleção
+                setSelectedCategory(value); 
                 setCategory(categories.find((cat) => cat.name === value) || category);
               }}
-              value={selectedCategory} // Vincula o valor do Select ao estado local
+              value={selectedCategory} 
             >
               <SelectTrigger id="category" className="rounded col-span-3">
                 <SelectValue placeholder="Selecione uma categoria"/>
               </SelectTrigger>
               <SelectGroup>
+                <SelectLabel>Categorias</SelectLabel>
                 <SelectContent>
-                  {categories.map((cat) => (
-                    <SelectItem key={cat.id} value={cat.name}>
-                      {cat.name}
+                  {categories.map((category) => (
+                    <SelectItem key={category.id} value={category.name}>
+                      {category.name}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -287,15 +301,15 @@ function ProductForm() {
             </Select>
           </div>
 
-          <Button
-            type="submit" className="w-1/3 bg-[#843c0a]"
-          >
-            {id ? 'Editar' : 'Cadastrar'}
-          </Button>
+          <div>
+            <Button type="submit" className="bg-[#843c0a] hover:bg-[#843c0a]/90 w-full mt-4">
+              {id ? 'Atualizar' : 'Cadastrar'}
+            </Button>
+          </div>
         </form>
       </div>
     </div>
   );
 }
 
-export default ProductForm;
+export default ProductForm;
