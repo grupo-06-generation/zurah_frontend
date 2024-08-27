@@ -12,29 +12,45 @@ function CarroselProduct() {
     <div className="flex justify-center items-center w-full ">
       <Swiper
         rewind={true}
-        slidesPerView={3}
         centeredSlides={false}
-        spaceBetween={30}
+        spaceBetween={10} 
         pagination={{
           clickable: true,
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper w-11/12 h-80 m-20 " 
-        effect="fade"
+        className="mySwiper w-full max-w-[900px] h-64 m-10" 
+        breakpoints={{
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 2, 
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 3, 
+            spaceBetween: 30,
+          },
+        }}
+        autoplay={{
+          delay: 3000, 
+          disableOnInteraction: false,
+        }}
       >
         <SwiperSlide>
           <img
             src="https://i.imgur.com/rHmNiNy.png"
-            alt="slid"
-            className="w-full h-full object-cover "
+            alt="slide"
+            className="w-full h-full object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src="https://i.imgur.com/fvRxK3v.png"
             alt="Agricultor"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -48,21 +64,21 @@ function CarroselProduct() {
           <img
             src="https://i.imgur.com/SYYNSGG.png"
             alt="Agricultor"
-            className="w-[500] h-[500] object-cover "
+            className="w-[500px] h-[500px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src="https://i.imgur.com/z0uJThD.png"
             alt="Agricultor"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src="https://i.imgur.com/POEVYqk.png"
             alt="Logo"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover"
           />
         </SwiperSlide>
       </Swiper>
