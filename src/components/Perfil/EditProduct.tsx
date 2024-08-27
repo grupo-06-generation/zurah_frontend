@@ -93,7 +93,9 @@ function EditProduct() {
                             </div>
                         )}
                         <TableBody>
-                            {products.map((product, index) => (
+                            {products
+                            .filter((product: Product) => product.usuario?.id === usuario.id)
+                            .map((product, index) => (
                                 <TableRow key={index}>
                                     <TableCell>{product.name}</TableCell>
                                     <TableCell><Badge variant='secondary'> {product.category?.name} </Badge></TableCell>
