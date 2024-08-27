@@ -23,7 +23,7 @@ function ListaProductHome() {
 
   return (
     <>
-      <div className="m-5">
+      <div className="m-6 ">
         <h1 className="font-semibold tracking-tight text-olive text-[30px]">
           CONFIRA ALGUNS PRODUTOS
         </h1>
@@ -50,7 +50,7 @@ function ListaProductHome() {
           />
         </div>
       )}
-      <div className="mt-4 mb-30 lg:flex lg:flex-wrap grid grid-cols-2 columns-2 md:gap-4 gap-10 justify-between">
+      <div className="mt-4 mb-30 lg:flex lg:flex-wrap grid grid-cols-2 columns-2 sm:grid-cols-3 sm:columns-3 md:gap-6 gap-8 justify-between">
         {products.map((product) => (
           <div key={product.id} className="lg:h-[400px] lg:min-w-[200px] ">
             <CardProductHome product={product} />
