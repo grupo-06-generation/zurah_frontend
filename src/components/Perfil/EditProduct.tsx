@@ -10,12 +10,14 @@ import { useContext, useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import { Badge } from '../ui/badge';
 import DeleteProductModal from '../Products/DeleteProduct/DeleteProductModal';
+import { useNavigate } from 'react-router-dom';
 
 function EditProduct() {
     const { usuario } = useContext(AuthContext);
     const [products, setProducts] = useState<Product[]>([]);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
+    const navigate = useNavigate();
 
     async function buscarProducts() {
         try {
@@ -43,6 +45,10 @@ function EditProduct() {
         buscarProducts();
     }
 
+    const handleCreateProduct = () => {
+        navigate('/cadastrar-produto');
+    };
+
     return (
         <div className="">
             <Card>
@@ -52,7 +58,7 @@ function EditProduct() {
                 </CardHeader>
                 <CardContent>
                     <div className="flex items-center justify-between mb-4">
-                        <Button size="sm" className="bg-green-700">
+                        <Button size="sm" className="bg-green-700" onClick={handleCreateProduct}>
                             Criar produto
                         </Button>
                     </div>
