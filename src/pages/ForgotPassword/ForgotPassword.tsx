@@ -23,7 +23,7 @@ function ForgotPassword() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-[80vh] p-12 bg-[#FAEBD7]">
+    <div className="flex items-center justify-center min-h-[80vh] p-12 bg-pink-white">
         <div className="flex bg-[#FFF] rounded-lg shadow-lg overflow-hidden w-full sm:w-3/4">
           {!emailFound && !codeValid ? (
             (<EmailForm setEmailFound={handleEmailFound}/>)
