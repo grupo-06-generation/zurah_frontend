@@ -145,7 +145,8 @@ function ProductForm() {
         });
         toastAlert('Produto cadastrado com sucesso', 'success');
       }
-      navigate('/produtos');
+      
+      navigate(-1);
       
     } catch (error: any) {
       if (error.toString().includes('403')) {
