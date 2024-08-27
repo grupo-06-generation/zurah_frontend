@@ -19,9 +19,9 @@ function ListProduct() {
         buscarProducts();
     }, []);
 
-    // Função que será chamada após a exclusão
+
     const handleDeleteSuccess = () => {
-        buscarProducts(); // Atualiza a lista de produtos
+        buscarProducts();
     };
 
     return (
@@ -45,7 +45,7 @@ function ListProduct() {
                     <CardProduct 
                         key={product.id} 
                         product={product} 
-                        onDeleteSuccess={handleDeleteSuccess} // Passa a função para os cards
+                        onDeleteSuccess={handleDeleteSuccess} 
                     />
                 ))}
             </div>
