@@ -10,7 +10,6 @@ interface CardTestProps {
 }
 
 export default function CardTest({ product }: CardTestProps) {
-    
   const navigate = useNavigate();
   const { adicionarProduto, authenticated } = useContext(AuthContext);
 
@@ -19,32 +18,28 @@ export default function CardTest({ product }: CardTestProps) {
   }
 
   function addToCart() {
-      adicionarProduto(product);
-      toastAlert("Produto adicionado ao carrinho", "sucesso");
+    adicionarProduto(product);
+    toastAlert("Produto adicionado ao carrinho", "sucesso");
   }
 
   return (
     <div
       key={product.id}
-      className="grid gap-4 bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg"
+      className="flex flex-col bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 w-full max-w-xs sm:max-w-sm mx-auto" // Adicionando max-w-xs para largura menor em responsivo
     >
-      <div onClick={handleCardClick}>
+      <div onClick={handleCardClick} className="flex-shrink-0">
         <img
           src={product.photo}
           alt={product.name}
-          width={200}
-          height={200}
-          className="w-full aspect-square object-cover"
+          className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover"
         />
       </div>
-      <div className="p-4 grid gap-2">
-        <h3 className="font-semibold text-2xl">{product.name}</h3>
-        <p className="text-muted-foreground line-clamp-1">
-          {product.description}
-        </p>
-        <div className="flex items-center justify-between my-4">
+      <div className="p-4 flex-1 flex flex-col">
+        <h3 className="font-semibold text-lg md:text-2xl">{product.name}</h3>
+        <p className="text-muted-foreground line-clamp-1">{product.description}</p>
+        <div className="flex items-center justify-between mt-auto">
           <span className="font-semibold text-xl">
-            R$ {product.price.toFixed(2)}
+            R$ {product.price.toFixed(2).replace('.', ',')}
           </span>
           <Button 
             onClick={addToCart}
