@@ -34,10 +34,10 @@ export default function CardTest({ product }: CardTestProps) {
           className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover"
         />
       </div>
-      <div className="p-4 flex-1 flex flex-col">
+      <div className="p-4 flex flex-col justify-between h-full bg-white rounded shadow">
         <h3 className="font-semibold text-lg md:text-2xl">{product.name}</h3>
         <p className="text-muted-foreground line-clamp-1">{product.description}</p>
-        <div className="flex items-center justify-between mt-auto">
+        <div className="mt-auto flex flex-col justify-around items-center">
           <span className="font-semibold text-xl">
             R$ {product.price.toFixed(2).replace('.', ',')}
           </span>
