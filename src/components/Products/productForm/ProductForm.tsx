@@ -1,28 +1,35 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { ChangeEvent, useContext, useEffect, useState } from "react";
-import Category from "../../../models/Category";
-import Product from "../../../models/Product";
-import { atualizar, buscar, cadastrar } from "../../../services/Service";
-import { toastAlert } from "../../../utils/toastAlert";
-import { Separator } from "@/components/ui/separator";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Select, SelectGroup, SelectContent, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Link } from "react-router-dom";
-import { Alert, AlertTitle } from "@/components/ui/alert";
+import * as React from "react"
+import { format, addDays } from "date-fns"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
+import { AuthContext } from "../../../contexts/AuthContext"
+import { useContext, useEffect, useState, ChangeEvent } from "react"
+import Category from "../../../models/Category"
+import Product from "../../../models/Product"
+import { atualizar, buscar, cadastrar } from "../../../services/Service"
+import { toastAlert } from "../../../utils/toastAlert"
+import { Separator } from "@/components/ui/separator"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+import { Select, SelectGroup, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Link } from "react-router-dom"
+import { Alert, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Calendar } from "@/components/ui/calendar"
+import { Calendar as CalendarIcon } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 function ProductForm() {
-  let navigate = useNavigate();
-  const location = useLocation();
-  const { id } = useParams<{ id: string }>();
-  const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [category, setCategory] = useState<Category>({ id: 0, name: '', description: '' });
+  let navigate = useNavigate()
+  const location = useLocation()
+  const { id } = useParams<{ id: string }>()
+  const { usuario, handleLogout } = useContext(AuthContext)
+  const token = usuario.token
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('')
+  const [categories, setCategories] = useState<Category[]>([])
+  const [category, setCategory] = useState<Category>({ id: 0, name: '', description: '' })
   const [product, setProduct] = useState<Product>({
     id: 0,
     name: '',
@@ -34,36 +41,23 @@ function ProductForm() {
     photo: '',
     category: null,
     usuario: null,
-  });
-
-  const mudandoPagina = (() => {
-    setProduct(
-      {id: 0,
-      name: '',
-      expire: '',
-      price: 1,
-      quantity: 1,
-      region: '',
-      description: '',
-      photo: '',
-      category: null,
-      usuario: null}
-    )
   })
+  const [date, setDate] = useState<Date | undefined>(
+    product.expire ? new Date(product.expire) : undefined
+  )
 
   useEffect(() => {
-    // Define o valor inicial do Select com a categoria atual do produto
     if (product.category) {
-      setSelectedCategory(product.category.name);
+      setSelectedCategory(product.category.name)
     }
-  }, [product.category]);
+  }, [product.category])
 
   useEffect(() => {
     if (token === '') {
-      toastAlert('Você precisa estar logado', 'info');
-      navigate('/');
+      toastAlert('Você precisa estar logado', 'info')
+      navigate('/')
     }
-  }, [token, navigate]);
+  }, [token, navigate])
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -71,11 +65,11 @@ function ProductForm() {
         headers: {
           Authorization: token,
         },
-      });
-    };
+      })
+    }
 
-    fetchCategories();
-  }, [token]);
+    fetchCategories()
+  }, [token])
 
   useEffect(() => {
     if (id) {
@@ -84,66 +78,86 @@ function ProductForm() {
           headers: {
             Authorization: token,
           },
-        });
-      };
+        })
+      }
 
       const fetchCategory = async () => {
         await buscar(`/category/${id}`, setCategory, {
           headers: {
             Authorization: token,
           },
-        });
-      };
+        })
+      }
 
-      fetchProduct();
-      fetchCategory();
+      fetchProduct()
+      fetchCategory()
     }
-  }, [id, token]);
+  }, [id, token])
 
   useEffect(() => {
-    setProduct((prevProduct) => ({ ...prevProduct, category }));
-  }, [category]);
+    setProduct((prevProduct) => ({ ...prevProduct, category }))
+  }, [category])
+
+  useEffect(() => {
+    if (product.expire) {
+      const expireDate = new Date(product.expire);
+      setDate(expireDate);
+    }
+  }, [product.expire]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let { name, value } = e.target
+
     setProduct((prevProduct) => ({
       ...prevProduct,
-      [e.target.name]: e.target.value,
+      [name]: value,
       category: category,
       usuario: usuario,
-    }));
-  };
+    }))
+  }
+
+  const handleDateChange = (selectedDate: Date | undefined) => {
+    if (selectedDate) {
+      const newDate = addDays(selectedDate, 1);
+      setDate(newDate)
+      const formattedDate = format(newDate, "yyyy-MM-dd")
+      setProduct((prevProduct) => ({ ...prevProduct, expire: formattedDate }))
+    }
+    setPopoverOpen(false);
+  }
 
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
+      
       if (id) {
         await atualizar("/product", product, setProduct, {
           headers: {
             Authorization: token,
           },
-        });
-        toastAlert('Produto atualizado com sucesso', 'success');
+        })
+        toastAlert('Produto atualizado com sucesso', 'sucesso')
       } else {
         await cadastrar(`/product`, product, setProduct, {
           headers: {
             Authorization: token,
           },
-        });
-        toastAlert('Produto cadastrado com sucesso', 'success');
+        })
+        toastAlert('Produto cadastrado com sucesso', 'sucesso')
       }
-      navigate('/produtos');
-      
+
+      navigate(-1)
+
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        toastAlert('O token expirou, favor logar novamente', 'info');
-        handleLogout();
+        toastAlert('O token expirou, favor logar novamente', 'info')
+        handleLogout()
       } else {
-        toastAlert('Erro ao processar o produto', 'erro');
-        
+        toastAlert('Erro ao processar o produto', 'erro')
       }
     }
-  };
+  }
 
   return (
     <div className="w-full flex flex-col items-center my-[50px]">
@@ -153,13 +167,13 @@ function ProductForm() {
           <p className="text-[20px]">Confira todas as informações antes de salvar.</p>
         </div>
         <div className="flex items-center">
-          <Link to="/cadastrar-produto" onClick={mudandoPagina}>
+          <Link to="/cadastrar-produto">
             {id ? <Button className="bg-[#843c0a]">Cadastrar Novo</Button> : ''}
           </Link>
         </div>
       </div>
       <div>
-        <Separator className="m-10 "/>
+        <Separator className="m-10 " />
       </div>
       <div className="flex flex-col justify-center">
         <div className="w-full">
@@ -184,7 +198,7 @@ function ProductForm() {
               required
             />
           </div>
-          
+
           <div className="grid grid-cols-4 items-center gap-2">
             <Label htmlFor="description">Descrição</Label>
             <Input
@@ -213,15 +227,28 @@ function ProductForm() {
 
           <div className="grid grid-cols-4 items-center gap-2">
             <Label htmlFor="expire">Expiração</Label>
-            <Input
-              value={product.expire}
-              onChange={handleInputChange}
-              type="text"
-              placeholder="Expiração"
-              name="expire"
-              className="col-span-3"
-              required
-            />
+            <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "w-full justify-start text-left font-normal col-span-3",
+                    !date && "text-muted-foreground"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {date ? format(date, "dd/MM/yyyy") : "Selecionar data"}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  selected={date}
+                  onSelect={handleDateChange}
+                  initialFocus
+                />
+              </PopoverContent>
+            </Popover>
           </div>
 
           <div className="grid grid-cols-4 items-center gap-2">
@@ -251,12 +278,12 @@ function ProductForm() {
           </div>
 
           <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="photo">Foto</Label>
+            <Label htmlFor="photo">Foto URL</Label>
             <Input
               value={product.photo}
               onChange={handleInputChange}
               type="text"
-              placeholder="Foto do Produto"
+              placeholder="URL da Foto"
               name="photo"
               className="col-span-3"
               required
@@ -265,37 +292,47 @@ function ProductForm() {
 
           <div className="grid grid-cols-4 items-center gap-2">
             <Label htmlFor="category">Categoria</Label>
-            <Select 
+            <Select
+              value={selectedCategory}
               onValueChange={(value) => {
-                setSelectedCategory(value); // Atualiza o estado local com a nova seleção
-                setCategory(categories.find((cat) => cat.name === value) || category);
+                setCategory(categories.find((cat) => cat.name === value) || category)
+                setSelectedCategory(value)
               }}
-              value={selectedCategory} // Vincula o valor do Select ao estado local
+              defaultValue={product.category?.name || ''}
+              name="category"
+              required
             >
-              <SelectTrigger id="category" className="rounded col-span-3">
-                <SelectValue placeholder="Selecione uma categoria"/>
+              <SelectTrigger className="col-span-3">
+                <SelectValue placeholder="Selecione a categoria" />
               </SelectTrigger>
-              <SelectGroup>
-                <SelectContent>
+              <SelectContent>
+                <SelectGroup>
                   {categories.map((cat) => (
                     <SelectItem key={cat.id} value={cat.name}>
                       {cat.name}
                     </SelectItem>
                   ))}
-                </SelectContent>
-              </SelectGroup>
+                </SelectGroup>
+              </SelectContent>
             </Select>
           </div>
 
-          <Button
-            type="submit" className="w-1/3 bg-[#843c0a]"
-          >
-            {id ? 'Editar' : 'Cadastrar'}
-          </Button>
+          <div className="flex justify-start gap-2 mt-4">
+            <Button type="submit" className="bg-green-500 hover:bg-green-700 text-white">
+              {id ? 'Atualizar' : 'Cadastrar'}
+            </Button>
+            <Button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="bg-red-500 hover:bg-red-700 text-white"
+            >
+              Cancelar
+            </Button>
+          </div>
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default ProductForm;
+export default ProductForm

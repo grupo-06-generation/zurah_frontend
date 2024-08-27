@@ -21,6 +21,7 @@ interface AuthContextProps {
   kgItems: number[];
   quantidadeItems: number;
   precoTotal: string;
+  atualizarUsuario: (nome: string, usuario: string, is_seller: number, foto: string, senha: string) => void;
 }
 
 interface AuthProviderProps {
@@ -118,6 +119,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
     });
   }
 
+  function atualizarUsuario(nome: string, usuario: string, opc: number, foto: string, senha: string) {
+    setUsuario((prevUsuario) => ({
+      ...prevUsuario,
+      name: nome,
+      usuario: usuario,
+      is_seller: opc,
+      photo: foto,
+      password: senha
+    }));
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -135,6 +147,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         kgItems,
         quantidadeItems,
         precoTotal,
+        atualizarUsuario,
       }}
     >
       {children}

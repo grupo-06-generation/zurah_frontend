@@ -25,7 +25,7 @@ import { atualizar } from "@/services/Service";
 import Usuario from "@/models/Usuario";
 
 function EditPerfil() {
-  const { usuario } = useContext(AuthContext);
+  const { usuario, atualizarUsuario } = useContext(AuthContext);
   const [name, setName] = useState(usuario.name);
   const [email, setEmail] = useState(usuario.usuario);
   const [senha, setSenha] = useState(usuario.password);
@@ -92,7 +92,10 @@ function EditPerfil() {
         },
       });
 
+      atualizarUsuario(newUser.name, newUser.usuario, newUser.is_seller, newUser.photo, newUser.password);
+
       toastAlert("Perfil atualizado com sucesso!", "success");
+
     } catch (error) {
       console.error("Erro ao atualizar o perfil:", error);
       toastAlert("Erro ao atualizar o perfil. Tente novamente.", "error");

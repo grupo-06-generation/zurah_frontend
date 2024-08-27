@@ -111,7 +111,7 @@ function Navbar() {
           <ul className="flex flex-col">
             {authenticated ? (
               <>
-                <Link to="/admin/zurah">
+                <Link to="/perfil">
                   <li className="hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-lg">
                     Configurações
                   </li>
@@ -146,7 +146,7 @@ function Navbar() {
                 </li>
               </Link>
 
-              <Link to="products-cat/57">
+              <Link to="products-cat/58">
                 <li className="flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2">
                   <Carrot size={20} className="font-[21px] text-[#843C0A]" />
                   <p className="font-[21px] text-[#843C0A]">Hortifruti</p>

@@ -10,12 +10,14 @@ import { useContext, useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import { Badge } from '../ui/badge';
 import DeleteProductModal from '../Products/DeleteProduct/DeleteProductModal';
+import { useNavigate } from 'react-router-dom';
 
 function EditProduct() {
     const { usuario } = useContext(AuthContext);
     const [products, setProducts] = useState<Product[]>([]);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
+    const navigate = useNavigate();
 
     async function buscarProducts() {
         try {
@@ -40,8 +42,16 @@ function EditProduct() {
     };
 
     function onDeleteSuccess(): void {
-        throw new Error('Function not implemented.');
+        buscarProducts();
     }
+
+    const handleCreateProduct = () => {
+        navigate('/cadastrar-produto');
+    }
+    
+    const handleEditProduct = (id: string) => {
+        navigate(`/editar-produto/${id}`);
+    };
 
     return (
         <div className="">
@@ -52,7 +62,7 @@ function EditProduct() {
                 </CardHeader>
                 <CardContent>
                     <div className="flex items-center justify-between mb-4">
-                        <Button size="sm" className="bg-green-700">
+                        <Button size="sm" className="bg-green-700" onClick={handleCreateProduct}>
                             Criar produto
                         </Button>
                     </div>
@@ -83,7 +93,9 @@ function EditProduct() {
                             </div>
                         )}
                         <TableBody>
-                            {products.map((product, index) => (
+                            {products
+                            .filter((product: Product) => product.usuario?.id === usuario.id)
+                            .map((product, index) => (
                                 <TableRow key={index}>
                                     <TableCell>{product.name}</TableCell>
                                     <TableCell><Badge variant='secondary'> {product.category?.name} </Badge></TableCell>
@@ -97,6 +109,7 @@ function EditProduct() {
                                                 variant="outline"
                                                 size="icon"
                                                 className="bg-gray-500 hover:bg-gray-300 text-white"
+                                                onClick={() => handleEditProduct(product.id.toString())}
                                             >
                                                 <FilePenIcon className="h-4 w-4" />
                                                 <span className="sr-only">Edit</span>
