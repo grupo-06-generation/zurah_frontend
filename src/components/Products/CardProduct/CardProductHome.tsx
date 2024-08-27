@@ -45,8 +45,8 @@ function CardProductHome({ product }: CardProductHomeProps) {
   }
 
   return (
-    <div className="lg:w-72 w-28">
-      <Card className="flex flex-col border border-gray-400 lg:h-96 h-56">
+    <div className="lg:w-72 w-36 ">
+      <Card className="flex flex-col border border-gray-400 lg:h-96 h-64">
         <div
           className="relative w-full hover:cursor-pointer"
           onClick={handleCardClick}
@@ -73,7 +73,7 @@ function CardProductHome({ product }: CardProductHomeProps) {
             {product.name}
           </CardTitle>
           {}
-          <CardDescription className="line-clamp-1 text-xs">
+          <CardDescription className="hidden lg:line-clamp-1 text-xs">
             {product.description}
           </CardDescription>
         </CardHeader>
@@ -82,13 +82,13 @@ function CardProductHome({ product }: CardProductHomeProps) {
             R$ {product.price.toFixed(2)}
           </p>
         </CardContent>
-        <CardFooter className="flex lg:p-2 p-1 lg:justify-center">
-          <div className="flex items-center bg-[#D1B69A] text-gray-700 rounded-lg lg:mr-3  text-sm">
+        <CardFooter className="flex flex-col lg:p-2 p-1 lg:justify-center mt-2">
+          <div className="flex items-center bg-[#D1B69A] text-gray-700 rounded-lg lg:mr-3 text-sm">
             <button
               onClick={handleDecrease}
               className="lg:pl-4 lg:pr-2 pl-2 pr-1 py-1"
             >
-              <FaMinus size={6} />
+              <FaMinus size={10} />
             </button>
             <div className="relative flex items-center">
               <input
@@ -96,21 +96,24 @@ function CardProductHome({ product }: CardProductHomeProps) {
                 value={quantity}
                 id="quantidade"
                 readOnly
-                className="w-8 text-center py-2 bg-[#D1B69A] text-gray-800 pr-6 text-sm"
+                className="w-16 text-center py-2 bg-[#D1B69A] text-gray-800 pr-6 text-sm"
               />
-              <span className="absolute right-0 text-gray-700 text-sm">kg</span>
+              <span className="absolute right-4 text-gray-700 text-sm">kg</span>
             </div>
             <button
               onClick={handleIncrease}
-              className="lg:pl-4 lg:pr-2 pl-2 pr-1 py-1"
+              className="lg:pl-4 lg:pr-2 pl-2 pr-3 py-1"
             >
-              <FaPlus size={6} />
+              <FaPlus size={10} />
             </button>
           </div>
-          <Button className="bg-[#843c0a] w-9 h-9 lg:w-32" onClick={addToCart}>
-            <FaShoppingCart className="content-center lg:mr-2 scale-150" />
+          <Button
+            className="bg-[#843c0a] w-28 h-9 lg:w-32 mt-2"
+            onClick={addToCart}
+          >
+            <FaShoppingCart className="content-center lg:mr-2 scale-125" />
             {}
-            <span className="hidden lg:inline">Adicionar</span>
+            <span className="inline p-1 text-sm">Adicionar</span>
           </Button>
         </CardFooter>
       </Card>

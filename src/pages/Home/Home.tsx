@@ -16,11 +16,13 @@ function Home() {
             <Rolagem />
           </section>
 
-          <div className="flex-grow w-full p-14 flex flex-col items-center pb-6">
+          <div className="w-full flex flex-col items-center pb-4">
             <CategoryConsumer />
-
+          </div>
+          <div className="w-full flex flex-col items-center pb-4">
             <ListaProductHome />
-
+          </div>
+          <div className="w-full flex flex-col items-center pb-4">
             <CarroselProduct />
           </div>
         </main>

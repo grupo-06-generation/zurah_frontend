@@ -50,7 +50,7 @@ function ListaProductHome() {
           />
         </div>
       )}
-      <div className="mt-4 mb-30 lg:flex lg:flex-wrap grid grid-cols-2 columns-2 sm:grid-cols-3 sm:columns-3 md:gap-6 gap-8 justify-between">
+      <div className="lg:flex lg:flex-wrap grid grid-cols-2 columns-2 md:grid-cols-4 md:columns-4 mt-4 mb-30 md:gap-6 gap-8 justify-between">
         {products.map((product) => (
           <div key={product.id} className="lg:h-[400px] lg:min-w-[200px] ">
             <CardProductHome product={product} />
