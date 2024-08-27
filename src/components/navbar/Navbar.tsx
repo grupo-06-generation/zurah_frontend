@@ -111,7 +111,7 @@ function Navbar() {
           <ul className="flex flex-col">
             {authenticated ? (
               <>
-                <Link to="/admin/zurah">
+                <Link to="/perfil">
                   <li className="hover:bg-[#80800057] py-2 px-4 cursor-pointer rounded-lg">
                     Configurações
                   </li>

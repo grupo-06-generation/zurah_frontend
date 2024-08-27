@@ -1,14 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { UserIcon, PackageIcon, TagIcon } from "lucide-react";
-import EditCategory from "./EditCategory";
+import { UserIcon, PackageIcon } from "lucide-react";
 import EditPerfil from "./EditPerfil";
 import EditProduct from "./EditProduct";
 import { AuthContext } from "@/contexts/AuthContext";
 
 export default function Perfil() {
-
   const [selectedCard, setSelectedCard] = useState<string>(() => {
     return localStorage.getItem("selectedCard") || "Perfil";
   });
@@ -44,18 +42,20 @@ export default function Perfil() {
                 <UserIcon className="h-4 w-4" />
                 Perfil
               </Link>
-              <Link
-                to="#"
-                onClick={() => setSelectedCard("Produtos")}
-                className={`flex items-center gap-3 my-1 rounded-lg px-3 py-2 transition-all ${
-                  selectedCard === "Produtos"
-                    ? "bg-green-700 text-white"
-                    : "text-muted-foreground hover:bg-green-500 hover:text-white"
-                }`}
-              >
-                <PackageIcon className="h-4 w-4" />
-                Produtos
-              </Link>
+              {usuario.is_seller === 1 && (  // Condicional para mostrar o link de Produtos
+                <Link
+                  to="#"
+                  onClick={() => setSelectedCard("Produtos")}
+                  className={`flex items-center gap-3 my-1 rounded-lg px-3 py-2 transition-all ${
+                    selectedCard === "Produtos"
+                      ? "bg-green-700 text-white"
+                      : "text-muted-foreground hover:bg-green-500 hover:text-white"
+                  }`}
+                >
+                  <PackageIcon className="h-4 w-4" />
+                  Produtos
+                </Link>
+              )}
             </nav>
           </div>
         </div>
