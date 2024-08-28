@@ -70,7 +70,7 @@ function EditProduct() {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Nome</TableHead>
-                                <TableHead className="hidden sm:table-cell">Categoria</TableHead>
+                                <TableHead>Categoria</TableHead>
                                 <TableHead className="hidden md:table-cell">Preço</TableHead>
                                 <TableHead className="hidden lg:table-cell">Quantidade</TableHead>
                                 <TableHead className="hidden xl:table-cell">Região</TableHead>
@@ -98,7 +98,7 @@ function EditProduct() {
                             .map((product, index) => (
                                 <TableRow key={index}>
                                     <TableCell>{product.name}</TableCell>
-                                    <TableCell className="hidden sm:table-cell">
+                                    <TableCell>
                                         <Badge variant='secondary'>{product.category?.name}</Badge>
                                     </TableCell>
                                     <TableCell className="hidden md:table-cell">

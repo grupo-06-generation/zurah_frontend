@@ -63,7 +63,6 @@ export default function Perfil() {
         </div>
       </div>
       <div className="flex flex-col">
-        {/* Header responsivo */}
         <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-muted/40 px-6">
           <Avatar className="h-9 w-9">
             <AvatarImage src={usuario.photo} alt={usuario.name} />
