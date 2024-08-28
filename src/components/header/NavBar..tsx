@@ -124,6 +124,10 @@ const NavBarMobile = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleLinkClick = () => {
+    setOpenMenu(false); 
+  };
+
   return (
     <nav className="bg-[#fffbf7] text-[#843C0A] py-4 px-4 md:hidden flex items-center justify-between">
       <button
@@ -133,10 +137,10 @@ const NavBarMobile = () => {
       >
         <Menu className="w-8 h-8 text-[#843C0A]" />
       </button>
-      <Link to="/">
+      <Link to="/" onClick={handleLinkClick}>
         <img src="https://i.imgur.com/KIEEiTe.png" alt="Logo Zurah" className="h-[60px] w-auto" />
       </Link>
-      <Link to="/carrinho">
+      <Link to="/carrinho" onClick={handleLinkClick}>
         <Basket className="w-8 h-8 text-[#843C0A]" aria-label="Carrinho" />
       </Link>
       {openMenu && (
@@ -152,6 +156,7 @@ const NavBarMobile = () => {
               <>
                 <Link
                   to="/perfil"
+                  onClick={handleLinkClick}
                   className="flex items-center gap-2 hover:bg-[#e4e4e1e] rounded-lg p-2 cursor-pointer transition-colors duration-200"
                 >
                   <UserCircle size={22} className="text-[#843C0A]" />
@@ -172,6 +177,7 @@ const NavBarMobile = () => {
             ) : (
               <Link
                 to="/login"
+                onClick={handleLinkClick}
                 className="flex items-center gap-2 hover:bg-[#e4e4e1e] rounded-lg p-2 cursor-pointer transition-colors duration-200"
               >
                 <UserCircle size={25} className="text-[#843C0A]" />
@@ -184,6 +190,7 @@ const NavBarMobile = () => {
               <li>
                 <Link
                   to="/products-cat/56"
+                  onClick={handleLinkClick}
                   className="flex items-center gap-2 p-2 cursor-pointer transition-colors duration-200"
                 >
                   <Tag size={25} className="text-[#843C0A]" />
@@ -193,6 +200,7 @@ const NavBarMobile = () => {
               <li>
                 <Link
                   to="/products-cat/58"
+                  onClick={handleLinkClick}
                   className="flex items-center gap-2 hover:bg-[#e4e4e1e] p-2 cursor-pointer transition-colors duration-200"
                 >
                   <Carrot size={25} className="text-[#843C0A]" />
@@ -202,6 +210,7 @@ const NavBarMobile = () => {
               <li>
                 <Link
                   to="/products-cat/55"
+                  onClick={handleLinkClick}
                   className="flex items-center gap-2 hover:bg-[#e4e4e1e] rounded-lg p-2 cursor-pointer transition-colors duration-200"
                 >
                   <CoffeeBean size={25} className="text-[#843C0A]" />
@@ -211,6 +220,7 @@ const NavBarMobile = () => {
               <li>
                 <Link
                   to="/products-cat/59"
+                  onClick={handleLinkClick}
                   className="flex items-center gap-2 hover:bg-[#e4e4e1e] rounded-lg p-2 cursor-pointer transition-colors duration-200"
                 >
                   <Cow size={25} className="text-[#843C0A]" />
@@ -220,6 +230,7 @@ const NavBarMobile = () => {
               <li>
                 <Link
                   to="/products-cat/57"
+                  onClick={handleLinkClick}
                   className="flex items-center gap-2 hover:bg-[#e4e4e1e] rounded-lg p-2 cursor-pointer transition-colors duration-200"
                 >
                   <Leaf size={25} className="text-[#843C0A]" />
