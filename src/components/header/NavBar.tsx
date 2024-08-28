@@ -160,7 +160,7 @@ const NavBarMobile = () => {
             {authenticated ? (
               <>
                 <Link
-                  to="/admin/zurah"
+                  to="/perfil"
                   className="flex items-center gap-2 hover:bg-[#e4e4e1e] rounded-lg p-2 cursor-pointer transition-colors duration-200"
                 >
                   <UserCircle size={22} className="text-[#843C0A]" />

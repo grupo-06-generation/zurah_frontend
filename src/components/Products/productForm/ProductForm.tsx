@@ -1,4 +1,3 @@
-import * as React from "react"
 import { format, addDays } from "date-fns"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { AuthContext } from "../../../contexts/AuthContext"
@@ -26,7 +25,7 @@ function ProductForm() {
   const { id } = useParams<{ id: string }>()
   const { usuario, handleLogout } = useContext(AuthContext)
   const token = usuario.token
-  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('')
   const [categories, setCategories] = useState<Category[]>([])
   const [category, setCategory] = useState<Category>({ id: 0, name: '', description: '' })
@@ -91,10 +90,10 @@ function ProductForm() {
 
   useEffect(() => {
     if (product.expire) {
-      const expireDate = new Date(product.expire);
-      setDate(expireDate);
+      const expireDate = new Date(product.expire)
+      setDate(expireDate)
     }
-  }, [product.expire]);
+  }, [product.expire])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     let { name, value } = e.target
@@ -108,17 +107,16 @@ function ProductForm() {
 
   const handleDateChange = (selectedDate: Date | undefined) => {
     if (selectedDate) {
-      const newDate = addDays(selectedDate, 1);
+      const newDate = addDays(selectedDate, 1)
       setDate(newDate)
       const formattedDate = format(newDate, "yyyy-MM-dd")
       setProduct((prevProduct) => ({ ...prevProduct, expire: formattedDate }))
     }
-    setPopoverOpen(false);
+    setPopoverOpen(false)
   }
 
   const handleCategoryChange = (value: string) => {
     const selectedCat = categories.find((cat) => cat.name === value)
-    console.log(selectedCat)
     if (selectedCat !== undefined) {
       setCategory(selectedCat)
       setSelectedCategory(selectedCat.name)
@@ -128,12 +126,11 @@ function ProductForm() {
       }))
     }
   }
-  
+
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
-      
       if (id) {
         await atualizar("/product", product, setProduct, {
           headers: {
@@ -151,7 +148,6 @@ function ProductForm() {
       }
 
       navigate(-1)
-
     } catch (error: any) {
       if (error.toString().includes('403')) {
         toastAlert('O token expirou, favor logar novamente', 'info')
@@ -164,10 +160,10 @@ function ProductForm() {
 
   return (
     <div className="w-full flex flex-col items-center my-[50px]">
-      <div className="flex justify-between">
-        <div className="mx-28">
-          <h1 className="text-[30px] text-left">{id ? 'Editar Produto ' : 'Cadastrar Produto '}</h1>
-          <p className="text-[20px]">Confira todas as informações antes de salvar.</p>
+      <div className="flex lg:justify-between mx-4 gap-3 lg:flex-row">
+        <div className="lg:mx-28 sm:mx-20">
+          <h1 className="xs:text-[20px] sm:text-[28px] lg:text-[30px] text-left">{id ? 'Editar Produto ' : 'Cadastrar Produto '}</h1>
+          <p className="xs:text-[15px] sm:text-[18px] lg:text-[20px]">Confira todas as informações antes de salvar.</p>
         </div>
         <div className="flex items-center">
           <Link to="/cadastrar-produto">
@@ -175,162 +171,158 @@ function ProductForm() {
           </Link>
         </div>
       </div>
-      <div>
-        <Separator className="m-10 " />
-      </div>
-      <div className="flex flex-col justify-center">
-        <div className="w-full">
+      <Separator className="m-10 " />
+      <div className="lg:flex flex-col justify-center">
+        <div className=" xs:w-[280px] md:w-[450px] mx-4">
           <Alert>
             <AlertCircle className="h-4 w-4" />
-            <AlertTitle>
+            <AlertTitle className="mb-0">
               {id ? `Editando Produto ${product.id}` : 'Cadastrando Produto'}
             </AlertTitle>
           </Alert>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6 w-96">
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              value={product.name}
-              onChange={handleInputChange}
-              type="text"
-              placeholder="Name"
-              name="name"
-              className="col-span-3"
-              required
-            />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="description">Descrição</Label>
-            <Input
-              value={product.description}
-              onChange={handleInputChange}
-              type="text"
-              placeholder="Descrição"
-              name="description"
-              className="col-span-3"
-              required
-            />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="price">Preço</Label>
-            <Input
-              value={product.price}
-              onChange={handleInputChange}
-              type="number"
-              placeholder="Preço"
-              name="price"
-              className="col-span-3"
-              required
-            />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="expire">Expiração</Label>
-            <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "w-full justify-start text-left font-normal col-span-3",
-                    !date && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {date ? format(date, "dd/MM/yyyy") : "Selecionar data"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={handleDateChange}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="quantity">Quantidade</Label>
-            <Input
-              value={product.quantity}
-              onChange={handleInputChange}
-              type="number"
-              placeholder="Quantidade"
-              name="quantity"
-              className="col-span-3"
-              required
-            />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="region">Região</Label>
-            <Input
-              value={product.region}
-              onChange={handleInputChange}
-              type="text"
-              placeholder="Região"
-              name="region"
-              className="col-span-3"
-              required
-            />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="photo">Foto URL</Label>
-            <Input
-              value={product.photo}
-              onChange={handleInputChange}
-              type="text"
-              placeholder="URL da Foto"
-              name="photo"
-              className="col-span-3"
-              required
-            />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-2">
-            <Label htmlFor="category">Categoria</Label>
-            <Select
-              value={product.category?.name}
-              onValueChange={handleCategoryChange}
-              defaultValue={product.category?.name}
-              name="category"
-              required
-            >
-              <SelectTrigger className="col-span-3">
-                <SelectValue placeholder="Selecione a categoria" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {categories.map((cat) => (
-                    <SelectItem key={cat.id} value={cat.name}>
-                      {cat.name}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="flex justify-start gap-2 mt-4">
-            <Button type="submit" className="bg-green-500 hover:bg-green-700 text-white">
-              {id ? 'Atualizar' : 'Cadastrar'}
-            </Button>
-            <Button
-              type="button"
-              onClick={() => navigate(-1)}
-              className="bg-red-500 hover:bg-red-700 text-white"
-            >
-              Cancelar
-            </Button>
-          </div>
-        </form>
       </div>
+      <form onSubmit={handleSubmit} className="flex flex-col justify-center gap-3 mt-6 lg:w-[450px] sm:w-[450px] xs:w-[280px] mx-4">
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            value={product.name}
+            onChange={handleInputChange}
+            type="text"
+            placeholder="Name"
+            name="name"
+            className="col-span-3"
+            required
+          />
+        </div>
+
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="description">Descrição</Label>
+          <Input
+            value={product.description}
+            onChange={handleInputChange}
+            type="text"
+            placeholder="Descrição"
+            name="description"
+            className="col-span-3"
+            required
+          />
+        </div>
+
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="price">Preço</Label>
+          <Input
+            value={product.price}
+            onChange={handleInputChange}
+            type="number"
+            placeholder="Preço"
+            name="price"
+            className="col-span-3"
+            required
+          />
+        </div>
+
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="expire">Expiração</Label>
+          <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn(
+                  "w-full justify-start text-left font-normal col-span-3",
+                  !date && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {date ? format(date, "dd/MM/yyyy") : "Selecionar data"}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0">
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={handleDateChange}
+                initialFocus
+              />
+            </PopoverContent>
+          </Popover>
+        </div>
+
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="quantity">Quantidade</Label>
+          <Input
+            value={product.quantity}
+            onChange={handleInputChange}
+            type="number"
+            placeholder="Quantidade"
+            name="quantity"
+            className="col-span-3"
+            required
+          />
+        </div>
+
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="region">Região</Label>
+          <Input
+            value={product.region}
+            onChange={handleInputChange}
+            type="text"
+            placeholder="Região"
+            name="region"
+            className="col-span-3"
+            required
+          />
+        </div>
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="photo">Foto URL</Label>
+          <Input
+            value={product.photo}
+            onChange={handleInputChange}
+            type="text"
+            placeholder="URL da Foto"
+            name="photo"
+            className="col-span-3"
+            required
+          />
+        </div>
+
+        <div className="grid grid-cols-4 items-center gap-2">
+          <Label htmlFor="category">Categoria</Label>
+          <Select
+            value={product.category?.name}
+            onValueChange={handleCategoryChange}
+            defaultValue={product.category?.name}
+            name="category"
+            required
+          >
+            <SelectTrigger className="col-span-3">
+              <SelectValue placeholder="Selecione a categoria" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {categories.map((cat) => (
+                  <SelectItem key={cat.id} value={cat.name}>
+                    {cat.name}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex justify-start gap-2 mt-4">
+          <Button type="submit" className="bg-green-500 hover:bg-green-700 text-white">
+            {id ? 'Atualizar' : 'Cadastrar'}
+          </Button>
+          <Button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="bg-red-500 hover:bg-red-700 text-white"
+          >
+            Cancelar
+          </Button>
+        </div>
+      </form>
     </div>
   )
 }
