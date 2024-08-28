@@ -55,7 +55,7 @@ function ProductAbout() {
           <img
             src={product.photo}
             alt={product.name}
-            className="rounded-[4rem] object-cover w-full h-auto px-[2rem]"
+            className="rounded-[rem] object-cover w-full h-auto px-[2rem]"
             
           />
         </div>
