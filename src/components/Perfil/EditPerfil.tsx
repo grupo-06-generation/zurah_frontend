@@ -103,7 +103,7 @@ function EditPerfil() {
   }
 
   return (
-    <div className="">
+    <div className="lg:w-[750px]">
       <Card>
         <CardHeader>
           <CardTitle>Perfil de Usuário</CardTitle>

@@ -5,6 +5,7 @@ import { UserIcon, PackageIcon } from "lucide-react";
 import EditPerfil from "./EditPerfil";
 import EditProduct from "./EditProduct";
 import { AuthContext } from "@/contexts/AuthContext";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function Perfil() {
   const [selectedCard, setSelectedCard] = useState<string>(() => {
@@ -70,8 +71,20 @@ export default function Perfil() {
           </Avatar>
           <span className="text-muted-foreground">{usuario.name}</span>
         </header>
-        <main className="flex-1 overflow-auto">
-          <div className="grid gap-6 p-4 md:p-6">
+        <main className="flex-1 overflow-auto ">
+          <Tabs defaultValue="Perfil" className="sm:hidden ">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="Perfil" onClick={() => setSelectedCard("Perfil")}>Perfil</TabsTrigger>
+              <TabsTrigger value="Produtos" onClick={() => setSelectedCard("Produtos")}>Produtos</TabsTrigger>
+            </TabsList>
+            <TabsContent value="Perfil" className="grid gap-6 p-4 md:p-6 space-y-2">
+              <EditPerfil />
+            </TabsContent>
+            <TabsContent value="Produtos" className="grid gap-6 p-4 md:p-6 space-y-2">
+              <EditProduct />
+            </TabsContent>
+          </Tabs>
+          <div className="hidden md:grid gap-6 p-4 md:p-6">
             {selectedCard === "Perfil" && (
               <div>
                 <EditPerfil />
