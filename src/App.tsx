@@ -23,6 +23,7 @@ import PerfilRoute from './components/Perfil/PerfilRoute';
 import { Header } from './components/header/Header';
 
 
+
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
       <BrowserRouter>
         <NavbarWrapper />
         <div className='h-full'>
+
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
