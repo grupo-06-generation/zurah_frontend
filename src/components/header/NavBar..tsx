@@ -138,7 +138,7 @@ const NavBarMobile = () => {
         <Menu className="w-8 h-8 text-[#843C0A]" />
       </button>
       <Link to="/" onClick={handleLinkClick}>
-        <img src="https://i.imgur.com/KIEEiTe.png" alt="Logo Zurah" className="h-[60px] w-auto" />
+        <img src="https://i.imgur.com/ngKnHT7.png" alt="Logo Zurah" className="w-auto h-[60px] mb-6 mr-3 ml-2" />
       </Link>
       <Link to="/carrinho" onClick={handleLinkClick}>
         <Basket className="w-8 h-8 text-[#843C0A]" aria-label="Carrinho" />
