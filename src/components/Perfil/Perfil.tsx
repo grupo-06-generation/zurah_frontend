@@ -14,14 +14,15 @@ export default function Perfil() {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario?.token;
   const firstLetterUppercase = usuario.name.charAt(0).toUpperCase();
-  
+
   useEffect(() => {
     localStorage.setItem("selectedCard", selectedCard);
   }, [selectedCard]);
 
   return (
-    <div className="grid h-auto w-full lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-muted/40 lg:block">
+    <div className="grid h-auto w-full md:grid-cols-[210px_1fr]">
+      {/* Menu lateral, exibido em telas md e acima */}
+      <div className="hidden md:block border-r bg-muted/40">
         <div className="flex h-full max-h-screen flex-col gap-2" id="menu-lateral">
           <div className="flex h-[60px] items-center border-b px-6">
             <Link to="#" className="flex items-center gap-2 font-semibold text-2xl">
@@ -36,13 +37,13 @@ export default function Perfil() {
                 className={`flex items-center gap-3 my-1 rounded-lg px-3 py-2 transition-all ${
                   selectedCard === "Perfil"
                     ? "bg-green-700 text-white"
-                    : "bg-muted text-primary hover:bg-green-500 hover:text-white"
+                    : "text-primary hover:bg-green-500 hover:text-white"
                 }`}
               >
                 <UserIcon className="h-4 w-4" />
                 Perfil
               </Link>
-              {usuario.is_seller === 1 && (  // Condicional para mostrar o link de Produtos
+              {usuario.is_seller === 1 && (
                 <Link
                   to="#"
                   onClick={() => setSelectedCard("Produtos")}
@@ -61,6 +62,7 @@ export default function Perfil() {
         </div>
       </div>
       <div className="flex flex-col">
+        {/* Header responsivo */}
         <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-muted/40 px-6">
           <Avatar className="h-9 w-9">
             <AvatarImage src={usuario.photo} alt={usuario.name} />
@@ -69,16 +71,14 @@ export default function Perfil() {
           <span className="text-muted-foreground">{usuario.name}</span>
         </header>
         <main className="flex-1 overflow-auto">
-          <div className="grid gap-6 p-4 md:p-6 w-[1200px]">
+          <div className="grid gap-6 p-4 md:p-6">
             {selectedCard === "Perfil" && (
               <div>
-                {/* Componente para editar o perfil */}
                 <EditPerfil />
               </div>
             )}
             {selectedCard === "Produtos" && (
               <div>
-                {/* Componente para editar produtos */}
                 <EditProduct />
               </div>
             )}

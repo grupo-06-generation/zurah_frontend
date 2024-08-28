@@ -80,7 +80,7 @@ function DeleteProductModal({ productId, isOpen, onClose, onDeleteSuccess }: Del
     return (
         <AlertDialog open={isOpen} onOpenChange={onClose}>
             <AlertDialogContent
-                className="xs:w-[95%] xs:p-4 sm:w-[90%] sm:p-6 md:w-[80%] md:p-8 lg:w-[60%] lg:p-10">
+                className="xs:w-[90%] xs:p-4 sm:w-[90%] sm:p-6 md:w-[80%] md:p-8 lg:w-[60%] lg:p-10">
                 <AlertDialogHeader>
                     <AlertDialogTitle>Deletar Produto</AlertDialogTitle>
                     <AlertDialogDescription>

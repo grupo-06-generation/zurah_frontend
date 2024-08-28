@@ -54,7 +54,7 @@ function EditProduct() {
     };
 
     return (
-        <div className="">
+        <div className="lg:w-[750px]">
             <Card>
                 <CardHeader>
                     <CardTitle>Produtos</CardTitle>
@@ -70,11 +70,11 @@ function EditProduct() {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Nome</TableHead>
-                                <TableHead>Categoria</TableHead>
-                                <TableHead>Preço</TableHead>
-                                <TableHead>Quantidade</TableHead>
-                                <TableHead>Região</TableHead>
-                                <TableHead>Data de validade</TableHead>
+                                <TableHead className="hidden sm:table-cell">Categoria</TableHead>
+                                <TableHead className="hidden md:table-cell">Preço</TableHead>
+                                <TableHead className="hidden lg:table-cell">Quantidade</TableHead>
+                                <TableHead className="hidden xl:table-cell">Região</TableHead>
+                                <TableHead className="hidden lg:table-cell">Data de validade</TableHead>
                                 <TableHead>Ações</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -98,11 +98,21 @@ function EditProduct() {
                             .map((product, index) => (
                                 <TableRow key={index}>
                                     <TableCell>{product.name}</TableCell>
-                                    <TableCell><Badge variant='secondary'> {product.category?.name} </Badge></TableCell>
-                                    <TableCell>R$ {product.price.toFixed(2).replace(".", ",")}</TableCell>
-                                    <TableCell>{product.quantity}</TableCell>
-                                    <TableCell>{product.region}</TableCell>
-                                    <TableCell>{new Date(product.expire).toLocaleDateString('pt-BR')}</TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+                                        <Badge variant='secondary'>{product.category?.name}</Badge>
+                                    </TableCell>
+                                    <TableCell className="hidden md:table-cell">
+                                        R$ {product.price.toFixed(2).replace(".", ",")}
+                                    </TableCell>
+                                    <TableCell className="hidden lg:table-cell">
+                                        {product.quantity}
+                                    </TableCell>
+                                    <TableCell className="hidden xl:table-cell">
+                                        {product.region}
+                                    </TableCell>
+                                    <TableCell className="hidden lg:table-cell">
+                                        {new Date(product.expire).toLocaleDateString('pt-BR')}
+                                    </TableCell>
                                     <TableCell>
                                         <div className="flex items-center gap-2">
                                             <Button
