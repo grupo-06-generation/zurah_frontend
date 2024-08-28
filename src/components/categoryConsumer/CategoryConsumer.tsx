@@ -63,7 +63,7 @@ function CategoryConsumer() {
               </div>
             </Link>
             <h2 className="sm:text-[14px] text-[10px] py-6 font-semibold text-olive">
-              FRIOS E LATICÍNIOS
+              LATICÍNIOS
             </h2>
           </div>
         </div>
