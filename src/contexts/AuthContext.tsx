@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../services/Service";
 import Product from "../models/Product";
@@ -48,6 +48,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const authenticated = !!usuario.token;
 
   const quantidadeItems = items.length;
+  
+  useEffect(() => {
+    // Recupera o token do localStorage e configura o estado do usuário
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      setUsuario((prevUsuario) => ({
+        ...prevUsuario,
+        token
+      }));
+    }
+  }, []);
 
   const precoTotal = items
     .reduce((acc, curr, idx) => acc + curr.price * kgItems[idx], 0)
@@ -98,6 +109,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsLoading(true);
     try {
       await login(`/usuarios/login`, userLogin, setUsuario);
+      localStorage.setItem('authToken', usuario.token);
       toastAlert("Usuário logado com sucesso", "sucesso");
     } catch (error) {
       console.error(error);
@@ -117,6 +129,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       token: "",
       is_seller: 0,
     });
+    localStorage.removeItem('authToken');
   }
 
   function atualizarUsuario(nome: string, usuario: string, opc: number, foto: string, senha: string) {
