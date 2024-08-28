@@ -6,20 +6,21 @@ function Footer() {
         <footer className="bg-[#FFFBF7] text-white pt-9">
             <div className="mx-auto p-6">
                 <div className="flex flex-wrap flex-col md:flex-row justify-between items-start md:space-y-0 space-y-6">
-                    
-                    <div className="flex-1 text-center md:text-left">
+
+                    <div className="flex-1 text-center sm:text-left">
                         <Link to="/" className="block mb-3">
                             <img
                                 src="https://i.imgur.com/KIEEiTe.png"
                                 alt="Zurah Logo"
-                                className="h-[55px] w-auto mx-auto md:mx-0"
+                                className="h-[45px] w-auto mx-0 md:mx-0 "
                             />
                         </Link>
-                        <p className='text-[#843C0A]'> 
-                        Conectando Sabor e Sustentabilidade<br/>
-                        do Campo à Mesa.
+                        <p className='text-[#843C0A] text-justify'>
+                            Conectando Sabor e Sustentabilidade<br />
+                            do Campo à Mesa.
                         </p>
                     </div>
+
 
                     <div className="flex-1 text-center md:text-left">
                         <h3 className="mb-4 font-semibold text-[#843C0A]">Páginas</h3>
@@ -52,19 +53,19 @@ function Footer() {
 
                         <div className="text-center">
                             <h4 className="text-[#843C0A] mb-2 font-semibold">Formas de Pagamento</h4>
-                            <img 
-                                src="https://img.irroba.com.br/filters:format(webp):fill(transparent):quality(80)/santinoj/catalog/bandeira2.png" 
-                                alt="Formas de Pagamento" 
+                            <img
+                                src="https://img.irroba.com.br/filters:format(webp):fill(transparent):quality(80)/santinoj/catalog/bandeira2.png"
+                                alt="Formas de Pagamento"
                                 className="h-12 mx-auto"
                             />
                         </div>
 
-   
+
                         <div className="text-center">
                             <h4 className="text-[#843C0A] mb-2 font-semibold">Loja Segura</h4>
-                            <img 
-                                src="https://cdn.shopify.com/s/files/1/0724/6171/3683/files/site_blindado_480x480.png?v=1678149994" 
-                                alt="Loja Segura" 
+                            <img
+                                src="https://cdn.shopify.com/s/files/1/0724/6171/3683/files/site_blindado_480x480.png?v=1678149994"
+                                alt="Loja Segura"
                                 className="h-12 mx-auto"
                             />
                         </div>
