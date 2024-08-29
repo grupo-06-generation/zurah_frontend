@@ -109,7 +109,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsLoading(true);
     try {
       await login(`/usuarios/login`, userLogin, setUsuario);
-      localStorage.setItem('authToken', usuario.token);
+      localStorage.setItem('authToken', JSON.stringify(usuario.token));
       toastAlert("Usuário logado com sucesso", "sucesso");
     } catch (error) {
       console.error(error);
