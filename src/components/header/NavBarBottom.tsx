@@ -14,7 +14,7 @@ export const NavBarBottom = () => {
                 <p className="font-[21px] text-[#843C0A]">Ofertas</p>
               </li>
             </Link>
-            <Link to={"/products-cat/58"}>
+            <Link to={"/products-cat/3"}>
               <li className="flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2">
                 <Carrot size={20} className="font-[21px] text-[#843C0A]" />
                 <p className="font-[21px] text-[#843C0A] whitespace-nowrap">
@@ -22,7 +22,7 @@ export const NavBarBottom = () => {
                 </p>
               </li>
             </Link>
-            <Link to={"/products-cat/55"}>
+            <Link to={"/products-cat/4"}>
               <li className="flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2">
                 <CoffeeBean size={20} className="font-[21px] text-[#843C0A]" />
                 <p className="font-[21px] text-[#843C0A]">Cereais</p>
