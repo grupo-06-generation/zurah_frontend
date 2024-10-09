@@ -13,7 +13,7 @@ function CategoryConsumer() {
         </div>
         <div className="md:w-11/12 md:h-48 h-20 w-72 flex sm:flex-row flex-wrap justify-between items-center sm:mt-6 sm:mb-1 mb-28">
           <div className="flex flex-col items-center">
-            <Link to={`/products-cat/56`}>
+            <Link to={`/products-cat/62`}>
               <div className="sm:w-36 sm:h-36 w-20 h-20 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105">
                 <BadgePercent className="text-olive sm:w-[80px] sm:h-[80px] w-[40px] h-[40px]" />
               </div>
@@ -24,7 +24,7 @@ function CategoryConsumer() {
           </div>
 
           <div className="flex flex-col items-center">
-            <Link to={"/products-cat/57"}>
+            <Link to={"/products-cat/63"}>
               <div className="md:w-36 md:h-36 w-20 h-20 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105">
                 <Vegan className="text-olive sm:w-[80px] sm:h-[80px] w-[40px] h-[40px]" />
               </div>
