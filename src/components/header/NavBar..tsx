@@ -189,7 +189,7 @@ const NavBarMobile = () => {
             <ul className="space-y-2 ">
               <li>
                 <Link
-                  to="/products-cat/56"
+                  to="/products-cat/62"
                   onClick={handleLinkClick}
                   className="flex items-center gap-2 p-2 cursor-pointer transition-colors duration-200"
                 >
@@ -229,7 +229,7 @@ const NavBarMobile = () => {
               </li>
               <li>
                 <Link
-                  to="/products-cat/57"
+                  to="/products-cat/63"
                   onClick={handleLinkClick}
                   className="flex items-center gap-2 hover:bg-[#e4e4e1e] rounded-lg p-2 cursor-pointer transition-colors duration-200"
                 >
