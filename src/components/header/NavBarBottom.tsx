@@ -8,7 +8,7 @@ export const NavBarBottom = () => {
       <div className="w-full px-4">
         <nav>
           <ul className="flex flex-wrap justify-center gap-4 md:gap-16">
-            <Link to={"/products-cat/56"}>
+            <Link to={"/products-cat/62"}>
               <li className="flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2">
                 <Tag size={20} className="font-[21px] text-[#843C0A]" />
                 <p className="font-[21px] text-[#843C0A]">Ofertas</p>
@@ -36,7 +36,7 @@ export const NavBarBottom = () => {
                 </p>
               </li>
             </Link>
-            <Link to={"/products-cat/57"}>
+            <Link to={"/products-cat/63"}>
               <li className="flex justify-center gap-1 items-center hover:border-b-[1px] hover:border-olive cursor-pointer py-2">
                 <Leaf size={20} className="font-[21px] text-[#843C0A]" />
                 <p className="font-[21px] text-[#843C0A]">Orgânicos</p>
