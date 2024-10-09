@@ -35,7 +35,7 @@ function CategoryConsumer() {
           </div>
 
           <div className="flex flex-col items-center">
-            <Link to={"/products-cat/58"}>
+            <Link to={"/products-cat/3"}>
               <div className="sm:w-36 sm:h-36 w-20 h-20 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105">
                 <Carrot className="text-olive sm:w-[80px] sm:h-[80px] w-[40px] h-[40px]" />
               </div>
@@ -46,7 +46,7 @@ function CategoryConsumer() {
           </div>
 
           <div className="flex flex-col items-center">
-            <Link to={"/products-cat/55"}>
+            <Link to={"/products-cat/4"}>
               <div className="sm:w-36 sm:h-36 w-20 h-20 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105">
                 <Bean className="text-olive sm:w-[80px] sm:h-[80px] w-[40px] h-[40px]" />
               </div>
