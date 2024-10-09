@@ -80,7 +80,7 @@ function Footer() {
                             </a>
                         </li>
                         <li className="transition-transform transform hover:scale-125 duration-300 ease-in-out cursor-pointer">
-                            <a href="http://https://github.com/grupo-06-generation" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/grupo-06-generation" target="_blank" rel="noopener noreferrer">
                                 <GithubLogo size={32} color='#843C0A' />
                             </a>
                         </li>
